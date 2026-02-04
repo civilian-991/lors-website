@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
+// Nunito is a geometric humanist sans-serif similar to Avenir
+// If you have Avenir font files, place them in /public/fonts/ and use next/font/local
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-nunito",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "LOR | Deliciously Crafted Treats",
-  description: "Discover LOR's delicious range of biscuits, wafers, and chocolate treats. Quality confectionery that brings joy to every moment.",
-  keywords: "LOR, biscuits, wafers, chocolate, treats, confectionery, snacks",
+  title: "LORS | Deliciously Crafted Treats",
+  description: "Discover LORS's delicious range of biscuits, wafers, and chocolate treats. Quality confectionery that brings joy to every moment.",
+  keywords: "LORS, biscuits, wafers, chocolate, treats, confectionery, snacks",
   openGraph: {
-    title: "LOR | Deliciously Crafted Treats",
-    description: "Discover LOR's delicious range of biscuits, wafers, and chocolate treats.",
+    title: "LORS | Deliciously Crafted Treats",
+    description: "Discover LORS's delicious range of biscuits, wafers, and chocolate treats.",
     type: "website",
   },
 };
@@ -18,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={nunito.variable}>
       <body className="antialiased">
         {children}
       </body>

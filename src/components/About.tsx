@@ -44,7 +44,7 @@ export default function About() {
       id="about"
       className="relative py-24 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #FFFAF5 0%, #FFE5E7 100%)",
+        background: "linear-gradient(180deg, var(--warm-50) 0%, var(--crimson-100) 100%)",
       }}
     >
       {/* Decorative Wave Top */}
@@ -58,7 +58,7 @@ export default function About() {
         >
           <path
             d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 50C840 40 960 20 1080 15C1200 10 1320 20 1380 25L1440 30V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
-            fill="#FFFAF5"
+            fill="var(--warm-50)"
           />
         </svg>
       </div>
@@ -73,18 +73,13 @@ export default function About() {
               <div
                 className="relative rounded-[3rem] overflow-hidden"
                 style={{
-                  boxShadow: "0 30px 60px rgba(198,0,15,0.15)",
+                  boxShadow: "0 30px 60px var(--crimson-500)/15",
                 }}
               >
-                <div
-                  className="aspect-square flex items-center justify-center p-12"
-                  style={{
-                    background: "linear-gradient(135deg, #FFF8F0, #FFE5E7)",
-                  }}
-                >
+                <div className="aspect-square flex items-center justify-center p-12 bg-gradient-hero">
                   <Image
                     src="/images/logos/lor-logo.png"
-                    alt="LOR Brand"
+                    alt="LORS Brand"
                     width={400}
                     height={200}
                     className="w-full max-w-sm animate-float"
@@ -93,34 +88,21 @@ export default function About() {
               </div>
 
               {/* Floating Badge */}
-              <div
-                className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full flex flex-col items-center justify-center animate-wiggle"
-                style={{
-                  background: "linear-gradient(135deg, #C6000F, #670008)",
-                  boxShadow: "0 10px 30px rgba(198,0,15,0.4)",
-                }}
-              >
-                <span
-                  className="text-3xl font-bold text-white"
-                  style={{ fontFamily: "'Fredoka', sans-serif" }}
-                >
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full flex flex-col items-center justify-center animate-wiggle bg-gradient-brand shadow-lg">
+                <span className="text-3xl font-black text-white">
                   100%
                 </span>
-                <span
-                  className="text-xs text-white/80 font-semibold"
-                  style={{ fontFamily: "'Nunito', sans-serif" }}
-                >
+                <span className="text-xs text-white/80 font-semibold">
                   QUALITY
                 </span>
               </div>
 
               {/* Decorative Dots */}
               <div
-                className="absolute -top-8 -left-8 w-24 h-24 rounded-full"
+                className="absolute -top-8 -left-8 w-24 h-24 rounded-full opacity-30"
                 style={{
-                  background: "radial-gradient(circle, #D4A574 2px, transparent 2px)",
+                  background: "radial-gradient(circle, var(--gold-500) 2px, transparent 2px)",
                   backgroundSize: "12px 12px",
-                  opacity: 0.3,
                 }}
               />
             </div>
@@ -128,59 +110,24 @@ export default function About() {
 
           {/* Text Side */}
           <div>
-            <span
-              className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
-              style={{
-                background: "rgba(198,0,15,0.1)",
-                color: "#C6000F",
-                fontFamily: "'Nunito', sans-serif",
-              }}
-            >
-              ABOUT LOR
+            <span className="inline-block px-5 py-2 rounded-full text-sm font-heavy tracking-wider mb-6 bg-crimson/10 text-crimson">
+              ABOUT LORS
             </span>
 
-            <h2
-              className="text-4xl md:text-5xl font-bold mb-6"
-              style={{
-                fontFamily: "'Fredoka', sans-serif",
-                color: "#4A2C2A",
-              }}
-            >
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-warm-800">
               Crafting{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #C6000F, #670008)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Delicious
-              </span>{" "}
+              <span className="gradient-text">Delicious</span>{" "}
               Moments
             </h2>
 
-            <p
-              className="text-lg mb-6 leading-relaxed"
-              style={{
-                fontFamily: "'Nunito', sans-serif",
-                color: "#4A2C2A",
-                opacity: 0.8,
-              }}
-            >
-              At LOR, we believe that every snack should be a moment of pure joy.
+            <p className="text-lg mb-6 leading-relaxed text-warm-700">
+              At LORS, we believe that every snack should be a moment of pure joy.
               Our passion for creating delicious treats drives us to craft products
               that bring smiles to faces young and old.
             </p>
 
-            <p
-              className="text-lg mb-8 leading-relaxed"
-              style={{
-                fontFamily: "'Nunito', sans-serif",
-                color: "#4A2C2A",
-                opacity: 0.8,
-              }}
-            >
-              From our classic biscuits to our innovative wafers, every LOR product
+            <p className="text-lg mb-8 leading-relaxed text-warm-700">
+              From our classic biscuits to our innovative wafers, every LORS product
               is made with premium ingredients and a commitment to quality that
               you can taste in every bite.
             </p>
@@ -189,25 +136,10 @@ export default function About() {
             <div className="grid grid-cols-3 gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div
-                    className="text-3xl md:text-4xl font-bold mb-1"
-                    style={{
-                      fontFamily: "'Fredoka', sans-serif",
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
+                  <div className="text-3xl md:text-4xl font-black mb-1 gradient-text">
                     {stat.number}
                   </div>
-                  <div
-                    className="text-sm font-semibold"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.6,
-                    }}
-                  >
+                  <div className="text-sm font-semibold text-warm-500">
                     {stat.label}
                   </div>
                 </div>
@@ -221,50 +153,24 @@ export default function About() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2"
-              style={{
-                background: "white",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.05)",
-              }}
+              className="group relative p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 bg-white shadow-sm"
             >
               {/* Icon */}
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-                style={{
-                  background: "linear-gradient(135deg, rgba(198,0,15,0.1), rgba(103,0,8,0.05))",
-                  color: "#C6000F",
-                }}
-              >
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 bg-crimson/10 text-crimson">
                 {value.icon}
               </div>
 
-              <h3
-                className="text-xl font-bold mb-3"
-                style={{
-                  fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
-                }}
-              >
+              <h3 className="text-xl font-heavy mb-3 text-warm-800">
                 {value.title}
               </h3>
 
-              <p
-                className="leading-relaxed"
-                style={{
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
-                }}
-              >
+              <p className="leading-relaxed text-warm-600">
                 {value.description}
               </p>
 
               {/* Hover Accent */}
               <div
-                className="absolute bottom-0 left-8 right-8 h-1 rounded-full transition-all duration-300 scale-x-0 group-hover:scale-x-100"
-                style={{
-                  background: "linear-gradient(90deg, #C6000F, #D4A574)",
-                }}
+                className="absolute bottom-0 left-8 right-8 h-1 rounded-full transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-gradient-to-r from-crimson to-gold"
               />
             </div>
           ))}
@@ -272,8 +178,8 @@ export default function About() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#D4A574]/10 blur-3xl" />
+      <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-crimson/5 blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-gold/10 blur-3xl" />
     </section>
   );
 }

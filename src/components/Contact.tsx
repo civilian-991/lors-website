@@ -26,8 +26,8 @@ export default function Contact() {
         </svg>
       ),
       label: "Email Us",
-      value: "hello@lor.com",
-      href: "mailto:hello@lor.com",
+      value: "hello@lors.com",
+      href: "mailto:hello@lors.com",
     },
     {
       icon: (
@@ -85,58 +85,29 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 overflow-hidden"
-      style={{ background: "#FFFAF5" }}
+      className="relative py-24 overflow-hidden bg-warm-50"
     >
       {/* Background Decoration */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 10% 90%, rgba(198,0,15,0.05) 0%, transparent 40%),
-                           radial-gradient(circle at 90% 10%, rgba(212,165,116,0.08) 0%, transparent 40%)`,
+          backgroundImage: `radial-gradient(circle at 10% 90%, var(--crimson-500)/5 0%, transparent 40%),
+                           radial-gradient(circle at 90% 10%, var(--gold-500)/8 0%, transparent 40%)`,
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span
-            className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
-            style={{
-              background: "rgba(198,0,15,0.1)",
-              color: "#C6000F",
-              fontFamily: "'Nunito', sans-serif",
-            }}
-          >
+          <span className="inline-block px-5 py-2 rounded-full text-sm font-heavy tracking-wider mb-4 bg-crimson/10 text-crimson">
             GET IN TOUCH
           </span>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{
-              fontFamily: "'Fredoka', sans-serif",
-              color: "#4A2C2A",
-            }}
-          >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-warm-800">
             We&apos;d Love to{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Hear
-            </span>{" "}
+            <span className="gradient-text">Hear</span>{" "}
             From You
           </h2>
-          <p
-            className="text-lg md:text-xl max-w-2xl mx-auto"
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "#4A2C2A",
-              opacity: 0.7,
-            }}
-          >
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-warm-600">
             Have questions, feedback, or just want to say hello? We&apos;re here for you!
           </p>
         </div>
@@ -149,39 +120,16 @@ export default function Contact() {
                 <a
                   key={index}
                   href={info.href}
-                  className="group flex items-center gap-5 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    background: "white",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
-                  }}
+                  className="group flex items-center gap-5 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1 bg-white shadow-sm"
                 >
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(198,0,15,0.1), rgba(103,0,8,0.05))",
-                      color: "#C6000F",
-                    }}
-                  >
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 bg-crimson/10 text-crimson">
                     {info.icon}
                   </div>
                   <div>
-                    <div
-                      className="text-sm font-semibold mb-1"
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "#4A2C2A",
-                        opacity: 0.6,
-                      }}
-                    >
+                    <div className="text-sm font-semibold mb-1 text-warm-500">
                       {info.label}
                     </div>
-                    <div
-                      className="text-lg font-bold"
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "#4A2C2A",
-                      }}
-                    >
+                    <div className="text-lg font-heavy text-warm-800">
                       {info.value}
                     </div>
                   </div>
@@ -191,13 +139,7 @@ export default function Contact() {
 
             {/* Social Links */}
             <div>
-              <h3
-                className="text-lg font-bold mb-4"
-                style={{
-                  fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
-                }}
-              >
+              <h3 className="text-lg font-heavy mb-4 text-warm-800">
                 Follow Us
               </h3>
               <div className="flex gap-4">
@@ -205,12 +147,7 @@ export default function Contact() {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-                    style={{
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
-                      color: "white",
-                      boxShadow: "0 4px 15px rgba(198,0,15,0.3)",
-                    }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 bg-gradient-brand text-white shadow-md"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -223,57 +160,31 @@ export default function Contact() {
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="p-8 md:p-10 rounded-3xl"
-            style={{
-              background: "white",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
-            }}
+            className="p-8 md:p-10 rounded-3xl bg-white shadow-lg"
           >
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                  }}
-                >
+                <label className="block text-sm font-semibold mb-2 text-warm-800">
                   Your Name
                 </label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-[#C6000F]"
-                  style={{
-                    background: "#FFF8F0",
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                  }}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-crimson bg-warm-100 text-warm-800"
                   placeholder="John Doe"
                   required
                 />
               </div>
               <div>
-                <label
-                  className="block text-sm font-semibold mb-2"
-                  style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                  }}
-                >
+                <label className="block text-sm font-semibold mb-2 text-warm-800">
                   Your Email
                 </label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-[#C6000F]"
-                  style={{
-                    background: "#FFF8F0",
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                  }}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-crimson bg-warm-100 text-warm-800"
                   placeholder="john@example.com"
                   required
                 />
@@ -281,50 +192,28 @@ export default function Contact() {
             </div>
 
             <div className="mb-6">
-              <label
-                className="block text-sm font-semibold mb-2"
-                style={{
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                }}
-              >
+              <label className="block text-sm font-semibold mb-2 text-warm-800">
                 Subject
               </label>
               <input
                 type="text"
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-[#C6000F]"
-                style={{
-                  background: "#FFF8F0",
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                }}
+                className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-crimson bg-warm-100 text-warm-800"
                 placeholder="How can we help?"
                 required
               />
             </div>
 
             <div className="mb-8">
-              <label
-                className="block text-sm font-semibold mb-2"
-                style={{
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                }}
-              >
+              <label className="block text-sm font-semibold mb-2 text-warm-800">
                 Message
               </label>
               <textarea
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
-                className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-[#C6000F] resize-none"
-                style={{
-                  background: "#FFF8F0",
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                }}
+                className="w-full px-5 py-4 rounded-xl border-2 border-transparent transition-all duration-300 focus:outline-none focus:border-crimson resize-none bg-warm-100 text-warm-800"
                 placeholder="Tell us more..."
                 required
               />
@@ -332,13 +221,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
-                color: "white",
-                fontFamily: "'Nunito', sans-serif",
-                boxShadow: "0 8px 30px rgba(198,0,15,0.3)",
-              }}
+              className="w-full py-4 rounded-xl font-heavy text-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-brand text-white shadow-lg"
             >
               Send Message
             </button>

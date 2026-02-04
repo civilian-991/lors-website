@@ -32,7 +32,7 @@ export default function Footer() {
     <footer
       className="relative overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #4A2C2A 0%, #2D1A19 100%)",
+        background: "linear-gradient(180deg, var(--warm-800) 0%, var(--warm-950) 100%)",
       }}
     >
       {/* Decorative Wave */}
@@ -46,7 +46,7 @@ export default function Footer() {
         >
           <path
             d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z"
-            fill="#FFFAF5"
+            fill="var(--warm-50)"
           />
         </svg>
       </div>
@@ -58,46 +58,31 @@ export default function Footer() {
             <Link href="/" className="inline-block group">
               <Image
                 src="/images/logos/lor-logo.png"
-                alt="LOR Logo"
+                alt="LORS Logo"
                 width={140}
                 height={70}
-                className="mb-6 transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(198,0,15,0.4)]"
+                className="mb-6 transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_var(--crimson-500)/40]"
               />
             </Link>
-            <p
-              className="text-lg mb-6 max-w-sm leading-relaxed"
-              style={{
-                fontFamily: "'Nunito', sans-serif",
-                color: "rgba(255,255,255,0.7)",
-              }}
-            >
+            <p className="text-lg mb-6 max-w-sm leading-relaxed text-white/70">
               Crafting delicious moments with every bite. Quality treats that bring
               joy to families everywhere. <span className="inline-block animate-wave-hand">🍪</span>
             </p>
 
             {/* Newsletter with Animation */}
-            <div className={`flex gap-2 p-1 rounded-2xl transition-all duration-500 ${isNewsletterFocused ? "bg-white/10 shadow-lg shadow-[#C6000F]/20" : ""}`}>
+            <div className={`flex gap-2 p-1 rounded-2xl transition-all duration-500 ${isNewsletterFocused ? "bg-white/10 shadow-lg shadow-crimson/20" : ""}`}>
               <input
                 type="email"
                 placeholder="Your email"
                 onFocus={() => setIsNewsletterFocused(true)}
                 onBlur={() => setIsNewsletterFocused(false)}
-                className="flex-1 px-5 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                className="flex-1 px-5 py-3 rounded-xl focus:outline-none transition-all duration-300 text-white"
                 style={{
                   background: isNewsletterFocused ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.1)",
-                  color: "white",
-                  fontFamily: "'Nunito', sans-serif",
-                  border: isNewsletterFocused ? "1px solid rgba(198,0,15,0.5)" : "1px solid rgba(255,255,255,0.1)",
+                  border: isNewsletterFocused ? "1px solid var(--crimson-500)/50" : "1px solid rgba(255,255,255,0.1)",
                 }}
               />
-              <button
-                className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#C6000F]/30 group relative overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, #C6000F, #670008)",
-                  color: "white",
-                  fontFamily: "'Nunito', sans-serif",
-                }}
-              >
+              <button className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-crimson/30 group relative overflow-hidden bg-gradient-brand text-white">
                 <span className="relative z-10 flex items-center gap-2">
                   Subscribe
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,13 +95,7 @@ export default function Footer() {
 
           {/* Products with Hover Animations */}
           <div>
-            <h4
-              className="text-lg font-bold mb-6 flex items-center gap-2"
-              style={{
-                fontFamily: "'Fredoka', sans-serif",
-                color: "white",
-              }}
-            >
+            <h4 className="text-lg font-heavy mb-6 flex items-center gap-2 text-white">
               <span className="animate-wiggle inline-block">🍪</span>
               Products
             </h4>
@@ -125,13 +104,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-[#C6000F] hover:translate-x-2"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
+                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-crimson hover:translate-x-2 text-white/70"
                   >
-                    <span className="w-0 h-0.5 bg-[#C6000F] rounded-full transition-all duration-300 group-hover:w-3" />
+                    <span className="w-0 h-0.5 bg-crimson rounded-full transition-all duration-300 group-hover:w-3" />
                     {link.label}
                   </Link>
                 </li>
@@ -141,13 +116,7 @@ export default function Footer() {
 
           {/* Company with Hover Animations */}
           <div>
-            <h4
-              className="text-lg font-bold mb-6 flex items-center gap-2"
-              style={{
-                fontFamily: "'Fredoka', sans-serif",
-                color: "white",
-              }}
-            >
+            <h4 className="text-lg font-heavy mb-6 flex items-center gap-2 text-white">
               <span className="animate-float inline-block">✨</span>
               Company
             </h4>
@@ -156,13 +125,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-[#C6000F] hover:translate-x-2"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
+                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-crimson hover:translate-x-2 text-white/70"
                   >
-                    <span className="w-0 h-0.5 bg-[#C6000F] rounded-full transition-all duration-300 group-hover:w-3" />
+                    <span className="w-0 h-0.5 bg-crimson rounded-full transition-all duration-300 group-hover:w-3" />
                     {link.label}
                   </Link>
                 </li>
@@ -172,13 +137,7 @@ export default function Footer() {
 
           {/* Support with Hover Animations */}
           <div>
-            <h4
-              className="text-lg font-bold mb-6 flex items-center gap-2"
-              style={{
-                fontFamily: "'Fredoka', sans-serif",
-                color: "white",
-              }}
-            >
+            <h4 className="text-lg font-heavy mb-6 flex items-center gap-2 text-white">
               <span className="animate-bounce-subtle inline-block">💬</span>
               Support
             </h4>
@@ -187,13 +146,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-[#C6000F] hover:translate-x-2"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
+                    className="group inline-flex items-center gap-2 transition-all duration-300 hover:text-crimson hover:translate-x-2 text-white/70"
                   >
-                    <span className="w-0 h-0.5 bg-[#C6000F] rounded-full transition-all duration-300 group-hover:w-3" />
+                    <span className="w-0 h-0.5 bg-crimson rounded-full transition-all duration-300 group-hover:w-3" />
                     {link.label}
                   </Link>
                 </li>
@@ -203,22 +158,13 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div
-          className="h-px mb-8"
-          style={{ background: "rgba(255,255,255,0.1)" }}
-        />
+        <div className="h-px mb-8 bg-white/10" />
 
         {/* Bottom with Animated Elements */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p
-            className="text-sm flex items-center gap-2"
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "rgba(255,255,255,0.5)",
-            }}
-          >
-            © {currentYear} LOR. All rights reserved. Made with
-            <span className="animate-heartbeat inline-block text-[#C6000F]">❤️</span>
+          <p className="text-sm flex items-center gap-2 text-white/50">
+            © {currentYear} LORS. All rights reserved. Made with
+            <span className="animate-heartbeat inline-block text-crimson">❤️</span>
             for sweet moments.
           </p>
 
@@ -270,18 +216,14 @@ export default function Footer() {
         <div className="flex justify-center mt-8">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-2"
-            style={{ color: "rgba(255,255,255,0.5)" }}
+            className="group flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-2 text-white/50"
           >
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-[#C6000F] group-hover:shadow-lg group-hover:shadow-[#C6000F]/30"
-              style={{ background: "rgba(255,255,255,0.1)" }}
-            >
+            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-crimson group-hover:shadow-lg group-hover:shadow-crimson/30 bg-white/10">
               <svg className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
             </div>
-            <span className="text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ fontFamily: "'Nunito', sans-serif" }}>
+            <span className="text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               Back to Top
             </span>
           </button>
@@ -289,9 +231,9 @@ export default function Footer() {
       </div>
 
       {/* Enhanced Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl animate-morph-slow" />
-      <div className="absolute top-1/2 left-0 w-48 h-48 rounded-full bg-[#D4A574]/5 blur-3xl animate-morph" style={{ animationDelay: "3s" }} />
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-[#670008]/3 blur-2xl animate-float" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-crimson/5 blur-3xl animate-morph-slow" />
+      <div className="absolute top-1/2 left-0 w-48 h-48 rounded-full bg-gold/5 blur-3xl animate-morph" style={{ animationDelay: "3s" }} />
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-burgundy/3 blur-2xl animate-float" />
     </footer>
   );
 }

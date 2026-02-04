@@ -6,68 +6,49 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #FFF8F0 0%, #FFE5E7 50%, #FFF8F0 100%)",
-      }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
     >
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute top-20 -left-20 w-96 h-96 bg-[#C6000F]/10 animate-blob"
+          className="absolute top-20 -left-20 w-96 h-96 bg-crimson/10 animate-blob"
           style={{ animationDelay: "0s" }}
         />
         <div
-          className="absolute top-40 right-20 w-72 h-72 bg-[#D4A574]/20 animate-blob"
+          className="absolute top-40 right-20 w-72 h-72 bg-gold/20 animate-blob"
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#C6000F]/5 animate-blob"
+          className="absolute bottom-20 left-1/3 w-80 h-80 bg-crimson/5 animate-blob"
           style={{ animationDelay: "4s" }}
         />
       </div>
 
       {/* Decorative Circles */}
-      <div className="absolute top-32 right-1/4 w-4 h-4 rounded-full bg-[#C6000F] animate-float opacity-60" />
-      <div className="absolute top-1/2 left-16 w-6 h-6 rounded-full bg-[#D4A574] animate-float-reverse opacity-50" />
-      <div className="absolute bottom-40 right-20 w-3 h-3 rounded-full bg-[#670008] animate-float-delay opacity-70" />
-      <div className="absolute top-1/3 right-10 w-5 h-5 rounded-full bg-[#C68642] animate-float opacity-40" />
+      <div className="absolute top-32 right-1/4 w-4 h-4 rounded-full bg-crimson animate-float opacity-60" />
+      <div className="absolute top-1/2 left-16 w-6 h-6 rounded-full bg-gold animate-float-reverse opacity-50" />
+      <div className="absolute bottom-40 right-20 w-3 h-3 rounded-full bg-burgundy animate-float-delay opacity-70" />
+      <div className="absolute top-1/3 right-10 w-5 h-5 rounded-full bg-gold-600 animate-float opacity-40" />
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12">
         {/* Text Content */}
         <div className="flex-1 text-center lg:text-left">
           <div className="animate-slide-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <span
-              className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
-              style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
-                color: "white",
-                fontFamily: "'Nunito', sans-serif",
-              }}
-            >
+            <span className="inline-block px-6 py-2 rounded-full text-sm font-heavy tracking-wider mb-6 bg-gradient-brand text-white">
               DELICIOUSLY CRAFTED
             </span>
           </div>
 
           <h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up opacity-0"
+            className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 text-warm-800 animate-slide-up opacity-0"
             style={{
-              fontFamily: "'Fredoka', sans-serif",
-              color: "#4A2C2A",
               animationDelay: "0.4s",
               animationFillMode: "forwards",
             }}
           >
             Every Bite is a{" "}
-            <span
-              className="relative inline-block"
-              style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+            <span className="relative inline-block gradient-text">
               Celebration
               <svg
                 className="absolute -bottom-2 left-0 w-full"
@@ -77,7 +58,7 @@ export default function Hero() {
               >
                 <path
                   d="M2 8C50 2 150 2 198 8"
-                  stroke="#C6000F"
+                  stroke="var(--lor-crimson)"
                   strokeWidth="4"
                   strokeLinecap="round"
                   style={{ opacity: 0.3 }}
@@ -87,11 +68,8 @@ export default function Hero() {
           </h1>
 
           <p
-            className="text-xl md:text-2xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-slide-up opacity-0"
+            className="text-xl md:text-2xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed text-warm-700 animate-slide-up opacity-0"
             style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "#4A2C2A",
-              opacity: 0.8,
               animationDelay: "0.6s",
               animationFillMode: "forwards",
             }}
@@ -123,7 +101,7 @@ export default function Hero() {
             <div
               className="absolute inset-0 rounded-full blur-3xl"
               style={{
-                background: "radial-gradient(circle, rgba(198,0,15,0.2) 0%, transparent 70%)",
+                background: "radial-gradient(circle, var(--crimson-500)/20 0%, transparent 70%)",
                 transform: "scale(1.5)",
               }}
             />
@@ -132,7 +110,7 @@ export default function Hero() {
             <div className="relative animate-float">
               <Image
                 src="/images/logos/lor-logo.png"
-                alt="LOR - Delicious Treats"
+                alt="LORS - Delicious Treats"
                 width={500}
                 height={250}
                 className="w-full max-w-md mx-auto drop-shadow-2xl"
@@ -142,10 +120,7 @@ export default function Hero() {
 
             {/* Floating Product Previews */}
             <div className="absolute -top-8 -right-4 w-24 h-24 animate-float-reverse">
-              <div
-                className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden"
-                style={{ background: "white" }}
-              >
+              <div className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden bg-white">
                 <Image
                   src="/images/products/waferio.png"
                   alt="Waferio"
@@ -157,10 +132,7 @@ export default function Hero() {
             </div>
 
             <div className="absolute -bottom-4 -left-8 w-20 h-20 animate-float-delay">
-              <div
-                className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden"
-                style={{ background: "white" }}
-              >
+              <div className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden bg-white">
                 <Image
                   src="/images/products/joy-cake.png"
                   alt="Joy Cake"
@@ -172,10 +144,7 @@ export default function Hero() {
             </div>
 
             <div className="absolute top-1/2 -right-12 w-16 h-16 animate-float">
-              <div
-                className="w-full h-full rounded-xl shadow-lg flex items-center justify-center p-1.5 overflow-hidden"
-                style={{ background: "white" }}
-              >
+              <div className="w-full h-full rounded-xl shadow-lg flex items-center justify-center p-1.5 overflow-hidden bg-white">
                 <Image
                   src="/images/products/mega-bite.png"
                   alt="Mega Bite"
@@ -191,8 +160,8 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 rounded-full border-3 border-[#C6000F]/30 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 rounded-full bg-[#C6000F] animate-pulse" />
+        <div className="w-8 h-12 rounded-full border-3 border-crimson/30 flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 rounded-full bg-crimson animate-pulse" />
         </div>
       </div>
 
@@ -207,7 +176,7 @@ export default function Hero() {
         >
           <path
             d="M0 120L60 105C120 90 240 60 360 55C480 50 600 70 720 80C840 90 960 90 1080 82.5C1200 75 1320 60 1380 52.5L1440 45V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="#FFFAF5"
+            fill="var(--warm-50)"
           />
         </svg>
       </div>
