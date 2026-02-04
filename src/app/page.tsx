@@ -527,21 +527,21 @@ export default function Home() {
                       <div
                         className="relative aspect-square p-6 flex items-center justify-center overflow-hidden"
                         style={{
-                          background: `linear-gradient(135deg, ${product.color}10, ${product.color}05)`,
+                          background: `linear-gradient(135deg, ${product.color}40, ${product.color}25)`,
                         }}
                       >
                         {/* Animated Decorative Circles */}
                         <div
                           className="absolute w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-60"
                           style={{
-                            background: `${product.color}15`,
+                            background: `${product.color}35`,
                             filter: "blur(20px)",
                           }}
                         />
                         <div
                           className="absolute w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-150"
                           style={{
-                            background: `radial-gradient(circle, ${product.color}20, transparent 70%)`,
+                            background: `radial-gradient(circle, ${product.color}40, transparent 70%)`,
                             right: "20%",
                             top: "20%",
                           }}
