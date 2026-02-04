@@ -7,6 +7,7 @@ interface Product {
   id: string;
   name: string;
   image: string;
+  packagingImage: string;
   category: string;
   description: string;
   color: string;
@@ -116,11 +117,11 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             {/* Product Image */}
             <div className="relative z-10 animate-float">
               <Image
-                src={product.image}
+                src={product.packagingImage}
                 alt={product.name}
-                width={350}
-                height={350}
-                className="w-full max-w-[300px] h-auto object-contain drop-shadow-2xl"
+                width={450}
+                height={450}
+                className="w-full max-w-[400px] h-auto object-contain drop-shadow-2xl"
               />
             </div>
 
