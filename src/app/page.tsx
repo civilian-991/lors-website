@@ -19,12 +19,12 @@ import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
 
 // Featured products data
 const featuredProducts = [
-  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#D4A574" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#F5E6D3" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#4CAF50" },
-  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C68642" },
-  { id: "wafemax", name: "Wafemax", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#C6000F" },
-  { id: "kidz", name: "Kidz", image: "/images/products/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#FF69B4" },
+  { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#D4A574" },
+  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#3D5A80" },
+  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#7CB518" },
+  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
+  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#C6000F" },
+  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#F9A825" },
 ];
 
 // Benefits data
@@ -101,10 +101,10 @@ const testimonials = [
 
 // Sweet Moments gallery data
 const sweetMoments = [
-  { id: 1, title: "Family Tea Time", description: "Perfect moments with LOR biscuits", image: "/images/products/digestive-classic.png" },
-  { id: 2, title: "Kids Party", description: "Making celebrations sweeter", image: "/images/products/kidz.png" },
-  { id: 3, title: "Snack Break", description: "Energize your day", image: "/images/products/mega-bite.png" },
-  { id: 4, title: "Sweet Treats", description: "Indulge in joy", image: "/images/products/joy-cake.png" },
+  { id: 1, title: "Family Tea Time", description: "Perfect moments with LOR biscuits", image: "/images/products-logos/digestive-classic.png" },
+  { id: 2, title: "Kids Party", description: "Making celebrations sweeter", image: "/images/products-logos/kidz.png" },
+  { id: 3, title: "Snack Break", description: "Energize your day", image: "/images/products-logos/mega-bite.png" },
+  { id: 4, title: "Sweet Treats", description: "Indulge in joy", image: "/images/products-logos/joy-cake.png" },
 ];
 
 export default function Home() {
@@ -349,7 +349,7 @@ export default function Home() {
                       style={{ background: "white" }}
                     >
                       <Image
-                        src="/images/products/waferio.png"
+                        src="/images/products-logos/waferio.png"
                         alt="Waferio"
                         width={80}
                         height={80}
@@ -366,7 +366,7 @@ export default function Home() {
                       style={{ background: "white" }}
                     >
                       <Image
-                        src="/images/products/joy-cake.png"
+                        src="/images/products-logos/joy-cake.png"
                         alt="Joy Cake"
                         width={70}
                         height={70}
@@ -383,7 +383,7 @@ export default function Home() {
                       style={{ background: "white" }}
                     >
                       <Image
-                        src="/images/products/mega-bite.png"
+                        src="/images/products-logos/mega-bite.png"
                         alt="Mega Bite"
                         width={55}
                         height={55}
