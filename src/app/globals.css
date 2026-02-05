@@ -47,14 +47,14 @@
   --navy-900: #0F1D2F;
 
   /* === SEMANTIC TOKENS === */
-  /* Backgrounds */
-  --color-bg-page: var(--warm-50);
-  --color-bg-surface: var(--warm-100);
+  /* Backgrounds - Warmer, richer tones */
+  --color-bg-page: #FFFDF9;           /* Warmer cream white */
+  --color-bg-surface: #FBF7F0;        /* Warm cream */
   --color-bg-elevated: var(--lor-white);
-  --color-bg-muted: var(--warm-200);
+  --color-bg-muted: #F5EDE0;          /* Soft beige */
   --color-bg-inverse: var(--crimson-950);
   --color-bg-brand: var(--lor-crimson);
-  --color-bg-brand-subtle: var(--crimson-50);
+  --color-bg-brand-subtle: #FFF5F5;   /* Softer rose */
 
   /* Text */
   --color-text-primary: var(--warm-900);
