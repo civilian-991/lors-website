@@ -52,7 +52,7 @@ export default function Products() {
     <section
       id="products"
       className="relative py-28 overflow-hidden"
-      style={{ background: "#FFFDF9" }}
+      style={{ background: "linear-gradient(180deg, #FFFDF9 0%, #FEF3E2 50%, #FFF8F0 100%)" }}
     >
       {/* Premium Background Pattern */}
       <div
@@ -76,14 +76,14 @@ export default function Products() {
         {/* Section Header - Premium styling */}
         <div className="text-center mb-20">
           <span
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-heavy tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-heavy tracking-widest mb-6"
             style={{
-              background: "linear-gradient(135deg, rgba(198,0,15,0.1) 0%, rgba(217,119,6,0.08) 100%)",
-              color: "#C6000F",
-              border: "1px solid rgba(198,0,15,0.1)"
+              background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
             }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-current" />
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             OUR COLLECTION
           </span>
           <h2
@@ -153,11 +153,12 @@ export default function Products() {
               <div
                 className="relative rounded-3xl overflow-hidden transition-all duration-500"
                 style={{
-                  background: "white",
+                  background: "linear-gradient(145deg, #FFFFFF 0%, #FFF9F0 100%)",
                   boxShadow:
                     hoveredProduct === product.id
-                      ? `0 25px 50px ${product.color}30, 0 0 0 1px ${product.color}20`
-                      : "0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.02)",
+                      ? `0 25px 50px ${product.color}35, 0 0 0 2px #D97706`
+                      : "0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(217,119,6,0.15)",
+                  border: hoveredProduct === product.id ? "none" : "1px solid rgba(217,119,6,0.1)"
                 }}
               >
                 {/* Product Image Container */}

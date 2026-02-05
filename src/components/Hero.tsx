@@ -8,7 +8,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #FFFDF9 0%, #FFF8F0 30%, #FBF3E8 60%, #FFF5F2 100%)",
+        background: "linear-gradient(135deg, #FEF7EC 0%, #FFF0E0 40%, #FDEBD0 70%, #FFF5E6 100%)",
       }}
     >
       {/* Animated Background Blobs - Warmer, richer colors */}
@@ -68,11 +68,12 @@ export default function Hero() {
             <span
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-heavy tracking-widest mb-8 text-white shadow-lg"
               style={{
-                background: "linear-gradient(135deg, var(--lor-crimson) 0%, var(--lor-burgundy) 100%)",
-                boxShadow: "0 4px 20px rgba(198,0,15,0.3), inset 0 1px 0 rgba(255,255,255,0.1)"
+                background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+                boxShadow: "0 4px 20px rgba(217,119,6,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
+                border: "2px solid rgba(255,255,255,0.2)"
               }}
             >
-              <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               DELICIOUSLY CRAFTED
             </span>
           </div>

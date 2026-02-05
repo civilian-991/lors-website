@@ -44,8 +44,16 @@ export default function Footer() {
         }}
       />
 
+      {/* Gold accent line at top */}
+      <div
+        className="absolute top-0 left-0 right-0 h-1"
+        style={{
+          background: "linear-gradient(90deg, transparent, #D97706, #B45309, #D97706, transparent)"
+        }}
+      />
+
       {/* Decorative Wave */}
-      <div className="absolute top-0 left-0 right-0">
+      <div className="absolute top-1 left-0 right-0">
         <svg
           viewBox="0 0 1440 80"
           fill="none"
@@ -55,7 +63,7 @@ export default function Footer() {
         >
           <path
             d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z"
-            fill="#FFFDF9"
+            fill="#FEF3E2"
           />
         </svg>
       </div>

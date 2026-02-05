@@ -49,9 +49,18 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg py-3"
+          ? "py-3"
           : "bg-transparent py-6"
       }`}
+      style={{
+        background: isScrolled
+          ? "linear-gradient(to right, rgba(255,255,255,0.98), rgba(254,247,236,0.98))"
+          : "transparent",
+        boxShadow: isScrolled
+          ? "0 4px 20px rgba(198,0,15,0.08), inset 0 -2px 0 #D97706"
+          : "none",
+        backdropFilter: isScrolled ? "blur(12px)" : "none",
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo with hover animation */}

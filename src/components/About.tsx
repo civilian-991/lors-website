@@ -44,7 +44,7 @@ export default function About() {
       id="about"
       className="relative py-24 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, var(--warm-50) 0%, var(--crimson-100) 100%)",
+        background: "linear-gradient(180deg, #FEF7EC 0%, #FDEBD0 50%, #FFF0E0 100%)",
       }}
     >
       {/* Decorative Wave Top */}
@@ -110,7 +110,13 @@ export default function About() {
 
           {/* Text Side */}
           <div>
-            <span className="inline-block px-5 py-2 rounded-full text-sm font-heavy tracking-wider mb-6 bg-crimson/10 text-crimson">
+            <span
+              className="inline-block px-6 py-2.5 rounded-full text-sm font-heavy tracking-wider mb-6 text-white"
+              style={{
+                background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+                boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+              }}
+            >
               ABOUT LORS
             </span>
 
@@ -153,10 +159,21 @@ export default function About() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 bg-white shadow-sm"
+              className="group relative p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2"
+              style={{
+                background: "linear-gradient(145deg, #FFFFFF 0%, #FFF9F0 100%)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                border: "1px solid rgba(217,119,6,0.15)"
+              }}
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 bg-crimson/10 text-crimson">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 text-white"
+                style={{
+                  background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+                  boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+                }}
+              >
                 {value.icon}
               </div>
 
