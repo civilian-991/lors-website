@@ -300,7 +300,7 @@ export default function AboutPage() {
                     className="absolute -top-8 -right-8 w-24 h-24 rounded-full flex items-center justify-center animate-wiggle"
                     style={{
                       background: "linear-gradient(135deg, #0E2F71, #12357A)",
-                      boxShadow: "0 10px 30px rgba(212,165,116,0.4)",
+                      boxShadow: "0 10px 30px rgba(14,47,113,0.4)",
                     }}
                   >
                     <span className="text-2xl">🍫</span>
@@ -484,7 +484,7 @@ export default function AboutPage() {
                       color: "white",
                       boxShadow: index === 0
                         ? "0 10px 30px rgba(198,0,15,0.3)"
-                        : "0 10px 30px rgba(212,165,116,0.3)",
+                        : "0 10px 30px rgba(14,47,113,0.3)",
                     }}
                   >
                     {item.icon}

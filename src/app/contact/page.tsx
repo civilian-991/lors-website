@@ -1216,7 +1216,7 @@ export default function ContactPage() {
             <div
               className="mt-12 p-8 rounded-3xl text-center"
               style={{
-                background: "linear-gradient(135deg, rgba(198,0,15,0.05) 0%, rgba(212,165,116,0.08) 100%)",
+                background: "linear-gradient(135deg, rgba(198,0,15,0.05) 0%, rgba(14,47,113,0.08) 100%)",
               }}
             >
               <div

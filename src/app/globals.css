@@ -55,6 +55,34 @@
   --neutral-900: #171717;  /* Primary text */
   --neutral-950: #0A0A0A;  /* Darkest text */
 
+  /* === PRODUCT COLORS (Brand-Derived) === */
+  /* Each product gets a unique color from the brand palette family */
+
+  /* Red Family - For premium/featured products */
+  --product-red-primary: #C6000F;      /* Brand Red */
+  --product-red-bright: #E63946;       /* Vibrant Red */
+  --product-red-deep: #A3000C;         /* Deep Red */
+
+  /* Burgundy Family - For classic/heritage products */
+  --product-burgundy-primary: #670008; /* Brand Burgundy */
+  --product-burgundy-deep: #4A0006;    /* Dark Burgundy */
+  --product-burgundy-rich: #850009;    /* Rich Burgundy */
+
+  /* Navy Family - For core/standard products */
+  --product-navy-primary: #0E2F71;     /* Brand Navy Main */
+  --product-navy-light: #12357A;       /* Brand Navy Light */
+  --product-navy-vibrant: #1E40AF;     /* Vibrant Navy */
+  --product-navy-bright: #3B82F6;      /* Bright Blue */
+  --product-navy-soft: #5B7FA3;        /* Soft Navy */
+  --product-navy-slate: #3D5A80;       /* Slate Blue */
+
+  /* Warm Neutrals - For earthy/natural products */
+  --product-warm-dark: #44403C;        /* Dark Warm */
+  --product-warm-mid: #57534E;         /* Mid Warm */
+  --product-warm-light: #78716C;       /* Light Warm */
+  --product-brown-rich: #6D4C3D;       /* Rich Brown */
+  --product-brown-earth: #8D6E63;      /* Earth Brown */
+
   /* === SEMANTIC TOKENS === */
   /* Backgrounds - Clean white/gray, no warm tint */
   --color-bg-page: #FFFFFF;
@@ -88,8 +116,8 @@
   /* States */
   --color-success: #166534;
   --color-success-bg: #F0FDF4;
-  --color-warning: #B45309;
-  --color-warning-bg: #FFFBEB;
+  --color-warning: #A3000C;
+  --color-warning-bg: #FEF2F2;
   --color-error: var(--lor-red);
   --color-error-bg: var(--red-50);
   --color-info: var(--lor-navy);
@@ -203,9 +231,24 @@
 
   /* State colors */
   --color-success: #166534;
-  --color-warning: #B45309;
   --color-error: var(--lor-red);
   --color-info: var(--lor-navy);
+
+  /* Product colors for Tailwind */
+  --color-product-red: var(--product-red-primary);
+  --color-product-red-bright: var(--product-red-bright);
+  --color-product-red-deep: var(--product-red-deep);
+  --color-product-burgundy: var(--product-burgundy-primary);
+  --color-product-burgundy-deep: var(--product-burgundy-deep);
+  --color-product-navy: var(--product-navy-primary);
+  --color-product-navy-light: var(--product-navy-light);
+  --color-product-navy-vibrant: var(--product-navy-vibrant);
+  --color-product-navy-bright: var(--product-navy-bright);
+  --color-product-navy-soft: var(--product-navy-soft);
+  --color-product-navy-slate: var(--product-navy-slate);
+  --color-product-warm-dark: var(--product-warm-dark);
+  --color-product-brown: var(--product-brown-rich);
+  --color-product-brown-earth: var(--product-brown-earth);
 
   /* Typography - Avenir Family (with Nunito fallback from next/font) */
   --font-avenir: 'Avenir', 'Avenir Next LT Pro', 'Avenir Next', var(--font-nunito), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1206,8 +1249,8 @@ section {
   box-shadow: 0 0 30px rgba(198, 0, 15, 0.4);
 }
 
-.hover-glow-gold:hover {
-  box-shadow: 0 0 30px rgba(212, 165, 116, 0.5);
+.hover-glow-burgundy:hover {
+  box-shadow: 0 0 30px rgba(103, 0, 8, 0.5);
 }
 
 /* Background animation on hover */

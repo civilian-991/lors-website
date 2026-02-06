@@ -18,37 +18,37 @@ interface Product {
 
 const products: Product[] = [
   { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", packagingImage: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", packagingImage: "/images/products/joy-cake.png", category: "Cakes", description: "Classic chocolate stuffed cake with soft sponge layers", color: "#3D5A80" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", packagingImage: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#7CB518" },
-  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", packagingImage: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
-  { id: "custard-creams", name: "Custard Creams", image: "/images/products-logos/custard-creams.png", packagingImage: "/images/products/custard-creams.png", category: "Biscuits", description: "Traditional vanilla cream sandwich biscuits", color: "#E9C46A" },
-  { id: "creamy-smiles", name: "Creamy Smiles", image: "/images/products-logos/creamy-smiles.png", packagingImage: "/images/products/creamy-smiles.png", category: "Biscuits", description: "Fun strawberry cream filled biscuits - don't forget to smile!", color: "#E91E8C" },
-  { id: "ginger-nuts", name: "Ginger Nuts", image: "/images/products-logos/ginger-nuts.png", packagingImage: "/images/products/ginger-nuts.png", category: "Biscuits", description: "Crunchy ginger-flavored biscuits with a spicy kick", color: "#F77F00" },
-  { id: "coconutty", name: "Coconutty", image: "/images/products-logos/coconutty.png", packagingImage: "/images/products/coconutty.png", category: "Biscuits", description: "Pure coconut bliss with tropical flavor", color: "#9ACD32" },
-  { id: "milky", name: "Milky", image: "/images/products-logos/milky.png", packagingImage: "/images/products/milky.png", category: "Biscuits", description: "Creamy shortbread biscuits with milk goodness", color: "#5B4B9E" },
-  { id: "marie-gold", name: "Marie Gold", image: "/images/products-logos/marie-gold.png", packagingImage: "/images/products/marie-gold.png", category: "Biscuits", description: "Classic Marie biscuits, perfect with tea", color: "#C6000F" },
-  { id: "glucose", name: "Glucose", image: "/images/products-logos/glucose.png", packagingImage: "/images/products/glucose.png", category: "Biscuits", description: "Energy-boosting glucose biscuits", color: "#00B4D8" },
-  { id: "abu-cracker", name: "Abu Cracker", image: "/images/products-logos/abu-cracker.png", packagingImage: "/images/products/abu-cracker.png", category: "Crackers", description: "Light and crispy savory crackers", color: "#E07A5F" },
-  { id: "mr-cracker", name: "Mr Cracker", image: "/images/products-logos/mr-cracker.png", packagingImage: "/images/products/mr-cracker.png", category: "Crackers", description: "Premium crackers for every occasion", color: "#2A9D8F" },
-  { id: "i-love-salt", name: "I Love Salt", image: "/images/products-logos/i-love-salt.png", packagingImage: "/images/products/i-love-salt.png", category: "Crackers", description: "Perfectly salted crackers for snack lovers", color: "#E63946" },
+  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", packagingImage: "/images/products/joy-cake.png", category: "Cakes", description: "Classic chocolate stuffed cake with soft sponge layers", color: "#6D4C3D" },
+  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", packagingImage: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#1E40AF" },
+  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", packagingImage: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#A3000C" },
+  { id: "custard-creams", name: "Custard Creams", image: "/images/products-logos/custard-creams.png", packagingImage: "/images/products/custard-creams.png", category: "Biscuits", description: "Traditional vanilla cream sandwich biscuits", color: "#3D5A80" },
+  { id: "creamy-smiles", name: "Creamy Smiles", image: "/images/products-logos/creamy-smiles.png", packagingImage: "/images/products/creamy-smiles.png", category: "Biscuits", description: "Fun strawberry cream filled biscuits - don't forget to smile!", color: "#C6000F" },
+  { id: "ginger-nuts", name: "Ginger Nuts", image: "/images/products-logos/ginger-nuts.png", packagingImage: "/images/products/ginger-nuts.png", category: "Biscuits", description: "Crunchy ginger-flavored biscuits with a spicy kick", color: "#850009" },
+  { id: "coconutty", name: "Coconutty", image: "/images/products-logos/coconutty.png", packagingImage: "/images/products/coconutty.png", category: "Biscuits", description: "Pure coconut bliss with tropical flavor", color: "#3B82F6" },
+  { id: "milky", name: "Milky", image: "/images/products-logos/milky.png", packagingImage: "/images/products/milky.png", category: "Biscuits", description: "Creamy shortbread biscuits with milk goodness", color: "#5B7FA3" },
+  { id: "marie-gold", name: "Marie Gold", image: "/images/products-logos/marie-gold.png", packagingImage: "/images/products/marie-gold.png", category: "Biscuits", description: "Classic Marie biscuits, perfect with tea", color: "#670008" },
+  { id: "glucose", name: "Glucose", image: "/images/products-logos/glucose.png", packagingImage: "/images/products/glucose.png", category: "Biscuits", description: "Energy-boosting glucose biscuits", color: "#12357A" },
+  { id: "abu-cracker", name: "Abu Cracker", image: "/images/products-logos/abu-cracker.png", packagingImage: "/images/products/abu-cracker.png", category: "Crackers", description: "Light and crispy savory crackers", color: "#57534E" },
+  { id: "mr-cracker", name: "Mr Cracker", image: "/images/products-logos/mr-cracker.png", packagingImage: "/images/products/mr-cracker.png", category: "Crackers", description: "Premium crackers for every occasion", color: "#44403C" },
+  { id: "i-love-salt", name: "I Love Salt", image: "/images/products-logos/i-love-salt.png", packagingImage: "/images/products/i-love-salt.png", category: "Crackers", description: "Perfectly salted crackers for snack lovers", color: "#0E2F71" },
   { id: "power-cake", name: "Power Cake", image: "/images/products-logos/power-cake.png", packagingImage: "/images/products/power-cake.png", category: "Cakes", description: "Energy-packed cake for active lifestyles", color: "#C6000F" },
-  { id: "spongy", name: "Spongy", image: "/images/products-logos/spongy.png", packagingImage: "/images/products/spongy.png", category: "Cakes", description: "Light and fluffy sponge cakes", color: "#F4A261" },
-  { id: "two-friends", name: "Two Friends", image: "/images/products-logos/two-friends.png", packagingImage: "/images/products/two-friends.png", category: "Biscuits", description: "Two delicious biscuits, better together", color: "#6D4C3D" },
-  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", packagingImage: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#C6000F" },
-  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", packagingImage: "/images/products/kidz.png", category: "Kids", description: "Fun alphabet-shaped biscuits for kids", color: "#F9A825" },
-  { id: "zoo", name: "Zoo", image: "/images/products-logos/zoo.png", packagingImage: "/images/products/zoo.png", category: "Kids", description: "Animal-shaped biscuits kids love", color: "#4ECDC4" },
-  { id: "chip-stars", name: "Chip Stars", image: "/images/products-logos/chip-stars.png", packagingImage: "/images/products/chip-stars.png", category: "Snacks", description: "Chocolate chip cookies bursting with flavor", color: "#8D6E63" },
-  { id: "yum-yum", name: "Yum Yum", image: "/images/products-logos/yum-yum.png", packagingImage: "/images/products/yum-yum.png", category: "Snacks", description: "Delicious strawberry donut cakes", color: "#00B4D8" },
+  { id: "spongy", name: "Spongy", image: "/images/products-logos/spongy.png", packagingImage: "/images/products/spongy.png", category: "Cakes", description: "Light and fluffy sponge cakes", color: "#E63946" },
+  { id: "two-friends", name: "Two Friends", image: "/images/products-logos/two-friends.png", packagingImage: "/images/products/two-friends.png", category: "Biscuits", description: "Two delicious biscuits, better together", color: "#78716C" },
+  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", packagingImage: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#A3000C" },
+  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", packagingImage: "/images/products/kidz.png", category: "Kids", description: "Fun alphabet-shaped biscuits for kids", color: "#3B82F6" },
+  { id: "zoo", name: "Zoo", image: "/images/products-logos/zoo.png", packagingImage: "/images/products/zoo.png", category: "Kids", description: "Animal-shaped biscuits kids love", color: "#1E40AF" },
+  { id: "chip-stars", name: "Chip Stars", image: "/images/products-logos/chip-stars.png", packagingImage: "/images/products/chip-stars.png", category: "Snacks", description: "Chocolate chip cookies bursting with flavor", color: "#850009" },
+  { id: "yum-yum", name: "Yum Yum", image: "/images/products-logos/yum-yum.png", packagingImage: "/images/products/yum-yum.png", category: "Snacks", description: "Delicious strawberry donut cakes", color: "#E63946" },
 ];
 
 const categories = [
   { name: "All", color: "#C6000F", icon: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" },
   { name: "Biscuits", color: "#12357A", icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" },
   { name: "Wafers", color: "#0E2F71", icon: "M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z" },
-  { name: "Cakes", color: "#FF6B35", icon: "M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z" },
-  { name: "Crackers", color: "#DEB887", icon: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" },
-  { name: "Kids", color: "#FF69B4", icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" },
-  { name: "Snacks", color: "#FF4500", icon: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" },
+  { name: "Cakes", color: "#E63946", icon: "M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z" },
+  { name: "Crackers", color: "#57534E", icon: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" },
+  { name: "Kids", color: "#3B82F6", icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" },
+  { name: "Snacks", color: "#850009", icon: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" },
 ];
 
 export default function ProductsPage() {
@@ -130,14 +130,14 @@ export default function ProductsPage() {
         />
         <div
           className="absolute bottom-10 left-1/4 w-64 h-64 rounded-full animate-blob opacity-25"
-          style={{ background: "linear-gradient(135deg, #FF69B420, #FFD70020)", animationDelay: "4s" }}
+          style={{ background: "linear-gradient(135deg, #0E2F7120, #12357A20)", animationDelay: "4s" }}
         />
 
         {/* Floating Elements */}
         <div className="absolute top-32 left-20 w-8 h-8 rounded-full bg-[#C6000F]/20 animate-float" />
         <div className="absolute top-48 right-32 w-6 h-6 rounded-full bg-[#0E2F71]/30 animate-float-reverse" />
-        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-full bg-[#FFD700]/20 animate-float-delay" />
-        <div className="absolute top-60 left-1/3 w-4 h-4 rounded-full bg-[#FF69B4]/30 animate-float" />
+        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-full bg-[#670008]/20 animate-float-delay" />
+        <div className="absolute top-60 left-1/3 w-4 h-4 rounded-full bg-[#12357A]/30 animate-float" />
 
         {/* Dots Pattern */}
         <div className="absolute inset-0 dots-pattern pointer-events-none" />
@@ -588,10 +588,10 @@ export default function ProductsPage() {
         </div>
 
         {/* Decorative Floating Elements */}
-        <div className="absolute top-20 right-10 w-16 h-16 rounded-full bg-[#FFD700]/10 animate-float" />
+        <div className="absolute top-20 right-10 w-16 h-16 rounded-full bg-[#670008]/10 animate-float" />
         <div className="absolute top-1/3 left-5 w-12 h-12 rounded-full bg-[#C6000F]/10 animate-float-reverse" />
-        <div className="absolute bottom-40 right-20 w-20 h-20 rounded-full bg-[#FF69B4]/10 animate-float-delay" />
-        <div className="absolute bottom-20 left-1/4 w-8 h-8 rounded-full bg-[#4CAF50]/15 animate-float" />
+        <div className="absolute bottom-40 right-20 w-20 h-20 rounded-full bg-[#12357A]/10 animate-float-delay" />
+        <div className="absolute bottom-20 left-1/4 w-8 h-8 rounded-full bg-[#0E2F71]/15 animate-float" />
       </section>
 
       {/* Call to Action Section */}

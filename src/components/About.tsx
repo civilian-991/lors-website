@@ -101,7 +101,7 @@ export default function About() {
               <div
                 className="absolute -top-8 -left-8 w-24 h-24 rounded-full opacity-30"
                 style={{
-                  background: "radial-gradient(circle, var(--gold-500) 2px, transparent 2px)",
+                  background: "radial-gradient(circle, var(--lor-navy) 2px, transparent 2px)",
                   backgroundSize: "12px 12px",
                 }}
               />
@@ -187,7 +187,7 @@ export default function About() {
 
               {/* Hover Accent */}
               <div
-                className="absolute bottom-0 left-8 right-8 h-1 rounded-full transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-gradient-to-r from-crimson to-gold"
+                className="absolute bottom-0 left-8 right-8 h-1 rounded-full transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-gradient-to-r from-crimson to-burgundy"
               />
             </div>
           ))}
@@ -196,7 +196,7 @@ export default function About() {
 
       {/* Decorative Elements */}
       <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-crimson/5 blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-gold/10 blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-lor-navy/10 blur-3xl" />
     </section>
   );
 }

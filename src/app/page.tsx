@@ -444,7 +444,7 @@ export default function Home() {
             className="absolute inset-0 opacity-30"
             style={{
               backgroundImage: `radial-gradient(circle at 20% 80%, rgba(198,0,15,0.05) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 20%, rgba(212,165,116,0.08) 0%, transparent 50%)`,
+                               radial-gradient(circle at 80% 20%, rgba(14,47,113,0.08) 0%, transparent 50%)`,
             }}
           />
 
@@ -1059,7 +1059,7 @@ export default function Home() {
                   <div
                     className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
                     style={{
-                      background: `linear-gradient(135deg, rgba(198,0,15,0.1), rgba(212,165,116,0.1))`,
+                      background: `linear-gradient(135deg, rgba(198,0,15,0.1), rgba(14,47,113,0.1))`,
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -1311,7 +1311,7 @@ export default function Home() {
             className="absolute inset-0"
             style={{
               backgroundImage: `radial-gradient(circle at 10% 90%, rgba(198,0,15,0.05) 0%, transparent 40%),
-                               radial-gradient(circle at 90% 10%, rgba(212,165,116,0.08) 0%, transparent 40%)`,
+                               radial-gradient(circle at 90% 10%, rgba(14,47,113,0.08) 0%, transparent 40%)`,
             }}
           />
 

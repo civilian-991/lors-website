@@ -290,7 +290,7 @@ export default function Footer() {
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, rgba(198,0,15,0.3), transparent 70%)" }} />
-      <div className="absolute top-1/3 left-0 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, rgba(217,119,6,0.2), transparent 70%)" }} />
+      <div className="absolute top-1/3 left-0 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, rgba(103,0,8,0.2), transparent 70%)" }} />
     </footer>
   );
 }
