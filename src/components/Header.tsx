@@ -54,10 +54,10 @@ export default function Header() {
       }`}
       style={{
         background: isScrolled
-          ? "linear-gradient(to right, rgba(255,255,255,0.98), rgba(254,247,236,0.98))"
+          ? "rgba(255,255,255,0.98)"
           : "transparent",
         boxShadow: isScrolled
-          ? "0 4px 20px rgba(198,0,15,0.08), inset 0 -2px 0 #D97706"
+          ? "0 4px 20px rgba(14,47,113,0.08), inset 0 -2px 0 #0E2F71"
           : "none",
         backdropFilter: isScrolled ? "blur(12px)" : "none",
       }}
@@ -105,9 +105,10 @@ export default function Header() {
               </span>
               {/* Animated underline */}
               <span
-                className={`absolute -bottom-1 left-0 h-[3px] bg-gradient-to-r from-crimson to-gold rounded-full transition-all duration-300 ${
+                className={`absolute -bottom-1 left-0 h-[3px] rounded-full transition-all duration-300 ${
                   activeLink === link.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}
+                style={{ background: "linear-gradient(90deg, #C6000F, #0E2F71)" }}
               />
               {/* Subtle glow on hover */}
               <span className="absolute inset-0 rounded-lg bg-crimson/0 group-hover:bg-crimson/5 blur-sm transition-all duration-300 -z-10" />
@@ -147,8 +148,8 @@ export default function Header() {
           }`}
         >
           {/* Decorative background elements */}
-          <div className={`absolute top-20 left-10 w-32 h-32 rounded-full bg-crimson/10 transition-all duration-1000 ${isMobileMenuOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ animationDelay: "200ms" }} />
-          <div className={`absolute bottom-20 right-10 w-48 h-48 rounded-full bg-gold/15 transition-all duration-1000 ${isMobileMenuOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ animationDelay: "400ms" }} />
+          <div className={`absolute top-20 left-10 w-32 h-32 rounded-full transition-all duration-1000 ${isMobileMenuOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ background: "rgba(198,0,15,0.1)", animationDelay: "200ms" }} />
+          <div className={`absolute bottom-20 right-10 w-48 h-48 rounded-full transition-all duration-1000 ${isMobileMenuOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ background: "rgba(14,47,113,0.1)", animationDelay: "400ms" }} />
 
           {navLinks.map((link, index) => (
             <Link

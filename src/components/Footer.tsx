@@ -32,7 +32,7 @@ export default function Footer() {
     <footer
       className="relative overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #3D0005 0%, #1A0002 100%)",
+        background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
       }}
     >
       {/* Premium pattern overlay */}
@@ -44,11 +44,11 @@ export default function Footer() {
         }}
       />
 
-      {/* Gold accent line at top */}
+      {/* Red accent line at top */}
       <div
         className="absolute top-0 left-0 right-0 h-1"
         style={{
-          background: "linear-gradient(90deg, transparent, #D97706, #B45309, #D97706, transparent)"
+          background: "linear-gradient(90deg, transparent, #C6000F, #670008, #C6000F, transparent)"
         }}
       />
 
@@ -63,7 +63,7 @@ export default function Footer() {
         >
           <path
             d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z"
-            fill="#FEF3E2"
+            fill="#F1F5F9"
           />
         </svg>
       </div>
@@ -94,7 +94,7 @@ export default function Footer() {
               className={`flex gap-2 p-1.5 rounded-2xl transition-all duration-500 ${isNewsletterFocused ? "shadow-lg" : ""}`}
               style={{
                 background: isNewsletterFocused ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)",
-                border: isNewsletterFocused ? "1px solid rgba(217,119,6,0.3)" : "1px solid rgba(255,255,255,0.08)"
+                border: isNewsletterFocused ? "1px solid rgba(198,0,15,0.4)" : "1px solid rgba(255,255,255,0.08)"
               }}
             >
               <input
@@ -126,7 +126,7 @@ export default function Footer() {
             <h4 className="text-lg font-heavy mb-6 flex items-center gap-3 text-white">
               <span
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, rgba(217,119,6,0.2), rgba(217,119,6,0.1))" }}
+                style={{ background: "linear-gradient(135deg, rgba(198,0,15,0.2), rgba(198,0,15,0.1))" }}
               >
                 🍪
               </span>
@@ -139,7 +139,7 @@ export default function Footer() {
                     href={link.href}
                     className="group inline-flex items-center gap-3 transition-all duration-300 hover:text-white text-white/50"
                   >
-                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#D97706" }} />
+                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
                     {link.label}
                   </Link>
                 </li>
@@ -178,7 +178,7 @@ export default function Footer() {
             <h4 className="text-lg font-heavy mb-6 flex items-center gap-3 text-white">
               <span
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, rgba(217,119,6,0.2), rgba(198,0,15,0.1))" }}
+                style={{ background: "linear-gradient(135deg, rgba(198,0,15,0.2), rgba(198,0,15,0.1))" }}
               >
                 💬
               </span>
@@ -191,7 +191,7 @@ export default function Footer() {
                     href={link.href}
                     className="group inline-flex items-center gap-3 transition-all duration-300 hover:text-white text-white/50"
                   >
-                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#D97706" }} />
+                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
                     {link.label}
                   </Link>
                 </li>
@@ -200,8 +200,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider with gold accent */}
-        <div className="h-px mb-10" style={{ background: "linear-gradient(90deg, transparent, rgba(217,119,6,0.3), transparent)" }} />
+        {/* Divider with red accent */}
+        <div className="h-px mb-10" style={{ background: "linear-gradient(90deg, transparent, rgba(198,0,15,0.3), transparent)" }} />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">

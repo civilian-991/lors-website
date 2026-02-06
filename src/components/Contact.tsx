@@ -87,15 +87,15 @@ export default function Contact() {
       id="contact"
       className="relative py-24 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #FFFDF9 0%, #FEF3E2 50%, #FFF8F0 100%)"
+        background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)"
       }}
     >
       {/* Background Decoration */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle at 10% 90%, rgba(198,0,15,0.06) 0%, transparent 40%),
-                           radial-gradient(circle at 90% 10%, rgba(217,119,6,0.1) 0%, transparent 40%)`,
+          backgroundImage: `radial-gradient(circle at 10% 90%, rgba(198,0,15,0.04) 0%, transparent 40%),
+                           radial-gradient(circle at 90% 10%, rgba(14,47,113,0.06) 0%, transparent 40%)`,
         }}
       />
 
@@ -105,8 +105,8 @@ export default function Contact() {
           <span
             className="inline-block px-6 py-2.5 rounded-full text-sm font-heavy tracking-wider mb-4 text-white"
             style={{
-              background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
-              boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+              background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
+              boxShadow: "0 4px 15px rgba(14,47,113,0.3)"
             }}
           >
             GET IN TOUCH
@@ -134,8 +134,8 @@ export default function Contact() {
                   <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 text-white"
                     style={{
-                      background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
-                      boxShadow: "0 4px 12px rgba(217,119,6,0.25)"
+                      background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
+                      boxShadow: "0 4px 12px rgba(14,47,113,0.25)"
                     }}
                   >
                     {info.icon}
@@ -238,8 +238,8 @@ export default function Contact() {
               type="submit"
               className="w-full py-4 rounded-xl font-heavy text-lg transition-all duration-300 hover:-translate-y-1 text-white"
               style={{
-                background: "linear-gradient(135deg, #C6000F 0%, #670008 100%)",
-                boxShadow: "0 8px 25px rgba(198,0,15,0.35)"
+                background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
+                boxShadow: "0 8px 25px rgba(14,47,113,0.35)"
               }}
             >
               Send Message

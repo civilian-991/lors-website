@@ -52,7 +52,7 @@ export default function Products() {
     <section
       id="products"
       className="relative py-28 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #FFFDF9 0%, #FEF3E2 50%, #FFF8F0 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)" }}
     >
       {/* Premium Background Pattern */}
       <div
@@ -78,9 +78,9 @@ export default function Products() {
           <span
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-heavy tracking-widest mb-6"
             style={{
-              background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+              background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
               color: "#FFFFFF",
-              boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+              boxShadow: "0 4px 15px rgba(14,47,113,0.3)"
             }}
           >
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
@@ -153,12 +153,12 @@ export default function Products() {
               <div
                 className="relative rounded-3xl overflow-hidden transition-all duration-500"
                 style={{
-                  background: "linear-gradient(145deg, #FFFFFF 0%, #FFF9F0 100%)",
+                  background: "#FFFFFF",
                   boxShadow:
                     hoveredProduct === product.id
-                      ? `0 25px 50px ${product.color}35, 0 0 0 2px #D97706`
-                      : "0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(217,119,6,0.15)",
-                  border: hoveredProduct === product.id ? "none" : "1px solid rgba(217,119,6,0.1)"
+                      ? `0 25px 50px ${product.color}25, 0 0 0 2px #0E2F71`
+                      : "0 4px 20px rgba(0,0,0,0.06)",
+                  border: hoveredProduct === product.id ? "none" : "1px solid rgba(14,47,113,0.08)"
                 }}
               >
                 {/* Product Image Container */}

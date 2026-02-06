@@ -44,7 +44,7 @@ export default function About() {
       id="about"
       className="relative py-24 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #FEF7EC 0%, #FDEBD0 50%, #FFF0E0 100%)",
+        background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)",
       }}
     >
       {/* Decorative Wave Top */}
@@ -113,8 +113,8 @@ export default function About() {
             <span
               className="inline-block px-6 py-2.5 rounded-full text-sm font-heavy tracking-wider mb-6 text-white"
               style={{
-                background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
-                boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+                background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
+                boxShadow: "0 4px 15px rgba(14,47,113,0.3)"
               }}
             >
               ABOUT LORS
@@ -161,17 +161,17 @@ export default function About() {
               key={index}
               className="group relative p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2"
               style={{
-                background: "linear-gradient(145deg, #FFFFFF 0%, #FFF9F0 100%)",
+                background: "#FFFFFF",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                border: "1px solid rgba(217,119,6,0.15)"
+                border: "1px solid rgba(14,47,113,0.08)"
               }}
             >
               {/* Icon */}
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 text-white"
                 style={{
-                  background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
-                  boxShadow: "0 4px 15px rgba(217,119,6,0.3)"
+                  background: "linear-gradient(135deg, #0E2F71 0%, #12357A 100%)",
+                  boxShadow: "0 4px 15px rgba(14,47,113,0.3)"
                 }}
               >
                 {value.icon}
