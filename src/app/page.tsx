@@ -145,13 +145,13 @@ export default function Home() {
           id="home"
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           {/* Animated Background Blobs with Mouse Parallax */}
           <div className="absolute inset-0 overflow-hidden">
             <div
-              className="absolute top-20 -left-20 w-96 h-96 bg-[#C6000F]/10 animate-blob animate-morph-slow"
+              className="absolute top-20 -left-20 w-96 h-96 bg-[#12357A]/30 animate-blob animate-morph-slow"
               style={{
                 animationDelay: "0s",
                 transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
@@ -159,7 +159,7 @@ export default function Home() {
               }}
             />
             <div
-              className="absolute top-40 right-20 w-72 h-72 bg-[#0E2F71]/20 animate-blob animate-morph"
+              className="absolute top-40 right-20 w-72 h-72 bg-[#C6000F]/20 animate-blob animate-morph"
               style={{
                 animationDelay: "2s",
                 transform: `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
@@ -167,7 +167,7 @@ export default function Home() {
               }}
             />
             <div
-              className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#C6000F]/5 animate-blob animate-morph-slow"
+              className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#12357A]/20 animate-blob animate-morph-slow"
               style={{
                 animationDelay: "4s",
                 transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px)`,
@@ -176,7 +176,7 @@ export default function Home() {
             />
             {/* Additional animated shapes */}
             <div
-              className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#0E2F71]/10 to-[#C6000F]/10 animate-spin-slow"
+              className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#12357A]/20 to-[#670008]/20 animate-spin-slow"
               style={{
                 transform: `translate(${mousePosition.x * -25}px, ${mousePosition.y * -25}px) rotate(${mousePosition.x * 20}deg)`,
                 transition: "transform 0.5s ease-out",
@@ -189,13 +189,13 @@ export default function Home() {
             <div className="w-4 h-4 rounded-full bg-[#C6000F] opacity-60 animate-pulse-scale" />
           </FloatingElement>
           <FloatingElement animation="float-reverse" className="absolute top-1/2 left-16">
-            <div className="w-6 h-6 rounded-full bg-[#0E2F71] opacity-50 animate-glow" />
+            <div className="w-6 h-6 rounded-full bg-white/30 animate-glow" />
           </FloatingElement>
           <FloatingElement animation="bounce" className="absolute bottom-40 right-20">
-            <div className="w-3 h-3 rounded-full bg-[#670008] opacity-70" />
+            <div className="w-3 h-3 rounded-full bg-[#C6000F] opacity-70" />
           </FloatingElement>
           <FloatingElement animation="wiggle" className="absolute top-1/3 right-10">
-            <div className="w-5 h-5 rounded-full bg-[#12357A] opacity-40" />
+            <div className="w-5 h-5 rounded-full bg-white/20" />
           </FloatingElement>
           {/* New decorative elements */}
           <div className="absolute top-20 left-1/4 w-2 h-2 rounded-full bg-[#C6000F] animate-bounce-subtle" style={{ animationDelay: "0.5s" }} />
@@ -227,7 +227,7 @@ export default function Home() {
                 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up opacity-0"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                   animationDelay: "0.4s",
                   animationFillMode: "forwards",
                 }}
@@ -236,7 +236,7 @@ export default function Home() {
                 <span
                   className="relative inline-block animate-text-shimmer"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
+                    background: "linear-gradient(90deg, #C6000F, #FFFFFF, #C6000F)",
                     backgroundSize: "200% auto",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -272,7 +272,7 @@ export default function Home() {
                 className="text-xl md:text-2xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-fade-in-up opacity-0"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
+                  color: "rgba(255,255,255,0.8)",
                   animationDelay: "0.6s",
                   animationFillMode: "forwards",
                 }}
@@ -427,7 +427,7 @@ export default function Home() {
             >
               <path
                 d="M0 120L60 105C120 90 240 60 360 55C480 50 600 70 720 80C840 90 960 90 1080 82.5C1200 75 1320 60 1380 52.5L1440 45V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#FFFFFF"
+                fill="#0A1F4A"
               />
             </svg>
           </div>
@@ -437,20 +437,20 @@ export default function Home() {
         <section
           id="featured-products"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFFFF" }}
+          style={{ background: "linear-gradient(180deg, #0A1F4A 0%, #0E2F71 100%)" }}
         >
           {/* Animated Background Pattern */}
           <div
             className="absolute inset-0 opacity-30"
             style={{
-              backgroundImage: `radial-gradient(circle at 20% 80%, rgba(198,0,15,0.05) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 20%, rgba(14,47,113,0.08) 0%, transparent 50%)`,
+              backgroundImage: `radial-gradient(circle at 20% 80%, rgba(198,0,15,0.15) 0%, transparent 50%),
+                               radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)`,
             }}
           />
 
           {/* Animated decorative elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#C6000F]/5 animate-morph-slow" />
-          <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#0E2F71]/10 animate-morph" style={{ animationDelay: "3s" }} />
+          <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#C6000F]/10 animate-morph-slow" />
+          <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-white/5 animate-morph" style={{ animationDelay: "3s" }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             {/* Section Header with Animations */}
@@ -458,8 +458,8 @@ export default function Home() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 animate-bounce-subtle hover:animate-pulse-scale cursor-default"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -472,7 +472,7 @@ export default function Home() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Featured{" "}
@@ -492,8 +492,7 @@ export default function Home() {
                 className="text-lg md:text-xl max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Discover our most loved treats that bring joy to families everywhere
