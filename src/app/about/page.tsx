@@ -86,7 +86,7 @@ export default function AboutPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: "#D4A574",
+      color: "#0E2F71",
     },
     {
       title: "Innovation",
@@ -106,7 +106,7 @@ export default function AboutPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       ),
-      color: "#C68642",
+      color: "#12357A",
     },
   ];
 
@@ -183,7 +183,7 @@ export default function AboutPage() {
 
           {/* Animated Blob Shapes */}
           <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-white/10 animate-blob blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#D4A574]/20 animate-blob blur-3xl" style={{ animationDelay: "2s" }} />
+          <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#0E2F71]/20 animate-blob blur-3xl" style={{ animationDelay: "2s" }} />
           <div className="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-[#C6000F]/30 animate-blob blur-2xl" style={{ animationDelay: "4s" }} />
 
           {/* Dots Pattern Overlay */}
@@ -217,14 +217,14 @@ export default function AboutPage() {
               <span
                 className="relative inline-block"
                 style={{
-                  background: "linear-gradient(135deg, #FFF8F0, #D4A574)",
+                  background: "linear-gradient(135deg, #FFFFFF, #0E2F71)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
                 Story
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                  <path d="M2 8C50 3 150 3 198 8" stroke="#D4A574" strokeWidth="4" strokeLinecap="round" />
+                  <path d="M2 8C50 3 150 3 198 8" stroke="#0E2F71" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -259,14 +259,14 @@ export default function AboutPage() {
             >
               <path
                 d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#FFF8F0"
+                fill="#FFFFFF"
               />
             </svg>
           </div>
         </section>
 
         {/* Brand Story Section */}
-        <section className="relative py-24 bg-[#FFF8F0]">
+        <section className="relative py-24 bg-[#FFFFFF]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Image Side */}
@@ -282,7 +282,7 @@ export default function AboutPage() {
                     <div
                       className="aspect-[4/3] flex items-center justify-center p-16"
                       style={{
-                        background: "linear-gradient(135deg, #FFE5E7, #FFF8F0)",
+                        background: "linear-gradient(135deg, #F1F5F9, #FFFFFF)",
                       }}
                     >
                       <Image
@@ -299,7 +299,7 @@ export default function AboutPage() {
                   <div
                     className="absolute -top-8 -right-8 w-24 h-24 rounded-full flex items-center justify-center animate-wiggle"
                     style={{
-                      background: "linear-gradient(135deg, #D4A574, #C68642)",
+                      background: "linear-gradient(135deg, #0E2F71, #12357A)",
                       boxShadow: "0 10px 30px rgba(212,165,116,0.4)",
                     }}
                   >
@@ -424,20 +424,20 @@ export default function AboutPage() {
 
           {/* Decorative Elements */}
           <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#D4A574]/10 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
         </section>
 
         {/* Mission & Vision Section */}
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFF8F0 0%, #FFE5E7 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
           }}
         >
           {/* Wave Top */}
           <div className="absolute top-0 left-0 right-0">
             <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 60L1440 60L1440 0C1200 40 960 50 720 45C480 40 240 25 0 0L0 60Z" fill="#FFF8F0" />
+              <path d="M0 60L1440 60L1440 0C1200 40 960 50 720 45C480 40 240 25 0 0L0 60Z" fill="#FFFFFF" />
             </svg>
           </div>
 
@@ -480,7 +480,7 @@ export default function AboutPage() {
                     style={{
                       background: index === 0
                         ? "linear-gradient(135deg, #C6000F, #670008)"
-                        : "linear-gradient(135deg, #D4A574, #C68642)",
+                        : "linear-gradient(135deg, #0E2F71, #12357A)",
                       color: "white",
                       boxShadow: index === 0
                         ? "0 10px 30px rgba(198,0,15,0.3)"
@@ -517,7 +517,7 @@ export default function AboutPage() {
                     style={{
                       background: index === 0
                         ? "radial-gradient(circle, #C6000F 2px, transparent 2px)"
-                        : "radial-gradient(circle, #D4A574 2px, transparent 2px)",
+                        : "radial-gradient(circle, #0E2F71 2px, transparent 2px)",
                       backgroundSize: "8px 8px",
                     }}
                   />
@@ -528,7 +528,7 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values Section */}
-        <section className="relative py-24 bg-[#FFF8F0]">
+        <section className="relative py-24 bg-[#FFFFFF]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span
@@ -637,7 +637,7 @@ export default function AboutPage() {
         >
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-[#C6000F]/10 blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#D4A574]/10 blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#0E2F71]/10 blur-3xl" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
@@ -711,7 +711,7 @@ export default function AboutPage() {
                       className="text-4xl md:text-5xl font-bold mb-2"
                       style={{
                         fontFamily: "'Fredoka', sans-serif",
-                        background: "linear-gradient(135deg, #FFF8F0, #D4A574)",
+                        background: "linear-gradient(135deg, #FFFFFF, #0E2F71)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -737,7 +737,7 @@ export default function AboutPage() {
         </section>
 
         {/* Team/Culture Section */}
-        <section className="relative py-24 bg-[#FFF8F0] overflow-hidden">
+        <section className="relative py-24 bg-[#FFFFFF] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span
@@ -778,7 +778,7 @@ export default function AboutPage() {
                   key={item}
                   className="group relative aspect-square rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
                   style={{
-                    background: `linear-gradient(135deg, ${item % 2 === 0 ? "#FFE5E7" : "#FFF8F0"}, ${item % 2 === 0 ? "#FFF8F0" : "#FFE5E7"})`,
+                    background: `linear-gradient(135deg, ${item % 2 === 0 ? "#F1F5F9" : "#FFFFFF"}, ${item % 2 === 0 ? "#FFFFFF" : "#F1F5F9"})`,
                     boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
                   }}
                 >
@@ -830,7 +830,7 @@ export default function AboutPage() {
             >
               {/* Decorative blobs */}
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#D4A574]/20 blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/20 blur-2xl" />
 
               <div className="relative z-10">
                 <h3
@@ -860,7 +860,7 @@ export default function AboutPage() {
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFF8F0 0%, #FFE5E7 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
           }}
         >
           <div className="max-w-7xl mx-auto px-6">
@@ -892,7 +892,7 @@ export default function AboutPage() {
               <div
                 className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 hidden lg:block"
                 style={{
-                  background: "linear-gradient(180deg, #C6000F, #D4A574, #C6000F)",
+                  background: "linear-gradient(180deg, #C6000F, #0E2F71, #C6000F)",
                 }}
               />
 
@@ -900,7 +900,7 @@ export default function AboutPage() {
               <div
                 className="absolute left-8 top-0 bottom-0 w-1 lg:hidden"
                 style={{
-                  background: "linear-gradient(180deg, #C6000F, #D4A574, #C6000F)",
+                  background: "linear-gradient(180deg, #C6000F, #0E2F71, #C6000F)",
                 }}
               />
 
@@ -961,7 +961,7 @@ export default function AboutPage() {
                         <div
                           className="absolute bottom-0 left-6 right-6 h-1 rounded-full transition-all duration-500 scale-x-0 group-hover:scale-x-100"
                           style={{
-                            background: "linear-gradient(90deg, #C6000F, #D4A574)",
+                            background: "linear-gradient(90deg, #C6000F, #0E2F71)",
                           }}
                         />
                       </div>
@@ -986,14 +986,14 @@ export default function AboutPage() {
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white/5 animate-float" />
-            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#D4A574]/10 animate-float-delay" />
+            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#0E2F71]/10 animate-float-delay" />
             <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full bg-white/5 animate-float-reverse" />
           </div>
 
           {/* Wave Top */}
           <div className="absolute top-0 left-0 right-0">
             <svg viewBox="0 0 1440 80" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H0V80Z" fill="#FFE5E7" />
+              <path d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H0V80Z" fill="#F1F5F9" />
             </svg>
           </div>
 
@@ -1019,7 +1019,7 @@ export default function AboutPage() {
               Discover Our{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #FFF8F0, #D4A574)",
+                  background: "linear-gradient(135deg, #FFFFFF, #0E2F71)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}

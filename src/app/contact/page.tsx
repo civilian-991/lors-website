@@ -238,7 +238,7 @@ export default function ContactPage() {
         <section
           className="relative py-20 md:py-28 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFF8F0 0%, #FFFAF5 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
           }}
         >
           {/* Decorative Background Elements */}
@@ -250,7 +250,7 @@ export default function ContactPage() {
             <div
               className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full opacity-20 animate-blob"
               style={{
-                background: "radial-gradient(circle, #D4A574 0%, transparent 70%)",
+                background: "radial-gradient(circle, #0E2F71 0%, transparent 70%)",
                 animationDelay: "2s",
               }}
             />
@@ -329,7 +329,7 @@ export default function ContactPage() {
                 <div
                   className="p-8 md:p-10 rounded-3xl relative overflow-hidden"
                   style={{
-                    background: "linear-gradient(145deg, #FFFFFF 0%, #FFF8F0 100%)",
+                    background: "linear-gradient(145deg, #FFFFFF 0%, #FFFFFF 100%)",
                     boxShadow: "0 25px 80px rgba(198,0,15,0.08), 0 10px 30px rgba(0,0,0,0.05)",
                   }}
                 >
@@ -412,7 +412,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "name" || formData.name
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFF8F0]"
+                              : "border-transparent bg-[#FFFFFF]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -468,7 +468,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "email" || formData.email
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFF8F0]"
+                              : "border-transparent bg-[#FFFFFF]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -527,7 +527,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "phone" || formData.phone
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFF8F0]"
+                              : "border-transparent bg-[#FFFFFF]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -582,7 +582,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "subject" || formData.subject
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFF8F0]"
+                              : "border-transparent bg-[#FFFFFF]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -657,7 +657,7 @@ export default function ContactPage() {
                             ? "border-red-400 bg-red-50"
                             : focusedField === "message" || formData.message
                             ? "border-[#C6000F] bg-white"
-                            : "border-transparent bg-[#FFF8F0]"
+                            : "border-transparent bg-[#FFFFFF]"
                         }`}
                         style={{
                           fontFamily: "'Nunito', sans-serif",
@@ -779,7 +779,7 @@ export default function ContactPage() {
                       rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group flex items-start gap-5 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                       style={{
-                        background: "#FFF8F0",
+                        background: "#FFFFFF",
                         border: "1px solid rgba(198,0,15,0.08)",
                       }}
                     >
@@ -883,7 +883,7 @@ export default function ContactPage() {
                 <div
                   className="p-6 rounded-2xl"
                   style={{
-                    background: "#FFF8F0",
+                    background: "#FFFFFF",
                     border: "1px solid rgba(198,0,15,0.08)",
                   }}
                 >
@@ -934,7 +934,7 @@ export default function ContactPage() {
         {/* Map / Location Section */}
         <section
           className="relative py-16 md:py-24 overflow-hidden"
-          style={{ background: "#FFF8F0" }}
+          style={{ background: "#FFFFFF" }}
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
@@ -1145,7 +1145,7 @@ export default function ContactPage() {
                   key={index}
                   className="rounded-2xl overflow-hidden transition-all duration-300"
                   style={{
-                    background: openFaq === index ? "#FFF8F0" : "white",
+                    background: openFaq === index ? "#FFFFFF" : "white",
                     border: "1px solid",
                     borderColor: openFaq === index ? "rgba(198,0,15,0.2)" : "rgba(198,0,15,0.08)",
                     boxShadow:

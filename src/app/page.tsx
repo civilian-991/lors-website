@@ -19,7 +19,7 @@ import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
 
 // Featured products data
 const featuredProducts = [
-  { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#D4A574" },
+  { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
   { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#3D5A80" },
   { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#7CB518" },
   { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
@@ -145,7 +145,7 @@ export default function Home() {
           id="home"
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #FFF8F0 0%, #FFE5E7 50%, #FFF8F0 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)",
           }}
         >
           {/* Animated Background Blobs with Mouse Parallax */}
@@ -159,7 +159,7 @@ export default function Home() {
               }}
             />
             <div
-              className="absolute top-40 right-20 w-72 h-72 bg-[#D4A574]/20 animate-blob animate-morph"
+              className="absolute top-40 right-20 w-72 h-72 bg-[#0E2F71]/20 animate-blob animate-morph"
               style={{
                 animationDelay: "2s",
                 transform: `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
@@ -176,7 +176,7 @@ export default function Home() {
             />
             {/* Additional animated shapes */}
             <div
-              className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#FFD700]/10 to-[#FF69B4]/10 animate-spin-slow"
+              className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#0E2F71]/10 to-[#C6000F]/10 animate-spin-slow"
               style={{
                 transform: `translate(${mousePosition.x * -25}px, ${mousePosition.y * -25}px) rotate(${mousePosition.x * 20}deg)`,
                 transition: "transform 0.5s ease-out",
@@ -189,17 +189,17 @@ export default function Home() {
             <div className="w-4 h-4 rounded-full bg-[#C6000F] opacity-60 animate-pulse-scale" />
           </FloatingElement>
           <FloatingElement animation="float-reverse" className="absolute top-1/2 left-16">
-            <div className="w-6 h-6 rounded-full bg-[#D4A574] opacity-50 animate-glow" />
+            <div className="w-6 h-6 rounded-full bg-[#0E2F71] opacity-50 animate-glow" />
           </FloatingElement>
           <FloatingElement animation="bounce" className="absolute bottom-40 right-20">
             <div className="w-3 h-3 rounded-full bg-[#670008] opacity-70" />
           </FloatingElement>
           <FloatingElement animation="wiggle" className="absolute top-1/3 right-10">
-            <div className="w-5 h-5 rounded-full bg-[#C68642] opacity-40" />
+            <div className="w-5 h-5 rounded-full bg-[#12357A] opacity-40" />
           </FloatingElement>
           {/* New decorative elements */}
           <div className="absolute top-20 left-1/4 w-2 h-2 rounded-full bg-[#C6000F] animate-bounce-subtle" style={{ animationDelay: "0.5s" }} />
-          <div className="absolute bottom-1/3 left-10 w-4 h-4 rounded-full bg-[#D4A574]/60 animate-heartbeat" />
+          <div className="absolute bottom-1/3 left-10 w-4 h-4 rounded-full bg-[#0E2F71]/60 animate-heartbeat" />
           <div className="absolute top-2/3 right-1/3 w-3 h-3 rounded-full bg-[#670008]/50 animate-zoom-pulse" />
 
           {/* Main Content */}
@@ -236,7 +236,7 @@ export default function Home() {
                 <span
                   className="relative inline-block animate-text-shimmer"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #D4A574, #C6000F)",
+                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
                     backgroundSize: "200% auto",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -260,7 +260,7 @@ export default function Home() {
                     <defs>
                       <linearGradient id="underlineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#C6000F" />
-                        <stop offset="50%" stopColor="#D4A574" />
+                        <stop offset="50%" stopColor="#0E2F71" />
                         <stop offset="100%" stopColor="#C6000F" />
                       </linearGradient>
                     </defs>
@@ -398,7 +398,7 @@ export default function Home() {
                   <div
                     className="px-4 py-2 rounded-full text-white text-sm font-bold animate-glow"
                     style={{
-                      background: "linear-gradient(135deg, #D4A574, #C68642)",
+                      background: "linear-gradient(135deg, #0E2F71, #12357A)",
                       fontFamily: "'Nunito', sans-serif",
                     }}
                   >
@@ -427,7 +427,7 @@ export default function Home() {
             >
               <path
                 d="M0 120L60 105C120 90 240 60 360 55C480 50 600 70 720 80C840 90 960 90 1080 82.5C1200 75 1320 60 1380 52.5L1440 45V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#FFFAF5"
+                fill="#FFFFFF"
               />
             </svg>
           </div>
@@ -437,7 +437,7 @@ export default function Home() {
         <section
           id="featured-products"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFAF5" }}
+          style={{ background: "#FFFFFF" }}
         >
           {/* Animated Background Pattern */}
           <div
@@ -450,7 +450,7 @@ export default function Home() {
 
           {/* Animated decorative elements */}
           <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#C6000F]/5 animate-morph-slow" />
-          <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#D4A574]/10 animate-morph" style={{ animationDelay: "3s" }} />
+          <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#0E2F71]/10 animate-morph" style={{ animationDelay: "3s" }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             {/* Section Header with Animations */}
@@ -479,7 +479,7 @@ export default function Home() {
                 <span
                   className="animate-text-shimmer inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #D4A574, #C6000F)",
+                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
                     backgroundSize: "200% auto",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -603,7 +603,7 @@ export default function Home() {
                       <div
                         className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100"
                         style={{
-                          background: `linear-gradient(90deg, ${product.color}, #D4A574, #C6000F)`,
+                          background: `linear-gradient(90deg, ${product.color}, #0E2F71, #C6000F)`,
                         }}
                       />
 
@@ -656,10 +656,10 @@ export default function Home() {
             <div className="w-20 h-20 rounded-full bg-[#C6000F]/5 animate-morph" />
           </FloatingElement>
           <FloatingElement animation="float-reverse" className="absolute bottom-40 right-10">
-            <div className="w-32 h-32 rounded-full bg-[#D4A574]/10 animate-morph-slow" />
+            <div className="w-32 h-32 rounded-full bg-[#0E2F71]/10 animate-morph-slow" />
           </FloatingElement>
           <div className="absolute top-1/2 left-5 w-4 h-4 rounded-full bg-[#670008]/20 animate-bounce-subtle" style={{ animationDelay: "0.5s" }} />
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-full bg-[#FFD700]/15 animate-zoom-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-full bg-[#0E2F71]/15 animate-zoom-pulse" />
         </section>
 
         {/* Animated Marquee Banner */}
@@ -682,7 +682,7 @@ export default function Home() {
           id="why-choose"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFAF5 0%, #FFE5E7 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
           }}
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -785,7 +785,7 @@ export default function Home() {
                       <div
                         className="absolute bottom-0 left-8 right-8 h-1.5 rounded-full transition-all duration-500 scale-x-0 group-hover:scale-x-100"
                         style={{
-                          background: "linear-gradient(90deg, #C6000F, #D4A574, #C6000F)",
+                          background: "linear-gradient(90deg, #C6000F, #0E2F71, #C6000F)",
                         }}
                       />
 
@@ -809,18 +809,18 @@ export default function Home() {
 
           {/* Decorative Elements */}
           <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#D4A574]/10 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
         </section>
 
         {/* Testimonials Section */}
         <section
           id="testimonials"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFAF5" }}
+          style={{ background: "#FFFFFF" }}
         >
           {/* Animated background decorations */}
           <div className="absolute top-1/4 left-10 w-40 h-40 rounded-full bg-[#C6000F]/5 animate-morph-slow" />
-          <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-[#D4A574]/10 animate-morph" style={{ animationDelay: "2s" }} />
+          <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-[#0E2F71]/10 animate-morph" style={{ animationDelay: "2s" }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             {/* Section Header with Animation */}
@@ -849,7 +849,7 @@ export default function Home() {
                 <span
                   className="animate-text-shimmer inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #D4A574, #C6000F)",
+                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
                     backgroundSize: "200% auto",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -904,7 +904,7 @@ export default function Home() {
                           key={i}
                           className="w-6 h-6 animate-bounce-subtle"
                           style={{ animationDelay: `${i * 100}ms` }}
-                          fill="#FFD700"
+                          fill="#0E2F71"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -976,7 +976,7 @@ export default function Home() {
                   </div>
 
                   {/* Decorative corner elements */}
-                  <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-[#FFD700]/5 animate-spin-slow" />
+                  <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-[#0E2F71]/5 animate-spin-slow" />
                   <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-[#C6000F]/5 animate-morph" />
                 </div>
               </TiltCard>
@@ -988,7 +988,7 @@ export default function Home() {
             <div className="w-24 h-24 rounded-full bg-[#C6000F]/5 animate-glow" />
           </FloatingElement>
           <FloatingElement animation="float-reverse" className="absolute bottom-20 left-10">
-            <div className="w-16 h-16 rounded-full bg-[#D4A574]/10" />
+            <div className="w-16 h-16 rounded-full bg-[#0E2F71]/10" />
           </FloatingElement>
           <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-[#670008]/20 animate-bounce-subtle" />
         </section>
@@ -998,7 +998,7 @@ export default function Home() {
           id="sweet-moments"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFE5E7 0%, #FFF8F0 100%)",
+            background: "linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%)",
           }}
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -1100,7 +1100,7 @@ export default function Home() {
         <section
           id="about"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFAF5" }}
+          style={{ background: "#FFFFFF" }}
         >
           {/* Decorative Wave Top */}
           <div className="absolute top-0 left-0 right-0">
@@ -1113,7 +1113,7 @@ export default function Home() {
             >
               <path
                 d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 50C840 40 960 20 1080 15C1200 10 1320 20 1380 25L1440 30V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
-                fill="#FFF8F0"
+                fill="#FFFFFF"
               />
             </svg>
           </div>
@@ -1134,7 +1134,7 @@ export default function Home() {
                     <div
                       className="aspect-square flex items-center justify-center p-12"
                       style={{
-                        background: "linear-gradient(135deg, #FFF8F0, #FFE5E7)",
+                        background: "linear-gradient(135deg, #FFFFFF, #F1F5F9)",
                       }}
                     >
                       <Image
@@ -1173,7 +1173,7 @@ export default function Home() {
                   <div
                     className="absolute -top-8 -left-8 w-24 h-24 rounded-full"
                     style={{
-                      background: "radial-gradient(circle, #D4A574 2px, transparent 2px)",
+                      background: "radial-gradient(circle, #0E2F71 2px, transparent 2px)",
                       backgroundSize: "12px 12px",
                       opacity: 0.3,
                     }}
@@ -1295,7 +1295,7 @@ export default function Home() {
 
           {/* Decorative Elements */}
           <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#D4A574]/10 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
         </section>
 
         {/* Contact Section */}
@@ -1303,7 +1303,7 @@ export default function Home() {
           id="contact"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFF8F0 0%, #FFE5E7 100%)",
+            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
           }}
         >
           {/* Background Decoration */}
