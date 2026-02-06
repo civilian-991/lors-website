@@ -259,14 +259,14 @@ export default function AboutPage() {
             >
               <path
                 d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#FFFFFF"
+                fill="#0E2F71"
               />
             </svg>
           </div>
         </section>
 
         {/* Brand Story Section */}
-        <section className="relative py-24 bg-[#FFFFFF]">
+        <section className="relative py-24" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Image Side */}
@@ -333,8 +333,8 @@ export default function AboutPage() {
                 <span
                   className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                   style={{
-                    background: "rgba(198,0,15,0.1)",
-                    color: "#C6000F",
+                    background: "rgba(198,0,15,0.3)",
+                    color: "#FFFFFF",
                     fontFamily: "'Nunito', sans-serif",
                   }}
                 >
@@ -345,13 +345,13 @@ export default function AboutPage() {
                   className="text-4xl md:text-5xl font-bold mb-8"
                   style={{
                     fontFamily: "'Fredoka', sans-serif",
-                    color: "#4A2C2A",
+                    color: "#FFFFFF",
                   }}
                 >
                   A Passion for{" "}
                   <span
                     style={{
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
+                      background: "linear-gradient(135deg, #C6000F, #FF6B6B)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
@@ -366,8 +366,7 @@ export default function AboutPage() {
                     className="text-lg leading-relaxed"
                     style={{
                       fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.85,
+                      color: "rgba(255,255,255,0.8)",
                     }}
                   >
                     It all started with a simple belief: that every moment deserves a touch of sweetness. In a small kitchen filled with the aroma of freshly baked treats, LOR was born from a family&apos;s love for creating delicious confections that bring people together.
@@ -377,8 +376,7 @@ export default function AboutPage() {
                     className="text-lg leading-relaxed"
                     style={{
                       fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.85,
+                      color: "rgba(255,255,255,0.8)",
                     }}
                   >
                     What began as a passion project quickly grew into something extraordinary. Our recipes, perfected over generations, combine the finest ingredients with innovative techniques to create treats that are simply irresistible.
@@ -388,8 +386,7 @@ export default function AboutPage() {
                     className="text-lg leading-relaxed"
                     style={{
                       fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.85,
+                      color: "rgba(255,255,255,0.8)",
                     }}
                   >
                     Today, LOR brings joy to millions of customers across the globe. But our heart remains the same: to create moments of happiness, one delicious bite at a time.
@@ -397,13 +394,12 @@ export default function AboutPage() {
                 </div>
 
                 {/* Signature */}
-                <div className="mt-10 pt-8 border-t border-[#4A2C2A]/10">
+                <div className="mt-10 pt-8 border-t border-white/20">
                   <p
                     className="italic text-lg"
                     style={{
                       fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.7,
+                      color: "rgba(255,255,255,0.7)",
                     }}
                   >
                     &quot;Every treat we make carries a piece of our heart.&quot;
@@ -423,21 +419,21 @@ export default function AboutPage() {
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/10 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/5 blur-3xl" />
         </section>
 
         {/* Mission & Vision Section */}
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
+            background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)",
           }}
         >
           {/* Wave Top */}
           <div className="absolute top-0 left-0 right-0">
             <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 60L1440 60L1440 0C1200 40 960 50 720 45C480 40 240 25 0 0L0 60Z" fill="#FFFFFF" />
+              <path d="M0 60L1440 60L1440 0C1200 40 960 50 720 45C480 40 240 25 0 0L0 60Z" fill="#071A45" />
             </svg>
           </div>
 
@@ -446,8 +442,8 @@ export default function AboutPage() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -457,7 +453,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-5xl font-bold"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Mission & Vision
@@ -528,14 +524,14 @@ export default function AboutPage() {
         </section>
 
         {/* Core Values Section */}
-        <section className="relative py-24 bg-[#FFFFFF]">
+        <section className="relative py-24" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -545,7 +541,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-5xl font-bold mb-4"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Our Core Values
@@ -554,8 +550,7 @@ export default function AboutPage() {
                 className="text-lg max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 The principles that guide everything we do, from sourcing ingredients to delivering smiles.
@@ -632,12 +627,12 @@ export default function AboutPage() {
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #4A2C2A 0%, #2D1A19 100%)",
+            background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)",
           }}
         >
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-[#C6000F]/10 blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#0E2F71]/10 blur-3xl" />
+          <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-[#C6000F]/15 blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
@@ -737,14 +732,14 @@ export default function AboutPage() {
         </section>
 
         {/* Team/Culture Section */}
-        <section className="relative py-24 bg-[#FFFFFF] overflow-hidden">
+        <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -754,7 +749,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-5xl font-bold mb-4"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Meet The Sweet Team
@@ -763,8 +758,7 @@ export default function AboutPage() {
                 className="text-lg max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 The passionate people behind every delicious LOR creation.
@@ -860,7 +854,7 @@ export default function AboutPage() {
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
+            background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)",
           }}
         >
           <div className="max-w-7xl mx-auto px-6">
@@ -868,8 +862,8 @@ export default function AboutPage() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -879,7 +873,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-5xl font-bold"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Brand Milestones
@@ -892,7 +886,7 @@ export default function AboutPage() {
               <div
                 className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 hidden lg:block"
                 style={{
-                  background: "linear-gradient(180deg, #C6000F, #0E2F71, #C6000F)",
+                  background: "linear-gradient(180deg, #C6000F, rgba(255,255,255,0.3), #C6000F)",
                 }}
               />
 
@@ -900,7 +894,7 @@ export default function AboutPage() {
               <div
                 className="absolute left-8 top-0 bottom-0 w-1 lg:hidden"
                 style={{
-                  background: "linear-gradient(180deg, #C6000F, #0E2F71, #C6000F)",
+                  background: "linear-gradient(180deg, #C6000F, rgba(255,255,255,0.3), #C6000F)",
                 }}
               />
 
@@ -980,20 +974,20 @@ export default function AboutPage() {
         <section
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #670008 0%, #C6000F 50%, #4A2C2A 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white/5 animate-float" />
-            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#0E2F71]/10 animate-float-delay" />
+            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-[#C6000F]/10 animate-float-delay" />
             <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full bg-white/5 animate-float-reverse" />
           </div>
 
           {/* Wave Top */}
           <div className="absolute top-0 left-0 right-0">
             <svg viewBox="0 0 1440 80" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H0V80Z" fill="#F1F5F9" />
+              <path d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 47.5C840 55 960 60 1080 57.5C1200 55 1320 45 1380 40L1440 35V0H0V80Z" fill="#0E2F71" />
             </svg>
           </div>
 
@@ -1074,7 +1068,7 @@ export default function AboutPage() {
           {/* Wave Bottom */}
           <div className="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 80" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 0L60 10C120 20 240 40 360 45C480 50 600 40 720 32.5C840 25 960 20 1080 22.5C1200 25 1320 35 1380 40L1440 45V80H0V0Z" fill="#4A2C2A" />
+              <path d="M0 0L60 10C120 20 240 40 360 45C480 50 600 40 720 32.5C840 25 960 20 1080 22.5C1200 25 1320 35 1380 40L1440 45V80H0V0Z" fill="#071A45" />
             </svg>
           </div>
         </section>

@@ -106,7 +106,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC]">
+    <main className="min-h-screen" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
       <Header />
 
       {/* Hero Banner */}
@@ -115,29 +115,29 @@ export default function ProductsPage() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 50%, #FFFFFF 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         />
 
         {/* Decorative Blobs */}
         <div
           className="absolute top-20 left-10 w-72 h-72 rounded-full animate-blob opacity-30"
-          style={{ background: "linear-gradient(135deg, #C6000F20, #67000820)" }}
+          style={{ background: "linear-gradient(135deg, #1E4A9F40, #0A2555)" }}
         />
         <div
           className="absolute top-40 right-20 w-96 h-96 rounded-full animate-blob opacity-20"
-          style={{ background: "linear-gradient(135deg, #0E2F7130, #12357A20)", animationDelay: "2s" }}
+          style={{ background: "linear-gradient(135deg, #12357A50, #0E2F7140)", animationDelay: "2s" }}
         />
         <div
           className="absolute bottom-10 left-1/4 w-64 h-64 rounded-full animate-blob opacity-25"
-          style={{ background: "linear-gradient(135deg, #0E2F7120, #12357A20)", animationDelay: "4s" }}
+          style={{ background: "linear-gradient(135deg, #1E4A9F30, #12357A40)", animationDelay: "4s" }}
         />
 
         {/* Floating Elements */}
-        <div className="absolute top-32 left-20 w-8 h-8 rounded-full bg-[#C6000F]/20 animate-float" />
-        <div className="absolute top-48 right-32 w-6 h-6 rounded-full bg-[#0E2F71]/30 animate-float-reverse" />
-        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-full bg-[#670008]/20 animate-float-delay" />
-        <div className="absolute top-60 left-1/3 w-4 h-4 rounded-full bg-[#12357A]/30 animate-float" />
+        <div className="absolute top-32 left-20 w-8 h-8 rounded-full bg-[#1E4A9F]/40 animate-float" />
+        <div className="absolute top-48 right-32 w-6 h-6 rounded-full bg-[#2563EB]/30 animate-float-reverse" />
+        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-full bg-[#1E4A9F]/30 animate-float-delay" />
+        <div className="absolute top-60 left-1/3 w-4 h-4 rounded-full bg-[#3B82F6]/30 animate-float" />
 
         {/* Dots Pattern */}
         <div className="absolute inset-0 dots-pattern pointer-events-none" />
@@ -147,16 +147,16 @@ export default function ProductsPage() {
           <div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full mb-8 animate-slide-up"
             style={{
-              background: "linear-gradient(135deg, rgba(198,0,15,0.1), rgba(103,0,8,0.05))",
-              border: "2px solid rgba(198,0,15,0.2)",
+              background: "rgba(255,255,255,0.1)",
+              border: "2px solid rgba(255,255,255,0.2)",
             }}
           >
-            <svg className="w-5 h-5" fill="#C6000F" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="#FFFFFF" viewBox="0 0 24 24">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
             </svg>
             <span
               className="text-sm font-bold tracking-wider uppercase"
-              style={{ fontFamily: "'Nunito', sans-serif", color: "#C6000F" }}
+              style={{ fontFamily: "'Nunito', sans-serif", color: "#FFFFFF" }}
             >
               Premium Quality Treats
             </span>
@@ -165,13 +165,13 @@ export default function ProductsPage() {
           {/* Title */}
           <h1
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up stagger-1"
-            style={{ fontFamily: "'Fredoka', sans-serif", color: "#4A2C2A" }}
+            style={{ fontFamily: "'Fredoka', sans-serif", color: "#FFFFFF" }}
           >
             Our Delicious{" "}
             <span
               className="relative inline-block"
               style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
+                background: "linear-gradient(135deg, #C6000F, #E63946)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -200,8 +200,7 @@ export default function ProductsPage() {
             className="text-xl md:text-2xl max-w-3xl mx-auto mb-12 animate-slide-up stagger-2"
             style={{
               fontFamily: "'Nunito', sans-serif",
-              color: "#4A2C2A",
-              opacity: 0.7,
+              color: "rgba(255,255,255,0.8)",
               lineHeight: 1.6,
             }}
           >
@@ -230,7 +229,7 @@ export default function ProductsPage() {
                 </div>
                 <div
                   className="text-sm font-semibold uppercase tracking-wider"
-                  style={{ fontFamily: "'Nunito', sans-serif", color: "#4A2C2A", opacity: 0.6 }}
+                  style={{ fontFamily: "'Nunito', sans-serif", color: "rgba(255,255,255,0.6)" }}
                 >
                   {stat.label}
                 </div>
@@ -250,14 +249,14 @@ export default function ProductsPage() {
           >
             <path
               d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z"
-              fill="#F8FAFC"
+              fill="#0A2555"
             />
           </svg>
         </div>
       </section>
 
       {/* Search and Filter Section */}
-      <section className="relative py-8 bg-[#F8FAFC]">
+      <section className="relative py-8" style={{ background: "#0A2555" }}>
         <div className="max-w-7xl mx-auto px-6">
           {/* Search Bar */}
           <div className="relative max-w-2xl mx-auto mb-10">
@@ -359,17 +358,17 @@ export default function ProductsPage() {
           <div className="text-center mt-8">
             <p
               className="text-sm"
-              style={{ fontFamily: "'Nunito', sans-serif", color: "#4A2C2A", opacity: 0.6 }}
+              style={{ fontFamily: "'Nunito', sans-serif", color: "rgba(255,255,255,0.6)" }}
             >
               Showing{" "}
-              <span className="font-bold" style={{ color: "#C6000F" }}>
+              <span className="font-bold" style={{ color: "#FFFFFF" }}>
                 {filteredProducts.length}
               </span>{" "}
               {filteredProducts.length === 1 ? "product" : "products"}
               {activeCategory !== "All" && (
                 <>
                   {" "}in{" "}
-                  <span className="font-bold" style={{ color: getCategoryColor(activeCategory) }}>
+                  <span className="font-bold" style={{ color: "#FFFFFF" }}>
                     {activeCategory}
                   </span>
                 </>
@@ -377,7 +376,7 @@ export default function ProductsPage() {
               {searchQuery && (
                 <>
                   {" "}matching{" "}
-                  <span className="font-bold" style={{ color: "#C6000F" }}>
+                  <span className="font-bold" style={{ color: "#FFFFFF" }}>
                     &quot;{searchQuery}&quot;
                   </span>
                 </>
@@ -388,15 +387,15 @@ export default function ProductsPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="relative py-12 pb-24 overflow-hidden bg-[#F8FAFC]">
+      <section className="relative py-12 pb-24 overflow-hidden" style={{ background: "#0A2555" }}>
         {/* Background Elements */}
         <div
-          className="absolute top-40 left-0 w-96 h-96 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #C6000F 0%, transparent 70%)" }}
+          className="absolute top-40 left-0 w-96 h-96 rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle, #1E4A9F 0%, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-20 right-0 w-80 h-80 rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #0E2F71 0%, transparent 70%)" }}
+          className="absolute bottom-20 right-0 w-80 h-80 rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle, #12357A 0%, transparent 70%)" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6" ref={gridRef}>
@@ -547,21 +546,21 @@ export default function ProductsPage() {
             <div className="text-center py-20">
               <div
                 className="w-32 h-32 mx-auto mb-8 rounded-full flex items-center justify-center animate-pulse"
-                style={{ background: "rgba(198,0,15,0.1)" }}
+                style={{ background: "rgba(255,255,255,0.1)" }}
               >
-                <svg className="w-16 h-16" fill="#C6000F" viewBox="0 0 24 24">
+                <svg className="w-16 h-16" fill="#FFFFFF" viewBox="0 0 24 24">
                   <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                 </svg>
               </div>
               <h3
                 className="text-3xl font-bold mb-4"
-                style={{ fontFamily: "'Fredoka', sans-serif", color: "#4A2C2A" }}
+                style={{ fontFamily: "'Fredoka', sans-serif", color: "#FFFFFF" }}
               >
                 No treats found
               </h3>
               <p
                 className="text-lg mb-8 max-w-md mx-auto"
-                style={{ fontFamily: "'Nunito', sans-serif", color: "#4A2C2A", opacity: 0.6 }}
+                style={{ fontFamily: "'Nunito', sans-serif", color: "rgba(255,255,255,0.6)" }}
               >
                 We could not find any products matching your search. Try a different keyword or browse our categories.
               </p>
@@ -588,10 +587,10 @@ export default function ProductsPage() {
         </div>
 
         {/* Decorative Floating Elements */}
-        <div className="absolute top-20 right-10 w-16 h-16 rounded-full bg-[#670008]/10 animate-float" />
-        <div className="absolute top-1/3 left-5 w-12 h-12 rounded-full bg-[#C6000F]/10 animate-float-reverse" />
-        <div className="absolute bottom-40 right-20 w-20 h-20 rounded-full bg-[#12357A]/10 animate-float-delay" />
-        <div className="absolute bottom-20 left-1/4 w-8 h-8 rounded-full bg-[#0E2F71]/15 animate-float" />
+        <div className="absolute top-20 right-10 w-16 h-16 rounded-full bg-[#1E4A9F]/30 animate-float" />
+        <div className="absolute top-1/3 left-5 w-12 h-12 rounded-full bg-[#2563EB]/20 animate-float-reverse" />
+        <div className="absolute bottom-40 right-20 w-20 h-20 rounded-full bg-[#12357A]/25 animate-float-delay" />
+        <div className="absolute bottom-20 left-1/4 w-8 h-8 rounded-full bg-[#3B82F6]/20 animate-float" />
       </section>
 
       {/* Call to Action Section */}

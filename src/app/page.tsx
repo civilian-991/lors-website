@@ -681,7 +681,7 @@ export default function Home() {
           id="why-choose"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -690,8 +690,8 @@ export default function Home() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 hover:animate-jello cursor-default"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -704,14 +704,14 @@ export default function Home() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Why Choose{" "}
                 <span
                   className="relative inline-block"
                   style={{
-                    background: "linear-gradient(135deg, #C6000F, #670008)",
+                    background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -724,8 +724,7 @@ export default function Home() {
                 className="text-lg md:text-xl max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Experience the difference that quality and passion make in every treat
@@ -807,19 +806,19 @@ export default function Home() {
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
 
         {/* Testimonials Section */}
         <section
           id="testimonials"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFFFF" }}
+          style={{ background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)" }}
         >
           {/* Animated background decorations */}
-          <div className="absolute top-1/4 left-10 w-40 h-40 rounded-full bg-[#C6000F]/5 animate-morph-slow" />
-          <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-[#0E2F71]/10 animate-morph" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/4 left-10 w-40 h-40 rounded-full bg-white/5 animate-morph-slow" />
+          <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-white/10 animate-morph" style={{ animationDelay: "2s" }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             {/* Section Header with Animation */}
@@ -827,8 +826,8 @@ export default function Home() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 hover:animate-elastic-pop cursor-default"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -841,14 +840,14 @@ export default function Home() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 What Our{" "}
                 <span
                   className="animate-text-shimmer inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
+                    background: "linear-gradient(90deg, #C6000F, #FF4D5A, #FFFFFF, #C6000F)",
                     backgroundSize: "200% auto",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -984,12 +983,12 @@ export default function Home() {
 
           {/* Enhanced Decorative Elements */}
           <FloatingElement animation="float" className="absolute top-20 right-10">
-            <div className="w-24 h-24 rounded-full bg-[#C6000F]/5 animate-glow" />
+            <div className="w-24 h-24 rounded-full bg-white/5 animate-glow" />
           </FloatingElement>
           <FloatingElement animation="float-reverse" className="absolute bottom-20 left-10">
-            <div className="w-16 h-16 rounded-full bg-[#0E2F71]/10" />
+            <div className="w-16 h-16 rounded-full bg-white/10" />
           </FloatingElement>
-          <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-[#670008]/20 animate-bounce-subtle" />
+          <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-white/20 animate-bounce-subtle" />
         </section>
 
         {/* Sweet Moments Gallery Section */}
@@ -997,7 +996,7 @@ export default function Home() {
           id="sweet-moments"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -1006,8 +1005,8 @@ export default function Home() {
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.3)",
+                  color: "#FFFFFF",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -1017,13 +1016,13 @@ export default function Home() {
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Sweet{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #C6000F, #670008)",
+                    background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -1035,8 +1034,7 @@ export default function Home() {
                 className="text-lg md:text-xl max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Celebrate life&apos;s precious moments with LOR treats
@@ -1058,7 +1056,7 @@ export default function Home() {
                   <div
                     className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
                     style={{
-                      background: `linear-gradient(135deg, rgba(198,0,15,0.1), rgba(14,47,113,0.1))`,
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.1), rgba(198,0,15,0.1))`,
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -1073,7 +1071,7 @@ export default function Home() {
                   <div
                     className="absolute inset-0 flex flex-col items-center justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: "linear-gradient(to top, rgba(74,44,42,0.9), transparent)",
+                      background: "linear-gradient(to top, rgba(7,26,69,0.95), transparent)",
                     }}
                   >
                     <h3
@@ -1093,13 +1091,17 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
 
         {/* About Preview Section */}
         <section
           id="about"
           className="relative py-24 overflow-hidden"
-          style={{ background: "#FFFFFF" }}
+          style={{ background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)" }}
         >
           {/* Decorative Wave Top */}
           <div className="absolute top-0 left-0 right-0">
@@ -1112,7 +1114,7 @@ export default function Home() {
             >
               <path
                 d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 50C840 40 960 20 1080 15C1200 10 1320 20 1380 25L1440 30V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
-                fill="#FFFFFF"
+                fill="#071A45"
               />
             </svg>
           </div>
@@ -1127,7 +1129,7 @@ export default function Home() {
                   <div
                     className="relative rounded-[3rem] overflow-hidden"
                     style={{
-                      boxShadow: "0 30px 60px rgba(198,0,15,0.15)",
+                      boxShadow: "0 30px 60px rgba(0,0,0,0.3)",
                     }}
                   >
                     <div
@@ -1172,9 +1174,9 @@ export default function Home() {
                   <div
                     className="absolute -top-8 -left-8 w-24 h-24 rounded-full"
                     style={{
-                      background: "radial-gradient(circle, #0E2F71 2px, transparent 2px)",
+                      background: "radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px)",
                       backgroundSize: "12px 12px",
-                      opacity: 0.3,
+                      opacity: 0.5,
                     }}
                   />
                 </div>
@@ -1185,8 +1187,8 @@ export default function Home() {
                 <span
                   className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                   style={{
-                    background: "rgba(198,0,15,0.1)",
-                    color: "#C6000F",
+                    background: "rgba(198,0,15,0.3)",
+                    color: "#FFFFFF",
                     fontFamily: "'Nunito', sans-serif",
                   }}
                 >
@@ -1197,13 +1199,13 @@ export default function Home() {
                   className="text-4xl md:text-5xl font-bold mb-6"
                   style={{
                     fontFamily: "'Fredoka', sans-serif",
-                    color: "#4A2C2A",
+                    color: "#FFFFFF",
                   }}
                 >
                   Crafting{" "}
                   <span
                     style={{
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
+                      background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                     }}
@@ -1217,8 +1219,7 @@ export default function Home() {
                   className="text-lg mb-6 leading-relaxed"
                   style={{
                     fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                    opacity: 0.8,
+                    color: "rgba(255,255,255,0.8)",
                   }}
                 >
                   At LOR, we believe that every snack should be a moment of pure joy.
@@ -1230,8 +1231,7 @@ export default function Home() {
                   className="text-lg mb-8 leading-relaxed"
                   style={{
                     fontFamily: "'Nunito', sans-serif",
-                    color: "#4A2C2A",
-                    opacity: 0.8,
+                    color: "rgba(255,255,255,0.8)",
                   }}
                 >
                   From our classic biscuits to our innovative wafers, every LOR product
@@ -1251,7 +1251,7 @@ export default function Home() {
                         className="text-3xl md:text-4xl font-bold mb-1"
                         style={{
                           fontFamily: "'Fredoka', sans-serif",
-                          background: "linear-gradient(135deg, #C6000F, #670008)",
+                          background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
                         }}
@@ -1262,8 +1262,7 @@ export default function Home() {
                         className="text-sm font-semibold"
                         style={{
                           fontFamily: "'Nunito', sans-serif",
-                          color: "#4A2C2A",
-                          opacity: 0.6,
+                          color: "rgba(255,255,255,0.7)",
                         }}
                       >
                         {stat.label}
@@ -1293,8 +1292,8 @@ export default function Home() {
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-[#C6000F]/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-[#0E2F71]/10 blur-3xl" />
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
 
         {/* Contact Section */}
@@ -1302,15 +1301,15 @@ export default function Home() {
           id="contact"
           className="relative py-24 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           {/* Background Decoration */}
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `radial-gradient(circle at 10% 90%, rgba(198,0,15,0.05) 0%, transparent 40%),
-                               radial-gradient(circle at 90% 10%, rgba(14,47,113,0.08) 0%, transparent 40%)`,
+              backgroundImage: `radial-gradient(circle at 10% 90%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                               radial-gradient(circle at 90% 10%, rgba(255,255,255,0.08) 0%, transparent 40%)`,
             }}
           />
 
@@ -1319,8 +1318,8 @@ export default function Home() {
             <span
               className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
               style={{
-                background: "rgba(198,0,15,0.1)",
-                color: "#C6000F",
+                background: "rgba(198,0,15,0.3)",
+                color: "#FFFFFF",
                 fontFamily: "'Nunito', sans-serif",
               }}
             >
@@ -1330,13 +1329,13 @@ export default function Home() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               style={{
                 fontFamily: "'Fredoka', sans-serif",
-                color: "#4A2C2A",
+                color: "#FFFFFF",
               }}
             >
               We&apos;d Love to{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #C6000F, #670008)",
+                  background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -1349,8 +1348,7 @@ export default function Home() {
               className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
               style={{
                 fontFamily: "'Nunito', sans-serif",
-                color: "#4A2C2A",
-                opacity: 0.7,
+                color: "rgba(255,255,255,0.7)",
               }}
             >
               Have questions, feedback, or just want to say hello? We&apos;re here for you!
@@ -1445,6 +1443,10 @@ export default function Home() {
               </svg>
             </Link>
           </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
       </main>
       <Footer />

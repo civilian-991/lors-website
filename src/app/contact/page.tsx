@@ -238,26 +238,26 @@ export default function ContactPage() {
         <section
           className="relative py-20 md:py-28 overflow-hidden"
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
           {/* Decorative Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div
-              className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-30 animate-blob"
+              className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-20 animate-blob"
               style={{ background: "radial-gradient(circle, #C6000F 0%, transparent 70%)" }}
             />
             <div
-              className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full opacity-20 animate-blob"
+              className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full opacity-15 animate-blob"
               style={{
-                background: "radial-gradient(circle, #0E2F71 0%, transparent 70%)",
+                background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
                 animationDelay: "2s",
               }}
             />
             {/* Dots Pattern */}
             <div
               className="absolute inset-0 dots-pattern"
-              style={{ opacity: 0.05 }}
+              style={{ opacity: 0.03 }}
             />
           </div>
 
@@ -265,8 +265,8 @@ export default function ContactPage() {
             <span
               className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-6 animate-slide-up"
               style={{
-                background: "rgba(198,0,15,0.1)",
-                color: "#C6000F",
+                background: "rgba(198,0,15,0.2)",
+                color: "#FF6B6B",
                 fontFamily: "'Nunito', sans-serif",
               }}
             >
@@ -276,13 +276,13 @@ export default function ContactPage() {
               className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 animate-slide-up stagger-1"
               style={{
                 fontFamily: "'Fredoka', sans-serif",
-                color: "#4A2C2A",
+                color: "#FFFFFF",
               }}
             >
               Get In{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #C6000F, #670008)",
+                  background: "linear-gradient(135deg, #FF6B6B, #C6000F)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -294,8 +294,7 @@ export default function ContactPage() {
               className="text-lg md:text-xl max-w-2xl mx-auto animate-slide-up stagger-2"
               style={{
                 fontFamily: "'Nunito', sans-serif",
-                color: "#4A2C2A",
-                opacity: 0.7,
+                color: "rgba(255,255,255,0.8)",
               }}
             >
               Have a question, feedback, or just want to say hello? We&apos;re here for you!
@@ -314,14 +313,19 @@ export default function ContactPage() {
             >
               <path
                 d="M0 120L60 105C120 90 240 60 360 52.5C480 45 600 60 720 67.5C840 75 960 75 1080 67.5C1200 60 1320 45 1380 37.5L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#FFFFFF"
+                fill="#0A2255"
               />
             </svg>
           </div>
         </section>
 
         {/* Main Contact Section */}
-        <section className="relative py-16 md:py-24 bg-white">
+        <section
+          className="relative py-16 md:py-24"
+          style={{
+            background: "linear-gradient(180deg, #0A2255 0%, #0E2F71 50%, #071A45 100%)",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-12 xl:gap-20">
               {/* Contact Form */}
@@ -412,7 +416,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "name" || formData.name
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFFFFF]"
+                              : "border-transparent bg-[#F8FAFC]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -468,7 +472,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "email" || formData.email
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFFFFF]"
+                              : "border-transparent bg-[#F8FAFC]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -527,7 +531,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "phone" || formData.phone
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFFFFF]"
+                              : "border-transparent bg-[#F8FAFC]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -582,7 +586,7 @@ export default function ContactPage() {
                               ? "border-red-400 bg-red-50"
                               : focusedField === "subject" || formData.subject
                               ? "border-[#C6000F] bg-white"
-                              : "border-transparent bg-[#FFFFFF]"
+                              : "border-transparent bg-[#F8FAFC]"
                           }`}
                           style={{
                             fontFamily: "'Nunito', sans-serif",
@@ -657,7 +661,7 @@ export default function ContactPage() {
                             ? "border-red-400 bg-red-50"
                             : focusedField === "message" || formData.message
                             ? "border-[#C6000F] bg-white"
-                            : "border-transparent bg-[#FFFFFF]"
+                            : "border-transparent bg-[#F8FAFC]"
                         }`}
                         style={{
                           fontFamily: "'Nunito', sans-serif",
@@ -934,7 +938,9 @@ export default function ContactPage() {
         {/* Map / Location Section */}
         <section
           className="relative py-16 md:py-24 overflow-hidden"
-          style={{ background: "#FFFFFF" }}
+          style={{
+            background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)",
+          }}
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
@@ -942,7 +948,7 @@ export default function ContactPage() {
                 className="text-3xl md:text-4xl font-bold mb-4"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Find Our Sweet Spot
@@ -951,8 +957,7 @@ export default function ContactPage() {
                 className="text-lg max-w-xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Visit us at our headquarters and experience the world of LOR chocolates
@@ -963,8 +968,8 @@ export default function ContactPage() {
             <div
               className="relative h-[400px] rounded-3xl overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, #E8D5C4 0%, #D4C4B0 100%)",
-                boxShadow: "inset 0 0 100px rgba(0,0,0,0.1)",
+                background: "linear-gradient(135deg, #1A3A6E 0%, #0D2850 100%)",
+                boxShadow: "inset 0 0 100px rgba(0,0,0,0.3)",
               }}
             >
               {/* Map Pattern */}
@@ -972,8 +977,8 @@ export default function ContactPage() {
                 className="absolute inset-0"
                 style={{
                   backgroundImage: `
-                    linear-gradient(rgba(198,0,15,0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(198,0,15,0.05) 1px, transparent 1px)
+                    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
                   `,
                   backgroundSize: "40px 40px",
                 }}
@@ -983,17 +988,17 @@ export default function ContactPage() {
               <div
                 className="absolute top-1/2 left-0 right-0 h-3"
                 style={{
-                  background: "rgba(74,44,42,0.15)",
+                  background: "rgba(255,255,255,0.1)",
                   transform: "translateY(-50%)",
                 }}
               />
               <div
                 className="absolute left-1/3 top-0 bottom-0 w-3"
-                style={{ background: "rgba(74,44,42,0.15)" }}
+                style={{ background: "rgba(255,255,255,0.1)" }}
               />
               <div
                 className="absolute left-2/3 top-0 bottom-0 w-2"
-                style={{ background: "rgba(74,44,42,0.1)" }}
+                style={{ background: "rgba(255,255,255,0.08)" }}
               />
 
               {/* Location Marker */}
@@ -1105,14 +1110,19 @@ export default function ContactPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="relative py-16 md:py-24 bg-white">
+        <section
+          className="relative py-16 md:py-24"
+          style={{
+            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
+          }}
+        >
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
                 style={{
-                  background: "rgba(198,0,15,0.1)",
-                  color: "#C6000F",
+                  background: "rgba(198,0,15,0.2)",
+                  color: "#FF6B6B",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
@@ -1122,7 +1132,7 @@ export default function ContactPage() {
                 className="text-3xl md:text-4xl font-bold mb-4"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Frequently Asked Questions
@@ -1131,8 +1141,7 @@ export default function ContactPage() {
                 className="text-lg max-w-xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Find quick answers to common questions about our products and services
@@ -1145,13 +1154,13 @@ export default function ContactPage() {
                   key={index}
                   className="rounded-2xl overflow-hidden transition-all duration-300"
                   style={{
-                    background: openFaq === index ? "#FFFFFF" : "white",
+                    background: "#FFFFFF",
                     border: "1px solid",
-                    borderColor: openFaq === index ? "rgba(198,0,15,0.2)" : "rgba(198,0,15,0.08)",
+                    borderColor: openFaq === index ? "rgba(198,0,15,0.3)" : "rgba(255,255,255,0.1)",
                     boxShadow:
                       openFaq === index
-                        ? "0 10px 40px rgba(198,0,15,0.08)"
-                        : "0 2px 10px rgba(0,0,0,0.02)",
+                        ? "0 10px 40px rgba(0,0,0,0.2)"
+                        : "0 2px 10px rgba(0,0,0,0.1)",
                   }}
                 >
                   <button
@@ -1216,14 +1225,15 @@ export default function ContactPage() {
             <div
               className="mt-12 p-8 rounded-3xl text-center"
               style={{
-                background: "linear-gradient(135deg, rgba(198,0,15,0.05) 0%, rgba(14,47,113,0.08) 100%)",
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
               }}
             >
               <div
                 className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
                 style={{
                   background: "linear-gradient(135deg, #C6000F, #670008)",
-                  boxShadow: "0 8px 30px rgba(198,0,15,0.25)",
+                  boxShadow: "0 8px 30px rgba(198,0,15,0.35)",
                 }}
               >
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1239,7 +1249,7 @@ export default function ContactPage() {
                 className="text-2xl font-bold mb-2"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#4A2C2A",
+                  color: "#FFFFFF",
                 }}
               >
                 Still Have Questions?
@@ -1248,8 +1258,7 @@ export default function ContactPage() {
                 className="mb-6"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "#4A2C2A",
-                  opacity: 0.7,
+                  color: "rgba(255,255,255,0.7)",
                 }}
               >
                 Can&apos;t find the answer you&apos;re looking for? Our friendly team is here to help!
@@ -1265,7 +1274,7 @@ export default function ContactPage() {
                   background: "linear-gradient(135deg, #C6000F, #670008)",
                   color: "white",
                   fontFamily: "'Nunito', sans-serif",
-                  boxShadow: "0 8px 30px rgba(198,0,15,0.3)",
+                  boxShadow: "0 8px 30px rgba(198,0,15,0.4)",
                 }}
               >
                 Contact Us
