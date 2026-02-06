@@ -17,14 +17,14 @@ import {
 } from "@/components/AnimatedElements";
 import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
 
-// Featured products data
+// Featured products data - using official brand colors
 const featuredProducts = [
   { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#3D5A80" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#7CB518" },
+  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#670008" },
+  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#12357A" },
   { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
-  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#C6000F" },
-  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#F9A825" },
+  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#670008" },
+  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#0E2F71" },
 ];
 
 // Benefits data
@@ -527,21 +527,21 @@ export default function Home() {
                       <div
                         className="relative aspect-square p-6 flex items-center justify-center overflow-hidden"
                         style={{
-                          background: `linear-gradient(135deg, ${product.color}40, ${product.color}25)`,
+                          background: `linear-gradient(135deg, ${product.color}80, ${product.color}60)`,
                         }}
                       >
                         {/* Animated Decorative Circles */}
                         <div
-                          className="absolute w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-60"
+                          className="absolute w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-80"
                           style={{
-                            background: `${product.color}35`,
+                            background: `${product.color}50`,
                             filter: "blur(20px)",
                           }}
                         />
                         <div
                           className="absolute w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-150"
                           style={{
-                            background: `radial-gradient(circle, ${product.color}40, transparent 70%)`,
+                            background: `radial-gradient(circle, ${product.color}70, transparent 70%)`,
                             right: "20%",
                             top: "20%",
                           }}

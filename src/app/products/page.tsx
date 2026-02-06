@@ -446,21 +446,21 @@ export default function ProductsPage() {
                     <div
                       className="relative aspect-square p-8 flex items-center justify-center overflow-hidden"
                       style={{
-                        background: `linear-gradient(135deg, ${product.color}40, ${product.color}25)`,
+                        background: `linear-gradient(135deg, ${product.color}70, ${product.color}50)`,
                       }}
                     >
                       {/* Decorative Circles */}
                       <div
-                        className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-50"
+                        className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-70"
                         style={{
-                          background: `radial-gradient(circle, ${product.color}50, transparent 70%)`,
+                          background: `radial-gradient(circle, ${product.color}60, transparent 70%)`,
                           filter: "blur(20px)",
                         }}
                       />
                       <div
                         className="absolute w-24 h-24 rounded-full transition-all duration-500 group-hover:scale-150 opacity-0 group-hover:opacity-100"
                         style={{
-                          background: `${product.color}30`,
+                          background: `${product.color}50`,
                           right: "20%",
                           top: "20%",
                         }}
