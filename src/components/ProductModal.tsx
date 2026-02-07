@@ -43,10 +43,8 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
     const features: Record<string, string[]> = {
       Biscuits: ["Crunchy texture", "Perfect for tea time", "Family favorite", "Premium ingredients"],
       Wafers: ["Multiple cream layers", "Light & crispy", "Irresistible taste", "Perfect snack"],
-      Cakes: ["Soft & moist", "Creamy filling", "Delightful flavor", "Fresh baked taste"],
       Crackers: ["Savory goodness", "Light & crispy", "Great with dips", "Wholesome snack"],
-      Kids: ["Fun shapes", "Kid-approved taste", "Nutritious", "Perfect lunch box treat"],
-      Snacks: ["Bold flavors", "Crunchy satisfaction", "Anytime snack", "Share with friends"],
+      Cakes: ["Soft & moist", "Creamy filling", "Delightful flavor", "Fresh baked taste"],
     };
     return features[category] || features.Biscuits;
   };

@@ -19,12 +19,12 @@ import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
 
 // Featured products data - using official brand colors
 const featuredProducts = [
-  { id: "waferio", name: "Waferio", image: "/images/products-logos/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products-logos/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#670008" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products-logos/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#12357A" },
-  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products-logos/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
-  { id: "wafemax", name: "Wafemax", image: "/images/products-logos/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#670008" },
-  { id: "kidz", name: "Kidz", image: "/images/products-logos/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#0E2F71" },
+  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
+  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#670008" },
+  { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#12357A" },
+  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
+  { id: "wafemax", name: "Wafe Max", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#670008" },
+  { id: "kidz-zoo", name: "Kidz Zoo", image: "/images/products/kidz-zoo.png", category: "Biscuits", description: "Fun animal-shaped biscuits kids love", color: "#0E2F71" },
 ];
 
 // Benefits data
@@ -101,10 +101,10 @@ const testimonials = [
 
 // Sweet Moments gallery data
 const sweetMoments = [
-  { id: 1, title: "Family Tea Time", description: "Perfect moments with LOR biscuits", image: "/images/products-logos/digestive-classic.png" },
-  { id: 2, title: "Kids Party", description: "Making celebrations sweeter", image: "/images/products-logos/kidz.png" },
-  { id: 3, title: "Snack Break", description: "Energize your day", image: "/images/products-logos/mega-bite.png" },
-  { id: 4, title: "Sweet Treats", description: "Indulge in joy", image: "/images/products-logos/joy-cake.png" },
+  { id: 1, title: "Family Tea Time", description: "Perfect moments with LOR biscuits", image: "/images/products/digestive-classic.png" },
+  { id: 2, title: "Kids Party", description: "Making celebrations sweeter", image: "/images/products/kidz-zoo.png" },
+  { id: 3, title: "Snack Break", description: "Energize your day", image: "/images/products/mega-bite.png" },
+  { id: 4, title: "Sweet Treats", description: "Indulge in joy", image: "/images/products/joy-cake.png" },
 ];
 
 export default function Home() {
@@ -1242,7 +1242,7 @@ export default function Home() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 mb-8">
                   {[
-                    { number: "22+", label: "Products" },
+                    { number: "21+", label: "Products" },
                     { number: "100%", label: "Quality" },
                     { number: "1M+", label: "Happy Customers" },
                   ].map((stat, index) => (

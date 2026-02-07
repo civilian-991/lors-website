@@ -13,31 +13,34 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#6D4C3D" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#1E40AF" },
-  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#A3000C" },
-  { id: "custard-creams", name: "Custard Creams", image: "/images/products/custard-creams.png", category: "Biscuits", description: "Traditional biscuits with rich custard cream", color: "#3D5A80" },
+  // Biscuits (12)
   { id: "creamy-smiles", name: "Creamy Smiles", image: "/images/products/creamy-smiles.png", category: "Biscuits", description: "Fun-shaped biscuits with creamy centers", color: "#C6000F" },
-  { id: "ginger-nuts", name: "Ginger Nuts", image: "/images/products/ginger-nuts.png", category: "Biscuits", description: "Crunchy ginger-flavored biscuits with a spicy kick", color: "#850009" },
   { id: "coconutty", name: "Coconutty", image: "/images/products/coconutty.png", category: "Biscuits", description: "Tropical coconut biscuits with exotic flavor", color: "#3B82F6" },
-  { id: "milky", name: "Milky", image: "/images/products/milky.png", category: "Biscuits", description: "Creamy milk-flavored biscuits", color: "#5B7FA3" },
+  { id: "ginger-nuts", name: "Ginger Nuts", image: "/images/products/ginger-nuts.png", category: "Biscuits", description: "Crunchy ginger-flavored biscuits with a spicy kick", color: "#850009" },
+  { id: "milky", name: "Milky", image: "/images/products/milky.png", category: "Biscuits", description: "Creamy shortbread biscuits with milk goodness", color: "#5B7FA3" },
+  { id: "custard-creams", name: "Custard Creams", image: "/images/products/custard-creams.png", category: "Biscuits", description: "Traditional biscuits with rich custard cream", color: "#3D5A80" },
+  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#A3000C" },
+  { id: "kidz-zoo", name: "Kidz Zoo", image: "/images/products/kidz-zoo.png", category: "Biscuits", description: "Fun animal-shaped biscuits kids love", color: "#3B82F6" },
+  { id: "chip-stars", name: "Chip Stars", image: "/images/products/chip-stars.png", category: "Biscuits", description: "Star-shaped chips bursting with flavor", color: "#850009" },
   { id: "marie-gold", name: "Marie Gold", image: "/images/products/marie-gold.png", category: "Biscuits", description: "Classic Marie biscuits, perfect with tea", color: "#670008" },
   { id: "glucose", name: "Glucose", image: "/images/products/glucose.png", category: "Biscuits", description: "Energy-boosting glucose biscuits", color: "#12357A" },
+  { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#1E40AF" },
+  { id: "two-friends", name: "Two Friends", image: "/images/products/two-friends.png", category: "Biscuits", description: "Two delicious biscuits, better together", color: "#78716C" },
+  // Wafers (2)
+  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
+  { id: "wafemax", name: "Wafe Max", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#A3000C" },
+  // Crackers (3)
   { id: "abu-cracker", name: "Abu Cracker", image: "/images/products/abu-cracker.png", category: "Crackers", description: "Light and crispy savory crackers", color: "#57534E" },
   { id: "mr-cracker", name: "Mr Cracker", image: "/images/products/mr-cracker.png", category: "Crackers", description: "Premium crackers for every occasion", color: "#44403C" },
   { id: "i-love-salt", name: "I Love Salt", image: "/images/products/i-love-salt.png", category: "Crackers", description: "Perfectly salted crackers for snack lovers", color: "#0E2F71" },
-  { id: "power-cake", name: "Power Cake", image: "/images/products/power-cake.png", category: "Cakes", description: "Energy-packed cake for active lifestyles", color: "#C6000F" },
+  // Cakes (4)
   { id: "spongy", name: "Spongy", image: "/images/products/spongy.png", category: "Cakes", description: "Light and fluffy sponge cakes", color: "#E63946" },
-  { id: "two-friends", name: "Two Friends", image: "/images/products/two-friends.png", category: "Biscuits", description: "Two delicious biscuits, better together", color: "#78716C" },
-  { id: "wafemax", name: "Wafemax", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#A3000C" },
-  { id: "kidz", name: "Kidz", image: "/images/products/kidz.png", category: "Kids", description: "Fun treats designed especially for kids", color: "#3B82F6" },
-  { id: "zoo", name: "Zoo", image: "/images/products/zoo.png", category: "Kids", description: "Animal-shaped biscuits kids love", color: "#1E40AF" },
-  { id: "chip-stars", name: "Chip Stars", image: "/images/products/chip-stars.png", category: "Snacks", description: "Star-shaped chips bursting with flavor", color: "#850009" },
-  { id: "yum-yum", name: "Yum Yum", image: "/images/products/yum-yum.png", category: "Snacks", description: "Irresistible snacks that make you say yum!", color: "#E63946" },
+  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#6D4C3D" },
+  { id: "yum-yum", name: "YumYum", image: "/images/products/yum-yum.png", category: "Cakes", description: "Delicious donut cakes in irresistible flavors", color: "#E63946" },
+  { id: "power-cake", name: "Power Cake", image: "/images/products/power-cake.png", category: "Cakes", description: "Energy-packed cake for active lifestyles", color: "#C6000F" },
 ];
 
-const categories = ["All", "Biscuits", "Wafers", "Cakes", "Crackers", "Kids", "Snacks"];
+const categories = ["All", "Biscuits", "Wafers", "Crackers", "Cakes"];
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
