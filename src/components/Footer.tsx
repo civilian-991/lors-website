@@ -78,7 +78,8 @@ export default function Footer() {
                 alt="LORS Logo"
                 width={150}
                 height={75}
-                className="transition-all duration-500 group-hover:scale-105"
+                loading="lazy"
+                className="transition-transform duration-500 group-hover:scale-105"
                 style={{
                   filter: "drop-shadow(0 0 30px rgba(198,0,15,0.3))"
                 }}
@@ -91,7 +92,7 @@ export default function Footer() {
 
             {/* Newsletter - Premium styling */}
             <div
-              className={`flex gap-2 p-1.5 rounded-2xl transition-all duration-500 ${isNewsletterFocused ? "shadow-lg" : ""}`}
+              className={`flex gap-2 p-1.5 rounded-2xl transition-[background-color,border-color,box-shadow] duration-500 ${isNewsletterFocused ? "shadow-lg" : ""}`}
               style={{
                 background: isNewsletterFocused ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)",
                 border: isNewsletterFocused ? "1px solid rgba(198,0,15,0.4)" : "1px solid rgba(255,255,255,0.08)"
@@ -99,13 +100,18 @@ export default function Footer() {
             >
               <input
                 type="email"
+                name="email"
                 placeholder="Your email"
+                autoComplete="email"
+                spellCheck={false}
+                aria-label="Email address for newsletter"
                 onFocus={() => setIsNewsletterFocused(true)}
                 onBlur={() => setIsNewsletterFocused(false)}
-                className="flex-1 px-5 py-3.5 rounded-xl bg-transparent focus:outline-none text-white placeholder:text-white/40"
+                className="flex-1 px-5 py-3.5 rounded-xl bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] text-white placeholder:text-white/40"
               />
               <button
-                className="px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 hover:scale-105 group relative overflow-hidden text-white"
+                aria-label="Subscribe to newsletter"
+                className="px-6 py-3.5 rounded-xl font-semibold transition-transform duration-300 hover:scale-105 group relative overflow-hidden text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E2F71]"
                 style={{
                   background: "linear-gradient(135deg, #C6000F 0%, #670008 100%)",
                   boxShadow: "0 4px 20px rgba(198,0,15,0.4)"
@@ -137,9 +143,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-3 transition-all duration-300 hover:text-white text-white/50"
+                    className="group inline-flex items-center gap-3 transition-colors duration-300 hover:text-white text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] rounded"
                   >
-                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
+                    <span className="w-0 h-0.5 rounded-full transition-[width] duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
                     {link.label}
                   </Link>
                 </li>
@@ -163,9 +169,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-3 transition-all duration-300 hover:text-white text-white/50"
+                    className="group inline-flex items-center gap-3 transition-colors duration-300 hover:text-white text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] rounded"
                   >
-                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
+                    <span className="w-0 h-0.5 rounded-full transition-[width] duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
                     {link.label}
                   </Link>
                 </li>
@@ -189,9 +195,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-3 transition-all duration-300 hover:text-white text-white/50"
+                    className="group inline-flex items-center gap-3 transition-colors duration-300 hover:text-white text-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] rounded"
                   >
-                    <span className="w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
+                    <span className="w-0 h-0.5 rounded-full transition-[width] duration-300 group-hover:w-4" style={{ background: "#C6000F" }} />
                     {link.label}
                   </Link>
                 </li>
@@ -223,7 +229,7 @@ export default function Footer() {
                 href="#"
                 onMouseEnter={() => setHoveredSocial(social.name)}
                 onMouseLeave={() => setHoveredSocial(null)}
-                className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:-translate-y-1"
+                className="w-12 h-12 rounded-xl flex items-center justify-center transition-[transform,background-color,color,box-shadow,border-color] duration-500 hover:scale-110 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E2F71]"
                 style={{
                   background: hoveredSocial === social.name
                     ? `linear-gradient(135deg, ${social.color}, ${social.color}CC)`
@@ -234,7 +240,7 @@ export default function Footer() {
                     : "none",
                   border: hoveredSocial === social.name ? "none" : "1px solid rgba(255,255,255,0.08)"
                 }}
-                aria-label={social.name}
+                aria-label={`LORS on ${social.name.charAt(0).toUpperCase() + social.name.slice(1)}`}
               >
                 {social.name === "facebook" && (
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -260,10 +266,11 @@ export default function Footer() {
         <div className="flex justify-center mt-10">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-2"
+            aria-label="Back to top"
+            className="group flex flex-col items-center gap-3 transition-transform duration-300 hover:-translate-y-2"
           >
             <div
-              className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:shadow-lg text-white/50 group-hover:text-white"
+              className="w-12 h-12 rounded-full flex items-center justify-center transition-[background-color,box-shadow,color] duration-300 group-hover:shadow-lg text-white/50 group-hover:text-white"
               style={{
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.1)"

@@ -261,8 +261,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -486,7 +488,7 @@ p, span, div {
 
 /* Product card hover effect */
 .product-card {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .product-card:hover {
@@ -533,7 +535,7 @@ section {
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 0.02em;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   box-shadow: 0 4px 20px rgba(14, 47, 113, 0.3);
 }
 
@@ -552,7 +554,7 @@ section {
   font-size: 1.1rem;
   letter-spacing: 0.02em;
   border: 3px solid var(--lor-red);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary:hover {
@@ -1090,7 +1092,7 @@ section {
 
 /* Hover lift effects */
 .hover-lift {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hover-lift:hover {
@@ -1116,7 +1118,7 @@ section {
   width: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--lor-crimson), var(--lor-burgundy));
-  transition: all 0.3s ease;
+  transition: width 0.3s ease;
   transform: translateX(-50%);
 }
 
@@ -1203,7 +1205,7 @@ section {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate.in-view {
@@ -1214,7 +1216,7 @@ section {
 .scroll-animate-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate-left.in-view {
@@ -1225,7 +1227,7 @@ section {
 .scroll-animate-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate-right.in-view {
@@ -1236,7 +1238,7 @@ section {
 .scroll-animate-scale {
   opacity: 0;
   transform: scale(0.8);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-animate-scale.in-view {
@@ -1284,4 +1286,25 @@ section {
 
 .img-zoom-container:hover img {
   transform: scale(1.1);
+}
+
+/* ================================
+   REDUCED MOTION ACCESSIBILITY
+   Respects users who have vestibular disorders
+   or motion sensitivity by disabling animations
+   and transitions when prefers-reduced-motion
+   is set to "reduce" in their OS settings.
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
 }

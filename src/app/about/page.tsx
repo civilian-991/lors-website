@@ -51,6 +51,75 @@ function useCountUp(end: number, duration: number = 2000, startOnView: boolean =
   return { count, ref };
 }
 
+function StatCard({ stat }: { stat: { value: number; suffix: string; label: string; icon: string } }) {
+  const { count, ref } = useCountUp(stat.value, 2000);
+  return (
+    <div
+      ref={ref}
+      className="group text-center p-8 rounded-3xl transition-all duration-500 hover:-translate-y-3"
+      style={{
+        background: "rgba(255,255,255,0.05)",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(255,255,255,0.1)",
+      }}
+    >
+      {/* Icon */}
+      <div
+        className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110"
+        style={{
+          background: "linear-gradient(135deg, #C6000F, #670008)",
+          boxShadow: "0 10px 30px rgba(198,0,15,0.3)",
+        }}
+      >
+        {stat.icon === "package" && (
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+        )}
+        {stat.icon === "shield" && (
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        )}
+        {stat.icon === "heart" && (
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        )}
+        {stat.icon === "globe" && (
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        )}
+      </div>
+
+      {/* Number */}
+      <div
+        className="text-4xl md:text-5xl font-bold mb-2"
+        style={{
+          fontFamily: "'Fredoka', sans-serif",
+          background: "linear-gradient(135deg, #FFFFFF, #0E2F71)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
+        {count}{stat.suffix}
+      </div>
+
+      {/* Label */}
+      <div
+        className="text-lg font-semibold"
+        style={{
+          fontFamily: "'Nunito', sans-serif",
+          color: "rgba(255,255,255,0.7)",
+        }}
+      >
+        {stat.label}
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -60,7 +129,7 @@ export default function AboutPage() {
 
   // Stats data with animated counters
   const stats = [
-    { value: 22, suffix: "+", label: "Products", icon: "package" },
+    { value: 21, suffix: "+", label: "Products", icon: "package" },
     { value: 100, suffix: "%", label: "Quality", icon: "shield" },
     { value: 1, suffix: "M+", label: "Happy Customers", icon: "heart" },
     { value: 50, suffix: "+", label: "Countries", icon: "globe" },
@@ -170,7 +239,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="overflow-hidden">
+      <main className="overflow-hidden" id="main">
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
           {/* Background Gradient */}
@@ -190,7 +259,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 dots-pattern opacity-5" />
 
           {/* Hero Content */}
-          <div className={`relative z-10 text-center px-6 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className={`relative z-10 text-center px-6 max-w-5xl mx-auto transition-[opacity,transform] duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             {/* Badge */}
             <span
               className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-widest mb-8 animate-float"
@@ -290,6 +359,7 @@ export default function AboutPage() {
                         alt="LOR Brand Story"
                         width={400}
                         height={200}
+                        loading="lazy"
                         className="w-full max-w-md animate-float"
                       />
                     </div>
@@ -464,7 +534,7 @@ export default function AboutPage() {
               {missionVision.map((item, index) => (
                 <div
                   key={index}
-                  className="group relative p-10 rounded-[2rem] transition-all duration-500 hover:-translate-y-3"
+                  className="group relative p-10 rounded-[2rem] transition-[transform,box-shadow] duration-500 hover:-translate-y-3"
                   style={{
                     background: "white",
                     boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
@@ -658,75 +728,9 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => {
-                const { count, ref } = useCountUp(stat.value, 2000);
-                return (
-                  <div
-                    key={index}
-                    ref={ref}
-                    className="group text-center p-8 rounded-3xl transition-all duration-500 hover:-translate-y-3"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
-                  >
-                    {/* Icon */}
-                    <div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110"
-                      style={{
-                        background: "linear-gradient(135deg, #C6000F, #670008)",
-                        boxShadow: "0 10px 30px rgba(198,0,15,0.3)",
-                      }}
-                    >
-                      {stat.icon === "package" && (
-                        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                        </svg>
-                      )}
-                      {stat.icon === "shield" && (
-                        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                      )}
-                      {stat.icon === "heart" && (
-                        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                      )}
-                      {stat.icon === "globe" && (
-                        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      )}
-                    </div>
-
-                    {/* Number */}
-                    <div
-                      className="text-4xl md:text-5xl font-bold mb-2"
-                      style={{
-                        fontFamily: "'Fredoka', sans-serif",
-                        background: "linear-gradient(135deg, #FFFFFF, #0E2F71)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      {count}{stat.suffix}
-                    </div>
-
-                    {/* Label */}
-                    <div
-                      className="text-lg font-semibold"
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "rgba(255,255,255,0.7)",
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                  </div>
-                );
-              })}
+              {stats.map((stat, index) => (
+                <StatCard key={index} stat={stat} />
+              ))}
             </div>
           </div>
         </section>

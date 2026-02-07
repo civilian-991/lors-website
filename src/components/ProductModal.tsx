@@ -60,7 +60,10 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={product?.name ? `${product.name} product details` : "Product details"}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 overscroll-contain"
       onClick={onClose}
     >
       {/* Backdrop */}
@@ -76,13 +79,14 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
           background: "linear-gradient(180deg, #FFFFFF 0%, #FFF8F0 100%)",
           boxShadow: `0 30px 80px ${product.color}40, 0 10px 30px rgba(0,0,0,0.2)`,
           animationDuration: "0.4s",
+          overscrollBehavior: "contain",
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] focus-visible:ring-offset-2"
           style={{
             background: "rgba(74,44,42,0.1)",
             color: "#4A2C2A",
@@ -94,7 +98,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
           </svg>
         </button>
 
-        <div className="flex flex-col md:flex-row overflow-y-auto max-h-[90vh]">
+        <div className="flex flex-col md:flex-row overflow-y-auto overscroll-contain max-h-[90vh]">
           {/* Product Image Section */}
           <div
             className="relative md:w-1/2 p-8 md:p-12 flex items-center justify-center"
@@ -242,7 +246,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
             <div className="flex flex-col sm:flex-row gap-3 animate-slide-up" style={{ animationDelay: "0.6s" }}>
               <a
                 href="/contact"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
                 style={{
                   background: `linear-gradient(135deg, ${product.color}, ${product.color}CC)`,
                   color: "white",
@@ -260,7 +264,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
               </a>
               <button
                 onClick={onClose}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold transition-all duration-300 hover:-translate-y-1"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] focus-visible:ring-offset-2"
                 style={{
                   background: "transparent",
                   color: "#4A2C2A",

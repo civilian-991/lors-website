@@ -42,6 +42,17 @@ const products: Product[] = [
 
 const categories = ["All", "Biscuits", "Wafers", "Crackers", "Cakes"];
 
+/**
+ * Converts a hex color and opacity (0-100) to a proper rgba() string.
+ * Avoids non-standard hex+opacity suffix like "#C6000F70".
+ */
+function hexToRgba(hex: string, opacity: number): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`;
+}
+
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
@@ -118,7 +129,7 @@ export default function Products() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+              className={`px-7 py-3.5 rounded-full font-semibold text-sm transition-[background-color,color,border-color,transform] duration-300 ${
                 activeCategory === category
                   ? "text-white scale-105"
                   : "hover:scale-105"
@@ -144,11 +155,13 @@ export default function Products() {
         {/* Products Grid - Premium cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {filteredProducts.map((product, index) => (
-            <div
+            <button
               key={product.id}
-              className="product-card group"
+              type="button"
+              className="product-card group text-left"
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
+              aria-label={`View ${product.name} - ${product.category}`}
               style={{
                 animationDelay: `${index * 0.05}s`,
               }}
@@ -159,7 +172,7 @@ export default function Products() {
                   background: "#FFFFFF",
                   boxShadow:
                     hoveredProduct === product.id
-                      ? `0 25px 50px ${product.color}25, 0 0 0 2px #0E2F71`
+                      ? `0 25px 50px ${hexToRgba(product.color, 15)}, 0 0 0 2px #0E2F71`
                       : "0 4px 20px rgba(0,0,0,0.06)",
                   border: hoveredProduct === product.id ? "none" : "1px solid rgba(14,47,113,0.08)"
                 }}
@@ -168,14 +181,14 @@ export default function Products() {
                 <div
                   className="relative aspect-square p-6 flex items-center justify-center overflow-hidden"
                   style={{
-                    background: `linear-gradient(135deg, ${product.color}70, ${product.color}50)`,
+                    background: `linear-gradient(135deg, ${hexToRgba(product.color, 44)}, ${hexToRgba(product.color, 31)})`,
                   }}
                 >
                   {/* Decorative Circle */}
                   <div
                     className="absolute w-36 h-36 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-80"
                     style={{
-                      background: `radial-gradient(circle, ${product.color}40, transparent 70%)`,
+                      background: `radial-gradient(circle, ${hexToRgba(product.color, 25)}, transparent 70%)`,
                     }}
                   />
 
@@ -183,7 +196,7 @@ export default function Products() {
                   <div
                     className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                      background: `linear-gradient(225deg, ${product.color}50, transparent 70%)`,
+                      background: `linear-gradient(225deg, ${hexToRgba(product.color, 31)}, transparent 70%)`,
                     }}
                   />
 
@@ -239,7 +252,7 @@ export default function Products() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

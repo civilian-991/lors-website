@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,13 +30,20 @@ export default function Header() {
     { href: "/contact", label: "Contact", icon: "📧" },
   ];
 
-  // Magnetic effect for nav links
+  // Magnetic effect for nav links (throttled via rAF to avoid layout thrashing)
+  const rafRef = useRef<number | null>(null);
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const target = e.currentTarget;
-    const rect = target.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
-    const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-    target.style.transform = `translate(${x}px, ${y}px)`;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = target.getBoundingClientRect();
+      const x = (clientX - rect.left - rect.width / 2) * 0.15;
+      const y = (clientY - rect.top - rect.height / 2) * 0.15;
+      target.style.transform = `translate(${x}px, ${y}px)`;
+      rafRef.current = null;
+    });
     setHoveredLink(href);
   }, []);
 
@@ -47,7 +54,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,padding,box-shadow,backdrop-filter] duration-500 ${
         isScrolled
           ? "py-3"
           : "bg-transparent py-6"
@@ -64,15 +71,16 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo with hover animation */}
-        <Link href="/" className="relative z-10 group">
+        <Link href="/" className="relative z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500 rounded-md">
           <Image
             src="/images/logos/lor-logo.png"
             alt="LORS Logo"
-            width={100}
-            height={50}
+            width={128}
+            height={64}
             className={`transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-lg ${
-              isScrolled ? "h-12 w-auto" : "h-16 w-auto"
+              isScrolled ? "h-12" : "h-16"
             }`}
+            style={{ width: "auto" }}
             priority
           />
           {/* Glow effect on hover */}
@@ -87,7 +95,7 @@ export default function Header() {
               href={link.href}
               onMouseMove={(e) => handleMouseMove(e, link.href)}
               onMouseLeave={handleMouseLeave}
-              className={`relative font-semibold text-lg transition-all duration-300 group ${
+              className={`relative font-semibold text-lg transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 rounded-md ${
                 activeLink === link.href
                   ? "text-crimson"
                   : "text-warm-800 hover:text-crimson"
@@ -98,7 +106,7 @@ export default function Header() {
             >
               <span className="relative inline-flex items-center gap-1.5">
                 {/* Icon appears on hover */}
-                <span className={`inline-block transition-all duration-300 ${hoveredLink === link.href ? "opacity-100 scale-100 mr-0" : "opacity-0 scale-0 -mr-5"}`}>
+                <span aria-hidden="true" className={`inline-block transition-all duration-300 ${hoveredLink === link.href ? "opacity-100 scale-100 mr-0" : "opacity-0 scale-0 -mr-5"}`}>
                   {link.icon}
                 </span>
                 {link.label}
@@ -119,7 +127,7 @@ export default function Header() {
         {/* Mobile Menu Button with Enhanced Animation */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden relative z-10 w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-xl hover:bg-crimson/10 transition-colors duration-300"
+          className="md:hidden relative z-10 w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-xl hover:bg-crimson/10 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
           aria-label="Toggle menu"
         >
           <span
@@ -141,7 +149,7 @@ export default function Header() {
 
         {/* Mobile Menu with Enhanced Animations */}
         <div
-          className={`fixed inset-0 flex flex-col items-center justify-center gap-6 transition-all duration-700 md:hidden bg-gradient-hero backdrop-blur-xl ${
+          className={`fixed inset-0 flex flex-col items-center justify-center gap-6 transition-all duration-700 md:hidden bg-gradient-hero backdrop-blur-xl overscroll-contain ${
             isMobileMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -156,14 +164,14 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-3xl font-heavy transition-all duration-500 hover:scale-110 flex items-center gap-3 ${
+              className={`text-3xl font-heavy transition-all duration-500 hover:scale-110 flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 rounded-md ${
                 activeLink === link.href ? "text-crimson" : "text-warm-800 hover:text-crimson"
               } ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
               style={{
                 transitionDelay: isMobileMenuOpen ? `${index * 100 + 200}ms` : "0ms",
               }}
             >
-              <span className="text-2xl">{link.icon}</span>
+              <span aria-hidden="true" className="text-2xl">{link.icon}</span>
               {link.label}
               {activeLink === link.href && (
                 <span className="ml-2 w-2 h-2 rounded-full bg-crimson animate-pulse" />

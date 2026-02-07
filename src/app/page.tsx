@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type CSSProperties } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -15,7 +15,7 @@ import {
   Marquee,
   PulsingDot,
 } from "@/components/AnimatedElements";
-import { useScrollAnimation, useCountUp } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation, useCountUp, useReducedMotion } from "@/hooks/useScrollAnimation";
 
 // Featured products data - using official brand colors
 const featuredProducts = [
@@ -112,33 +112,47 @@ export default function Home() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
 
-  // Track mouse for parallax effects
+  // Track mouse for parallax effects - throttled with rAF, disabled for reduced-motion
   useEffect(() => {
+    if (reducedMotion) return;
+
+    let rafId: number | null = null;
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-        setMousePosition({ x, y });
-      }
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (heroRef.current) {
+          const rect = heroRef.current.getBoundingClientRect();
+          const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+          const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+          setMousePosition({ x, y });
+        }
+        rafId = null;
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [reducedMotion]);
 
+  // Auto-rotate testimonials - paused when user prefers reduced motion
   useEffect(() => {
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <>
       <Header />
-      <main>
+      <main id="main">
         {/* Hero Section */}
         <section
           ref={heroRef}
@@ -154,33 +168,33 @@ export default function Home() {
               className="absolute top-20 -left-20 w-96 h-96 bg-[#12357A]/30 animate-blob animate-morph-slow"
               style={{
                 animationDelay: "0s",
-                transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
-                transition: "transform 0.3s ease-out",
-              }}
+                translate: `${mousePosition.x * 20}px ${mousePosition.y * 20}px`,
+                transition: "translate 0.3s ease-out",
+              } as CSSProperties}
             />
             <div
               className="absolute top-40 right-20 w-72 h-72 bg-[#C6000F]/20 animate-blob animate-morph"
               style={{
                 animationDelay: "2s",
-                transform: `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
-                transition: "transform 0.3s ease-out",
-              }}
+                translate: `${mousePosition.x * -30}px ${mousePosition.y * -30}px`,
+                transition: "translate 0.3s ease-out",
+              } as CSSProperties}
             />
             <div
               className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#12357A]/20 animate-blob animate-morph-slow"
               style={{
                 animationDelay: "4s",
-                transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px)`,
-                transition: "transform 0.3s ease-out",
-              }}
+                translate: `${mousePosition.x * 15}px ${mousePosition.y * 15}px`,
+                transition: "translate 0.3s ease-out",
+              } as CSSProperties}
             />
             {/* Additional animated shapes */}
             <div
               className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#12357A]/20 to-[#670008]/20 animate-spin-slow"
               style={{
-                transform: `translate(${mousePosition.x * -25}px, ${mousePosition.y * -25}px) rotate(${mousePosition.x * 20}deg)`,
-                transition: "transform 0.5s ease-out",
-              }}
+                translate: `${mousePosition.x * -25}px ${mousePosition.y * -25}px`,
+                transition: "translate 0.5s ease-out",
+              } as CSSProperties}
             />
           </div>
 
@@ -217,7 +231,7 @@ export default function Home() {
                   }}
                 >
                   <span className="inline-flex items-center gap-2">
-                    <span className="animate-wave-hand">✨</span>
+                    <span className="animate-wave-hand" aria-hidden="true">✨</span>
                     DELICIOUSLY CRAFTED
                   </span>
                 </span>
@@ -312,9 +326,10 @@ export default function Home() {
                   className="absolute inset-0 rounded-full blur-3xl animate-pulse-glow"
                   style={{
                     background: "radial-gradient(circle, rgba(198,0,15,0.25) 0%, transparent 70%)",
-                    transform: `scale(1.5) translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`,
-                    transition: "transform 0.3s ease-out",
-                  }}
+                    scale: "1.5",
+                    translate: `${mousePosition.x * 10}px ${mousePosition.y * 10}px`,
+                    transition: "translate 0.3s ease-out",
+                  } as CSSProperties}
                 />
 
                 {/* Rotating ring decoration */}
@@ -353,6 +368,7 @@ export default function Home() {
                         alt="Waferio"
                         width={80}
                         height={80}
+                        loading="lazy"
                         className="object-contain transition-transform hover:scale-110"
                       />
                     </div>
@@ -370,6 +386,7 @@ export default function Home() {
                         alt="Joy Cake"
                         width={70}
                         height={70}
+                        loading="lazy"
                         className="object-contain transition-transform hover:scale-110"
                       />
                     </div>
@@ -387,6 +404,7 @@ export default function Home() {
                         alt="Mega Bite"
                         width={55}
                         height={55}
+                        loading="lazy"
                         className="object-contain transition-transform hover:scale-110"
                       />
                     </div>
@@ -464,7 +482,7 @@ export default function Home() {
                 }}
               >
                 <span className="inline-flex items-center gap-2">
-                  <span className="animate-heartbeat">⭐</span>
+                  <span className="animate-heartbeat" aria-hidden="true">⭐</span>
                   BESTSELLERS
                 </span>
               </span>
@@ -696,7 +714,7 @@ export default function Home() {
                 }}
               >
                 <span className="inline-flex items-center gap-2">
-                  <span className="animate-pendulum inline-block">💫</span>
+                  <span className="animate-pendulum inline-block" aria-hidden="true">💫</span>
                   WHY LOR
                 </span>
               </span>
@@ -832,7 +850,7 @@ export default function Home() {
                 }}
               >
                 <span className="inline-flex items-center gap-2">
-                  <span className="animate-heartbeat">❤️</span>
+                  <span className="animate-heartbeat" aria-hidden="true">❤️</span>
                   TESTIMONIALS
                 </span>
               </span>
@@ -958,7 +976,7 @@ export default function Home() {
                       <button
                         key={index}
                         onClick={() => setCurrentTestimonial(index)}
-                        className={`rounded-full transition-all duration-500 hover:scale-125 ${
+                        className={`rounded-full transition-all duration-500 hover:scale-125 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] focus-visible:ring-offset-2 ${
                           currentTestimonial === index ? "w-10 h-3" : "w-3 h-3 hover:bg-[#C6000F]/50"
                         }`}
                         style={{
@@ -1065,6 +1083,7 @@ export default function Home() {
                       alt={moment.title}
                       width={200}
                       height={200}
+                      loading="lazy"
                       className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -1143,6 +1162,7 @@ export default function Home() {
                         alt="LOR Brand"
                         width={400}
                         height={200}
+                        loading="lazy"
                         className="w-full max-w-sm animate-float"
                       />
                     </div>

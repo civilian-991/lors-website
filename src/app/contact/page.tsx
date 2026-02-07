@@ -233,7 +233,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="pt-24">
+      <main className="pt-24" id="main">
         {/* Hero Section */}
         <section
           className="relative py-20 md:py-28 overflow-hidden"
@@ -407,11 +407,12 @@ export default function ContactPage() {
                           type="text"
                           id="name"
                           name="name"
+                          autoComplete="name"
                           value={formData.name}
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
-                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus:outline-none ${
+                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus:outline-none ${
                             errors.name
                               ? "border-red-400 bg-red-50"
                               : focusedField === "name" || formData.name
@@ -463,11 +464,13 @@ export default function ContactPage() {
                           type="email"
                           id="email"
                           name="email"
+                          autoComplete="email"
+                          spellCheck={false}
                           value={formData.email}
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
-                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus:outline-none ${
+                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus:outline-none ${
                             errors.email
                               ? "border-red-400 bg-red-50"
                               : focusedField === "email" || formData.email
@@ -522,11 +525,12 @@ export default function ContactPage() {
                           type="tel"
                           id="phone"
                           name="phone"
+                          autoComplete="tel"
                           value={formData.phone}
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField("phone")}
                           onBlur={() => setFocusedField(null)}
-                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus:outline-none ${
+                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus:outline-none ${
                             errors.phone
                               ? "border-red-400 bg-red-50"
                               : focusedField === "phone" || formData.phone
@@ -581,7 +585,7 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField("subject")}
                           onBlur={() => setFocusedField(null)}
-                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus:outline-none appearance-none cursor-pointer ${
+                          className={`peer w-full px-5 pt-6 pb-3 rounded-xl border-2 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus:outline-none appearance-none cursor-pointer ${
                             errors.subject
                               ? "border-red-400 bg-red-50"
                               : focusedField === "subject" || formData.subject
@@ -656,7 +660,7 @@ export default function ContactPage() {
                         onFocus={() => setFocusedField("message")}
                         onBlur={() => setFocusedField(null)}
                         rows={5}
-                        className={`peer w-full px-5 pt-8 pb-3 rounded-xl border-2 transition-all duration-300 focus:outline-none resize-none ${
+                        className={`peer w-full px-5 pt-8 pb-3 rounded-xl border-2 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus:outline-none resize-none ${
                           errors.message
                             ? "border-red-400 bg-red-50"
                             : focusedField === "message" || formData.message

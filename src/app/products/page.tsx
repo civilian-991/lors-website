@@ -107,7 +107,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="min-h-screen" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
+    <main className="min-h-screen" id="main" style={{ background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)" }}>
       <Header />
 
       {/* Hero Banner */}
@@ -284,12 +284,16 @@ export default function ProductsPage() {
                   />
                 </svg>
               </div>
+              <label htmlFor="product-search" className="sr-only">Search products</label>
               <input
+                id="product-search"
                 type="text"
+                name="search"
+                autoComplete="off"
                 placeholder="Search for your favorite treats..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-5 text-lg focus:outline-none"
+                className="w-full px-4 py-5 text-lg focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
                   color: "#4A2C2A",
@@ -299,6 +303,7 @@ export default function ProductsPage() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
+                  aria-label="Clear search"
                   className="pr-6 transition-transform hover:scale-110"
                 >
                   <svg className="w-6 h-6" fill="#C6000F" viewBox="0 0 24 24">
@@ -315,7 +320,7 @@ export default function ProductsPage() {
               <button
                 key={category.name}
                 onClick={() => setActiveCategory(category.name)}
-                className={`group relative flex items-center gap-2 px-5 py-3 md:px-6 md:py-3.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 ${
+                className={`group relative flex items-center gap-2 px-5 py-3 md:px-6 md:py-3.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                   activeCategory === category.name
                     ? "scale-105"
                     : "hover:scale-105"
@@ -417,9 +422,9 @@ export default function ProductsPage() {
                     animationFillMode: "forwards",
                   }}
                 >
-                  <div
+                  <button
                     onClick={() => handleViewDetails(product)}
-                    className="relative rounded-3xl overflow-hidden cursor-pointer h-full"
+                    className="relative rounded-3xl overflow-hidden cursor-pointer h-full text-left w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
                     style={{
                       background: "white",
                       boxShadow:
@@ -472,6 +477,7 @@ export default function ProductsPage() {
                         alt={product.name}
                         width={220}
                         height={220}
+                        loading="lazy"
                         className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
                         style={{
                           filter: hoveredProduct === product.id ? "drop-shadow(0 10px 20px rgba(0,0,0,0.15))" : "none",
@@ -513,8 +519,7 @@ export default function ProductsPage() {
                           opacity: hoveredProduct === product.id ? 1 : 0,
                         }}
                       >
-                        <button
-                          onClick={() => handleViewDetails(product)}
+                        <span
                           className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:gap-3 hover:scale-105 hover:shadow-lg"
                           style={{
                             background: `linear-gradient(135deg, ${product.color}, ${product.color}CC)`,
@@ -527,7 +532,7 @@ export default function ProductsPage() {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                        </button>
+                        </span>
                       </div>
                     </div>
 
@@ -538,7 +543,7 @@ export default function ProductsPage() {
                         background: `linear-gradient(90deg, ${product.color}, #C6000F)`,
                       }}
                     />
-                  </div>
+                  </button>
                 </div>
               ))}
             </div>
@@ -650,6 +655,11 @@ export default function ProductsPage() {
           </a>
         </div>
       </section>
+
+      {/* Fallback for users with JavaScript disabled: make product cards visible */}
+      <noscript>
+        <style>{`.product-card { opacity: 1 !important; }`}</style>
+      </noscript>
 
       <Footer />
 

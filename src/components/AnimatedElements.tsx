@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, CSSProperties } from "react";
-import { useScrollAnimation, useMagneticEffect, useParallax } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation, useMagneticEffect, useParallax, useReducedMotion } from "@/hooks/useScrollAnimation";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -21,6 +21,16 @@ export function AnimatedSection({
   threshold = 0.1,
 }: AnimatedSectionProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold });
+  const reducedMotion = useReducedMotion();
+
+  // When reduced motion is preferred, show content immediately without animation
+  if (reducedMotion) {
+    return (
+      <div ref={ref} className={className} style={{ opacity: 1 }}>
+        {children}
+      </div>
+    );
+  }
 
   const animations: Record<string, CSSProperties> = {
     "fade-up": {
@@ -130,17 +140,22 @@ export function MagneticButton({
   onClick,
 }: MagneticButtonProps) {
   const { ref, transform, handlers } = useMagneticEffect(strength);
+  const reducedMotion = useReducedMotion();
 
   return (
     <div
       ref={ref}
       className={`inline-block ${className}`}
-      style={{
-        transform: `translate(${transform.x}px, ${transform.y}px)`,
-        transition: "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-      }}
+      style={
+        reducedMotion
+          ? undefined
+          : {
+              transform: `translate(${transform.x}px, ${transform.y}px)`,
+              transition: "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            }
+      }
       onClick={onClick}
-      {...handlers}
+      {...(reducedMotion ? {} : handlers)}
     >
       {children}
     </div>
@@ -161,16 +176,21 @@ export function ParallaxSection({
   direction = "up",
 }: ParallaxSectionProps) {
   const { ref, offset } = useParallax(speed);
+  const reducedMotion = useReducedMotion();
   const translateValue = direction === "up" ? -offset : offset;
 
   return (
     <div
       ref={ref}
       className={className}
-      style={{
-        transform: `translateY(${translateValue}px)`,
-        willChange: "transform",
-      }}
+      style={
+        reducedMotion
+          ? undefined
+          : {
+              transform: `translateY(${translateValue}px)`,
+              willChange: "transform",
+            }
+      }
     >
       {children}
     </div>
@@ -319,7 +339,10 @@ export function TiltCard({
   perspective = 1000,
   scale = 1.02,
 }: TiltCardProps) {
+  const reducedMotion = useReducedMotion();
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reducedMotion) return;
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -333,6 +356,7 @@ export function TiltCard({
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reducedMotion) return;
     e.currentTarget.style.transform = `perspective(${perspective}px) rotateX(0) rotateY(0) scale(1)`;
   };
 
@@ -415,12 +439,19 @@ export function AnimatedCounter({
   className = "",
 }: AnimatedCounterProps) {
   const { ref, isVisible } = useScrollAnimation();
+  const reducedMotion = useReducedMotion();
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     if (!isVisible || hasAnimated) return;
     setHasAnimated(true);
+
+    // Show final value immediately when reduced motion is preferred
+    if (reducedMotion) {
+      setCount(end);
+      return;
+    }
 
     let startTime: number;
     const animate = (currentTime: number) => {
@@ -435,7 +466,7 @@ export function AnimatedCounter({
     };
 
     requestAnimationFrame(animate);
-  }, [isVisible, end, duration, hasAnimated]);
+  }, [isVisible, end, duration, hasAnimated, reducedMotion]);
 
   return (
     <span ref={ref} className={className}>
@@ -462,6 +493,19 @@ export function Marquee({
   direction = "left",
   pauseOnHover = true,
 }: MarqueeProps) {
+  const reducedMotion = useReducedMotion();
+
+  // When reduced motion is preferred, show static content without scrolling
+  if (reducedMotion) {
+    return (
+      <div className={`overflow-hidden ${className}`}>
+        <div className="flex">
+          <div className="flex-shrink-0">{children}</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`overflow-hidden ${className}`}>
       <div
