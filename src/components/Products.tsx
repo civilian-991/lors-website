@@ -13,8 +13,12 @@ interface Product {
 }
 
 const products: Product[] = [
-  // Biscuits (12)
-  { id: "creamy-smiles", name: "Creamy Smiles", image: "/images/products/creamy-smiles.png", category: "Biscuits", description: "Fun-shaped biscuits with creamy centers", color: "#C6000F" },
+  // Biscuits (16)
+  { id: "creamy-smiles-banana", name: "Creamy Smiles Banana", image: "/images/products/creamy-smiles-banana.png", category: "Biscuits", description: "Fun banana cream filled biscuits", color: "#C6000F" },
+  { id: "creamy-smiles-chocolate", name: "Creamy Smiles Chocolate", image: "/images/products/creamy-smiles-chocolate.png", category: "Biscuits", description: "Rich chocolate cream filled biscuits", color: "#C6000F" },
+  { id: "creamy-smiles-orange", name: "Creamy Smiles Orange", image: "/images/products/creamy-smiles-orange.png", category: "Biscuits", description: "Tangy orange cream filled biscuits", color: "#C6000F" },
+  { id: "creamy-smiles-strawberry", name: "Creamy Smiles Strawberry", image: "/images/products/creamy-smiles-strawberry.png", category: "Biscuits", description: "Sweet strawberry cream filled biscuits", color: "#C6000F" },
+  { id: "creamy-smiles-vanilla", name: "Creamy Smiles Vanilla", image: "/images/products/creamy-smiles-vanilla.png", category: "Biscuits", description: "Classic vanilla cream filled biscuits", color: "#C6000F" },
   { id: "coconutty", name: "Coconutty", image: "/images/products/coconutty.png", category: "Biscuits", description: "Tropical coconut biscuits with exotic flavor", color: "#3B82F6" },
   { id: "ginger-nuts", name: "Ginger Nuts", image: "/images/products/ginger-nuts.png", category: "Biscuits", description: "Crunchy ginger-flavored biscuits with a spicy kick", color: "#850009" },
   { id: "milky", name: "Milky", image: "/images/products/milky.png", category: "Biscuits", description: "Creamy shortbread biscuits with milk goodness", color: "#5B7FA3" },
@@ -26,18 +30,30 @@ const products: Product[] = [
   { id: "glucose", name: "Glucose", image: "/images/products/glucose.png", category: "Biscuits", description: "Energy-boosting glucose biscuits", color: "#12357A" },
   { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#1E40AF" },
   { id: "two-friends", name: "Two Friends", image: "/images/products/two-friends.png", category: "Biscuits", description: "Two delicious biscuits, better together", color: "#78716C" },
-  // Wafers (2)
-  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
+  // Wafers (6)
+  { id: "waferio-banana", name: "Waferio Banana", image: "/images/products/waferio-banana.png", category: "Wafers", description: "Crunchy wafer rolls with banana cream filling", color: "#0E2F71" },
+  { id: "waferio-chocolate", name: "Waferio Chocolate", image: "/images/products/waferio-chocolate.png", category: "Wafers", description: "Crunchy wafer rolls with rich chocolate cream filling", color: "#0E2F71" },
+  { id: "waferio-milk", name: "Waferio Milk", image: "/images/products/waferio-milk.png", category: "Wafers", description: "Crunchy wafer rolls with creamy milk filling", color: "#0E2F71" },
+  { id: "waferio-orange", name: "Waferio Orange", image: "/images/products/waferio-orange.png", category: "Wafers", description: "Crunchy wafer rolls with tangy orange cream filling", color: "#0E2F71" },
+  { id: "waferio-strawberry", name: "Waferio Strawberry", image: "/images/products/waferio-strawberry.png", category: "Wafers", description: "Crunchy wafer rolls with sweet strawberry cream filling", color: "#0E2F71" },
   { id: "wafemax", name: "Wafe Max", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#A3000C" },
   // Crackers (3)
   { id: "abu-cracker", name: "Abu Cracker", image: "/images/products/abu-cracker.png", category: "Crackers", description: "Light and crispy savory crackers", color: "#57534E" },
   { id: "mr-cracker", name: "Mr Cracker", image: "/images/products/mr-cracker.png", category: "Crackers", description: "Premium crackers for every occasion", color: "#44403C" },
   { id: "i-love-salt", name: "I Love Salt", image: "/images/products/i-love-salt.png", category: "Crackers", description: "Perfectly salted crackers for snack lovers", color: "#0E2F71" },
-  // Cakes (4)
-  { id: "spongy", name: "Spongy", image: "/images/products/spongy.png", category: "Cakes", description: "Light and fluffy sponge cakes", color: "#E63946" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#6D4C3D" },
-  { id: "yum-yum", name: "YumYum", image: "/images/products/yum-yum.png", category: "Cakes", description: "Delicious donut cakes in irresistible flavors", color: "#E63946" },
-  { id: "power-cake", name: "Power Cake", image: "/images/products/power-cake.png", category: "Cakes", description: "Energy-packed cake for active lifestyles", color: "#C6000F" },
+  // Cakes (12)
+  { id: "spongy-chocolate", name: "Spongy Chocolate", image: "/images/products/spongy-chocolate.png", category: "Cakes", description: "Light and fluffy chocolate sponge cakes", color: "#E63946" },
+  { id: "spongy-vanilla", name: "Spongy Vanilla", image: "/images/products/spongy-vanilla.png", category: "Cakes", description: "Light and fluffy vanilla sponge cakes", color: "#E63946" },
+  { id: "joy-cake-chocolate", name: "Joy Cake Chocolate", image: "/images/products/joy-cake-chocolate.png", category: "Cakes", description: "Chocolate stuffed cake with soft sponge layers", color: "#6D4C3D" },
+  { id: "joy-cake-strawberry", name: "Joy Cake Strawberry", image: "/images/products/joy-cake-strawberry.png", category: "Cakes", description: "Strawberry stuffed cake with soft sponge layers", color: "#6D4C3D" },
+  { id: "joy-cake-vanilla", name: "Joy Cake Vanilla", image: "/images/products/joy-cake-vanilla.png", category: "Cakes", description: "Vanilla stuffed cake with soft sponge layers", color: "#6D4C3D" },
+  { id: "yumyum-chocolate", name: "YumYum Chocolate", image: "/images/products/yumyum-chocolate.png", category: "Cakes", description: "Delicious chocolate donut cakes", color: "#E63946" },
+  { id: "yumyum-strawberry", name: "YumYum Strawberry", image: "/images/products/yumyum-strawberry.png", category: "Cakes", description: "Delicious strawberry donut cakes", color: "#E63946" },
+  { id: "yumyum-vanilla", name: "YumYum Vanilla", image: "/images/products/yumyum-vanilla.png", category: "Cakes", description: "Delicious vanilla donut cakes", color: "#E63946" },
+  { id: "power-cake-banana", name: "Power Cake Banana", image: "/images/products/power-cake-banana.png", category: "Cakes", description: "Energy-packed banana cake for active lifestyles", color: "#C6000F" },
+  { id: "power-cake-butter", name: "Power Cake Butter", image: "/images/products/power-cake-butter.png", category: "Cakes", description: "Energy-packed butter cake for active lifestyles", color: "#C6000F" },
+  { id: "power-cake-coconut", name: "Power Cake Coconut", image: "/images/products/power-cake-coconut.png", category: "Cakes", description: "Energy-packed coconut cake for active lifestyles", color: "#C6000F" },
+  { id: "power-cake-peanut-butter", name: "Power Cake Peanut Butter", image: "/images/products/power-cake-peanut-butter.png", category: "Cakes", description: "Energy-packed peanut butter cake for active lifestyles", color: "#C6000F" },
 ];
 
 const categories = ["All", "Biscuits", "Wafers", "Crackers", "Cakes"];

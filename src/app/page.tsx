@@ -19,11 +19,11 @@ import { useScrollAnimation, useCountUp, useReducedMotion } from "@/hooks/useScr
 
 // Featured products data - using official brand colors
 const featuredProducts = [
-  { id: "waferio", name: "Waferio", image: "/images/products/waferio.png", category: "Wafers", description: "Irresistibly crunchy wafer rolls with delicious cream filling", color: "#0E2F71" },
-  { id: "joy-cake", name: "Joy Cake", image: "/images/products/joy-cake.png", category: "Cakes", description: "Soft sponge cake layered with sweet cream", color: "#670008" },
+  { id: "waferio-chocolate", name: "Waferio Chocolate", image: "/images/products/waferio-chocolate.png", category: "Wafers", description: "Crunchy wafer rolls with rich chocolate cream filling", color: "#0E2F71" },
+  { id: "joy-cake-chocolate", name: "Joy Cake Chocolate", image: "/images/products/joy-cake-chocolate.png", category: "Cakes", description: "Chocolate stuffed cake with soft sponge layers", color: "#670008" },
   { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#12357A" },
-  { id: "digestive-classic", name: "Digestive Classic", image: "/images/products/digestive-classic.png", category: "Biscuits", description: "Wholesome digestive biscuits with classic taste", color: "#C6000F" },
-  { id: "wafemax", name: "Wafe Max", image: "/images/products/wafemax.png", category: "Wafers", description: "Maximum wafer crunch with cream layers", color: "#670008" },
+  { id: "creamy-smiles-strawberry", name: "Creamy Smiles Strawberry", image: "/images/products/creamy-smiles-strawberry.png", category: "Biscuits", description: "Sweet strawberry cream filled biscuits", color: "#C6000F" },
+  { id: "power-cake-peanut-butter", name: "Power Cake Peanut Butter", image: "/images/products/power-cake-peanut-butter.png", category: "Cakes", description: "Energy-packed peanut butter cake for active lifestyles", color: "#670008" },
   { id: "kidz-zoo", name: "Kidz Zoo", image: "/images/products/kidz-zoo.png", category: "Biscuits", description: "Fun animal-shaped biscuits kids love", color: "#0E2F71" },
 ];
 
@@ -1262,7 +1262,7 @@ export default function Home() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 mb-8">
                   {[
-                    { number: "21+", label: "Products" },
+                    { number: "37+", label: "Products" },
                     { number: "100%", label: "Quality" },
                     { number: "1M+", label: "Happy Customers" },
                   ].map((stat, index) => (

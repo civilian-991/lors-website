@@ -129,7 +129,7 @@ export default function AboutPage() {
 
   // Stats data with animated counters
   const stats = [
-    { value: 21, suffix: "+", label: "Products", icon: "package" },
+    { value: 37, suffix: "+", label: "Products", icon: "package" },
     { value: 100, suffix: "%", label: "Quality", icon: "shield" },
     { value: 1, suffix: "M+", label: "Happy Customers", icon: "heart" },
     { value: 50, suffix: "+", label: "Countries", icon: "globe" },
