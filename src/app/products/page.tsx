@@ -489,7 +489,7 @@ export default function ProductsPage() {
 
                       {/* Product Image */}
                       <Image
-                        src={product.image}
+                        src={product.packagingImage}
                         alt={product.name}
                         width={220}
                         height={220}
