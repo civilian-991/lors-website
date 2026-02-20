@@ -17,14 +17,40 @@ import {
 } from "@/components/AnimatedElements";
 import { useScrollAnimation, useCountUp, useReducedMotion } from "@/hooks/useScrollAnimation";
 
-// Featured products data - using official brand colors
-const featuredProducts = [
-  { id: "waferio-chocolate", name: "Waferio Chocolate", image: "/images/products/waferio-chocolate.png", category: "Wafers", description: "Crunchy wafer rolls with rich chocolate cream filling", color: "#0E2F71" },
-  { id: "joy-cake-chocolate", name: "Joy Cake Chocolate", image: "/images/products/joy-cake-chocolate.png", category: "Cakes", description: "Chocolate stuffed cake with soft sponge layers", color: "#670008" },
-  { id: "mega-bite", name: "Mega Bite", image: "/images/products/mega-bite.png", category: "Biscuits", description: "Big, bold biscuits packed with flavor", color: "#12357A" },
-  { id: "creamy-smiles-strawberry", name: "Creamy Smiles Strawberry", image: "/images/products/creamy-smiles-strawberry.png", category: "Biscuits", description: "Sweet strawberry cream filled biscuits", color: "#C6000F" },
-  { id: "power-cake-peanut-butter", name: "Power Cake Peanut Butter", image: "/images/products/power-cake-peanut-butter.png", category: "Cakes", description: "Energy-packed peanut butter cake for active lifestyles", color: "#670008" },
-  { id: "kidz-zoo", name: "Kidz Zoo", image: "/images/products/kidz-zoo.png", category: "Biscuits", description: "Fun animal-shaped biscuits kids love", color: "#0E2F71" },
+// Featured categories data - using official brand colors
+const featuredCategories = [
+  {
+    id: "biscuits",
+    name: "Biscuits",
+    description: "From crunchy classics to cream-filled favorites, our biscuits are perfect for every moment",
+    color: "#12357A",
+    productCount: 16,
+    images: ["/images/products/mega-bite.png", "/images/products/creamy-smiles-strawberry.png", "/images/products/kidz-zoo.png"],
+  },
+  {
+    id: "wafers",
+    name: "Wafers",
+    description: "Light, crispy layers filled with irresistible cream in every delicious bite",
+    color: "#0E2F71",
+    productCount: 6,
+    images: ["/images/products/waferio-chocolate.png", "/images/products/waferio-strawberry.png", "/images/products/wafemax.png"],
+  },
+  {
+    id: "crackers",
+    name: "Crackers",
+    description: "Savory, crunchy crackers crafted for snacking, dipping, and sharing",
+    color: "#57534E",
+    productCount: 3,
+    images: ["/images/products/abu-cracker.png", "/images/products/mr-cracker.png", "/images/products/i-love-salt.png"],
+  },
+  {
+    id: "cakes",
+    name: "Cakes",
+    description: "Soft, moist cakes with rich fillings that make every treat a celebration",
+    color: "#670008",
+    productCount: 12,
+    images: ["/images/products/joy-cake-chocolate.png", "/images/products/spongy-chocolate.png", "/images/products/power-cake-peanut-butter.png"],
+  },
 ];
 
 // Benefits data
@@ -109,7 +135,7 @@ const sweetMoments = [
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
@@ -451,9 +477,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Products Section */}
+        {/* Categories Section */}
         <section
-          id="featured-products"
+          id="categories"
           className="relative py-24 overflow-hidden"
           style={{ background: "linear-gradient(180deg, #0A1F4A 0%, #0E2F71 100%)" }}
         >
@@ -471,7 +497,7 @@ export default function Home() {
           <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-white/5 animate-morph" style={{ animationDelay: "3s" }} />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Section Header with Animations */}
+            {/* Section Header */}
             <AnimatedSection animation="fade-up" className="text-center mb-16">
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 animate-bounce-subtle hover:animate-pulse-scale cursor-default"
@@ -483,7 +509,7 @@ export default function Home() {
               >
                 <span className="inline-flex items-center gap-2">
                   <span className="animate-heartbeat" aria-hidden="true">⭐</span>
-                  BESTSELLERS
+                  EXPLORE
                 </span>
               </span>
               <h2
@@ -493,7 +519,7 @@ export default function Home() {
                   color: "#FFFFFF",
                 }}
               >
-                Featured{" "}
+                Our{" "}
                 <span
                   className="animate-text-shimmer inline-block"
                   style={{
@@ -503,7 +529,7 @@ export default function Home() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Products
+                  Categories
                 </span>
               </h2>
               <p
@@ -513,132 +539,146 @@ export default function Home() {
                   color: "rgba(255,255,255,0.7)",
                 }}
               >
-                Discover our most loved treats that bring joy to families everywhere
+                Browse our delicious range of treats crafted for every taste
               </p>
             </AnimatedSection>
 
-            {/* Products Grid with Staggered Animations */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-              {featuredProducts.map((product, index) => (
+            {/* Categories Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-12">
+              {featuredCategories.map((category, index) => (
                 <AnimatedSection
-                  key={product.id}
+                  key={category.id}
                   animation="fade-scale"
-                  delay={index * 100}
-                  className="product-card group"
+                  delay={index * 120}
+                  className="group"
                 >
-                  <TiltCard maxTilt={8} scale={1.03}>
-                    <div
-                      className="relative rounded-3xl overflow-hidden cursor-pointer"
-                      onMouseEnter={() => setHoveredProduct(product.id)}
-                      onMouseLeave={() => setHoveredProduct(null)}
-                      style={{
-                        background: "white",
-                        boxShadow:
-                          hoveredProduct === product.id
-                            ? `0 25px 50px ${product.color}40`
-                            : "0 4px 20px rgba(0,0,0,0.08)",
-                        transition: "box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                      }}
-                    >
-                      {/* Product Image Container */}
+                  <TiltCard maxTilt={6} scale={1.02}>
+                    <Link href={`/products?category=${category.name}`}>
                       <div
-                        className="relative aspect-square p-6 flex items-center justify-center overflow-hidden"
+                        className="relative rounded-3xl overflow-hidden cursor-pointer"
+                        onMouseEnter={() => setHoveredCategory(category.id)}
+                        onMouseLeave={() => setHoveredCategory(null)}
                         style={{
-                          background: `linear-gradient(135deg, ${product.color}80, ${product.color}60)`,
+                          background: "white",
+                          boxShadow:
+                            hoveredCategory === category.id
+                              ? `0 25px 50px ${category.color}40`
+                              : "0 4px 20px rgba(0,0,0,0.08)",
+                          transition: "box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                         }}
                       >
-                        {/* Animated Decorative Circles */}
+                        {/* Category Image Area - Product Collage */}
                         <div
-                          className="absolute w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-80"
+                          className="relative h-56 md:h-64 overflow-hidden"
                           style={{
-                            background: `${product.color}50`,
-                            filter: "blur(20px)",
+                            background: `linear-gradient(135deg, ${category.color}90, ${category.color}60)`,
                           }}
-                        />
-                        <div
-                          className="absolute w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-150"
-                          style={{
-                            background: `radial-gradient(circle, ${product.color}70, transparent 70%)`,
-                            right: "20%",
-                            top: "20%",
-                          }}
-                        />
+                        >
+                          {/* Decorative glow */}
+                          <div
+                            className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2.5] group-hover:opacity-60"
+                            style={{
+                              background: `${category.color}40`,
+                              filter: "blur(30px)",
+                              top: "50%",
+                              left: "50%",
+                              transform: "translate(-50%, -50%)",
+                            }}
+                          />
 
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          width={200}
-                          height={200}
-                          className="relative z-10 w-full h-full object-contain transition-all duration-500 group-hover:scale-115 group-hover:rotate-3"
-                          style={{
-                            filter: hoveredProduct === product.id
-                              ? "drop-shadow(0 15px 25px rgba(0,0,0,0.2))"
-                              : "none",
-                          }}
-                        />
+                          {/* Product images arranged in collage */}
+                          <div className="relative z-10 flex items-center justify-center h-full gap-2 px-6">
+                            {category.images.map((img, imgIndex) => (
+                              <div
+                                key={imgIndex}
+                                className="transition-all duration-500"
+                                style={{
+                                  transform: hoveredCategory === category.id
+                                    ? `translateY(${imgIndex === 1 ? -12 : 0}px) scale(${imgIndex === 1 ? 1.1 : 1.05}) rotate(${imgIndex === 0 ? -5 : imgIndex === 2 ? 5 : 0}deg)`
+                                    : `translateY(0) scale(1) rotate(${imgIndex === 0 ? -3 : imgIndex === 2 ? 3 : 0}deg)`,
+                                }}
+                              >
+                                <Image
+                                  src={img}
+                                  alt={`${category.name} product`}
+                                  width={130}
+                                  height={130}
+                                  className="object-contain drop-shadow-lg"
+                                  style={{
+                                    filter: hoveredCategory === category.id
+                                      ? "drop-shadow(0 10px 20px rgba(0,0,0,0.25))"
+                                      : "drop-shadow(0 4px 8px rgba(0,0,0,0.15))",
+                                  }}
+                                />
+                              </div>
+                            ))}
+                          </div>
 
-                        {/* Sparkle effect on hover */}
-                        <div className={`absolute top-4 right-4 transition-all duration-300 ${hoveredProduct === product.id ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}>
-                          <span className="text-2xl animate-heartbeat">✨</span>
+                          {/* Product count badge */}
+                          <div
+                            className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
+                            style={{
+                              background: "rgba(255,255,255,0.2)",
+                              backdropFilter: "blur(10px)",
+                              color: "white",
+                              fontFamily: "'Nunito', sans-serif",
+                            }}
+                          >
+                            {category.productCount} products
+                          </div>
                         </div>
+
+                        {/* Category Info */}
+                        <div className="p-6 relative overflow-hidden">
+                          <h3
+                            className="text-2xl font-bold mb-2 transition-colors duration-300"
+                            style={{
+                              fontFamily: "'Fredoka', sans-serif",
+                              color: hoveredCategory === category.id ? category.color : "#4A2C2A",
+                            }}
+                          >
+                            {category.name}
+                          </h3>
+                          <p
+                            className="text-sm leading-relaxed mb-4"
+                            style={{
+                              fontFamily: "'Nunito', sans-serif",
+                              color: "#6B5C5A",
+                            }}
+                          >
+                            {category.description}
+                          </p>
+
+                          {/* Explore link */}
+                          <span
+                            className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3"
+                            style={{
+                              color: category.color,
+                              fontFamily: "'Nunito', sans-serif",
+                            }}
+                          >
+                            Explore {category.name}
+                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </span>
+                        </div>
+
+                        {/* Animated Hover Accent Line */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100"
+                          style={{
+                            background: `linear-gradient(90deg, ${category.color}, #0E2F71, #C6000F)`,
+                          }}
+                        />
                       </div>
-
-                      {/* Product Info with slide-up effect */}
-                      <div className="p-5 text-center relative overflow-hidden">
-                        <span
-                          className={`text-xs font-bold uppercase tracking-wider mb-2 block transition-all duration-300 ${hoveredProduct === product.id ? "animate-bounce-subtle" : ""}`}
-                          style={{
-                            color: product.color,
-                            fontFamily: "'Nunito', sans-serif",
-                          }}
-                        >
-                          {product.category}
-                        </span>
-                        <h3
-                          className="text-xl font-bold mb-2 transition-colors duration-300"
-                          style={{
-                            fontFamily: "'Fredoka', sans-serif",
-                            color: hoveredProduct === product.id ? product.color : "#4A2C2A",
-                          }}
-                        >
-                          {product.name}
-                        </h3>
-                        <p
-                          className="text-sm leading-relaxed transition-all duration-300"
-                          style={{
-                            fontFamily: "'Nunito', sans-serif",
-                            color: "#4A2C2A",
-                            opacity: hoveredProduct === product.id ? 0.8 : 0,
-                            transform: hoveredProduct === product.id ? "translateY(0)" : "translateY(10px)",
-                          }}
-                        >
-                          {product.description}
-                        </p>
-                      </div>
-
-                      {/* Animated Hover Accent Line */}
-                      <div
-                        className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100"
-                        style={{
-                          background: `linear-gradient(90deg, ${product.color}, #0E2F71, #C6000F)`,
-                        }}
-                      />
-
-                      {/* Corner glow effect */}
-                      <div
-                        className="absolute -top-10 -right-10 w-20 h-20 rounded-full transition-all duration-500 opacity-0 group-hover:opacity-100"
-                        style={{
-                          background: `radial-gradient(circle, ${product.color}30, transparent 70%)`,
-                          filter: "blur(10px)",
-                        }}
-                      />
-                    </div>
+                    </Link>
                   </TiltCard>
                 </AnimatedSection>
               ))}
             </div>
 
-            {/* View All Button with Enhanced Animation */}
+            {/* View All Button */}
             <AnimatedSection animation="fade-up" delay={600} className="text-center">
               <MagneticButton strength={0.25}>
                 <Link
@@ -651,7 +691,6 @@ export default function Home() {
                     boxShadow: "0 8px 30px rgba(198,0,15,0.35)",
                   }}
                 >
-                  {/* Shine effect */}
                   <span
                     className="absolute inset-0 opacity-0 group-hover:opacity-100"
                     style={{

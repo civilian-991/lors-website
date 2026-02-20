@@ -445,7 +445,7 @@ export default function ProductsPage() {
                       background: "white",
                       boxShadow:
                         hoveredProduct === product.id
-                          ? `0 25px 50px ${product.color}35`
+                          ? "0 25px 50px rgba(14,47,113,0.35)"
                           : "0 4px 20px rgba(0,0,0,0.08)",
                       transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                     }}
@@ -467,21 +467,21 @@ export default function ProductsPage() {
                     <div
                       className="relative aspect-square p-8 flex items-center justify-center overflow-hidden"
                       style={{
-                        background: `linear-gradient(135deg, ${product.color}70, ${product.color}50)`,
+                        background: "linear-gradient(135deg, #0E2F71, #12357A)",
                       }}
                     >
                       {/* Decorative Circles */}
                       <div
                         className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2] group-hover:opacity-70"
                         style={{
-                          background: `radial-gradient(circle, ${product.color}60, transparent 70%)`,
+                          background: "radial-gradient(circle, rgba(30,74,159,0.5), transparent 70%)",
                           filter: "blur(20px)",
                         }}
                       />
                       <div
                         className="absolute w-24 h-24 rounded-full transition-all duration-500 group-hover:scale-150 opacity-0 group-hover:opacity-100"
                         style={{
-                          background: `${product.color}50`,
+                          background: "rgba(30,74,159,0.4)",
                           right: "20%",
                           top: "20%",
                         }}
@@ -508,7 +508,7 @@ export default function ProductsPage() {
                         className="text-xl md:text-2xl font-bold mb-2 transition-colors duration-300"
                         style={{
                           fontFamily: "'Fredoka', sans-serif",
-                          color: hoveredProduct === product.id ? product.color : "#4A2C2A",
+                          color: hoveredProduct === product.id ? "#0E2F71" : "#4A2C2A",
                         }}
                       >
                         {product.name}
@@ -538,10 +538,10 @@ export default function ProductsPage() {
                         <span
                           className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:gap-3 hover:scale-105 hover:shadow-lg"
                           style={{
-                            background: `linear-gradient(135deg, ${product.color}, ${product.color}CC)`,
+                            background: "linear-gradient(135deg, #0E2F71, #12357A)",
                             color: "white",
                             fontFamily: "'Nunito', sans-serif",
-                            boxShadow: `0 4px 15px ${product.color}40`,
+                            boxShadow: "0 4px 15px rgba(14,47,113,0.4)",
                           }}
                         >
                           View Details
@@ -556,7 +556,7 @@ export default function ProductsPage() {
                     <div
                       className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"
                       style={{
-                        background: `linear-gradient(90deg, ${product.color}, #C6000F)`,
+                        background: "linear-gradient(90deg, #0E2F71, #C6000F)",
                       }}
                     />
                   </button>
