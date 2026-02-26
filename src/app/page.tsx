@@ -2,20 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef, type CSSProperties } from "react";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   AnimatedSection,
-  FloatingElement,
-  TiltCard,
   MagneticButton,
-  StaggeredList,
-  ParallaxSection,
   Marquee,
-  PulsingDot,
+  AnimatedCounter,
 } from "@/components/AnimatedElements";
-import { useScrollAnimation, useCountUp, useReducedMotion } from "@/hooks/useScrollAnimation";
+import { useReducedMotion } from "@/hooks/useScrollAnimation";
 
 // Featured categories data - using official brand colors
 const featuredCategories = [
@@ -53,194 +49,66 @@ const featuredCategories = [
   },
 ];
 
-// Benefits data
-const benefits = [
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    title: "Premium Quality",
-    description: "Every ingredient is carefully selected to ensure the highest quality in every bite.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    title: "Made with Love",
-    description: "Our treats are crafted with passion and care, bringing joy to families worldwide.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Fresh Daily",
-    description: "From our ovens to your table, we ensure freshness in every package.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "For Every Occasion",
-    description: "Whether it is a snack break or celebration, LOR has the perfect treat for you.",
-  },
+// Product images for the marquee
+const marqueeProducts = [
+  "/images/products/mega-bite.png",
+  "/images/products/waferio-chocolate.png",
+  "/images/products/joy-cake-chocolate.png",
+  "/images/products/abu-cracker.png",
+  "/images/products/creamy-smiles-strawberry.png",
+  "/images/products/wafemax.png",
+  "/images/products/spongy-chocolate.png",
+  "/images/products/kidz-zoo.png",
+  "/images/products/digestive-classic.png",
+  "/images/products/power-cake-peanut-butter.png",
+  "/images/products/waferio-strawberry.png",
+  "/images/products/glucose.png",
+  "/images/products/mr-cracker.png",
+  "/images/products/coconutty.png",
+  "/images/products/joy-cake-vanilla.png",
+  "/images/products/milky.png",
+  "/images/products/two-friends.png",
+  "/images/products/yum-yum.png",
+  "/images/products/ginger-nuts.png",
+  "/images/products/custard-creams.png",
 ];
 
-// Testimonials data
-const testimonials = [
-  {
-    name: "Sarah M.",
-    location: "California",
-    text: "The Waferio is absolutely divine! My kids cannot get enough of them. Best wafers we have ever had!",
-    rating: 5,
-    avatar: "S",
-  },
-  {
-    name: "James K.",
-    location: "Texas",
-    text: "LOR Digestive biscuits are a staple in our home. Perfect with morning tea and so delicious!",
-    rating: 5,
-    avatar: "J",
-  },
-  {
-    name: "Emily R.",
-    location: "New York",
-    text: "The Joy Cake is pure happiness in every bite. Soft, creamy, and absolutely perfect!",
-    rating: 5,
-    avatar: "E",
-  },
-  {
-    name: "Michael T.",
-    location: "Florida",
-    text: "Finally found biscuits that taste like homemade! LOR has won our family over completely.",
-    rating: 5,
-    avatar: "M",
-  },
-];
-
-// Sweet Moments gallery data
-const sweetMoments = [
-  { id: 1, title: "Family Tea Time", description: "Perfect moments with LOR biscuits", image: "/images/products/digestive-classic.png" },
-  { id: 2, title: "Kids Party", description: "Making celebrations sweeter", image: "/images/products/kidz-zoo.png" },
-  { id: 3, title: "Snack Break", description: "Energize your day", image: "/images/products/mega-bite.png" },
-  { id: 4, title: "Sweet Treats", description: "Indulge in joy", image: "/images/products/joy-cake.png" },
+// Hero product grid images
+const heroProducts = [
+  { src: "/images/products/mega-bite.png", alt: "Mega Bite" },
+  { src: "/images/products/waferio-chocolate.png", alt: "Waferio Chocolate" },
+  { src: "/images/products/joy-cake-chocolate.png", alt: "Joy Cake" },
+  { src: "/images/products/creamy-smiles-strawberry.png", alt: "Creamy Smiles" },
+  { src: "/images/products/digestive-classic.png", alt: "Digestive Classic" },
+  { src: "/images/products/spongy-chocolate.png", alt: "Spongy Chocolate" },
+  { src: "/images/products/kidz-zoo.png", alt: "Kidz Zoo" },
+  { src: "/images/products/wafemax.png", alt: "Wafemax" },
 ];
 
 export default function Home() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
-
-  // Track mouse for parallax effects - throttled with rAF, disabled for reduced-motion
-  useEffect(() => {
-    if (reducedMotion) return;
-
-    let rafId: number | null = null;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (rafId !== null) return;
-      rafId = requestAnimationFrame(() => {
-        if (heroRef.current) {
-          const rect = heroRef.current.getBoundingClientRect();
-          const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-          const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-          setMousePosition({ x, y });
-        }
-        rafId = null;
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      if (rafId !== null) cancelAnimationFrame(rafId);
-    };
-  }, [reducedMotion]);
-
-  // Auto-rotate testimonials - paused when user prefers reduced motion
-  useEffect(() => {
-    if (reducedMotion) return;
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [reducedMotion]);
 
   return (
     <>
       <Header />
       <main id="main">
-        {/* Hero Section */}
+        {/* ===== 1. HERO — Dark Navy ===== */}
         <section
-          ref={heroRef}
           id="home"
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
           style={{
             background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
-          {/* Animated Background Blobs with Mouse Parallax */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div
-              className="absolute top-20 -left-20 w-96 h-96 bg-[#12357A]/30 animate-blob animate-morph-slow"
-              style={{
-                animationDelay: "0s",
-                translate: `${mousePosition.x * 20}px ${mousePosition.y * 20}px`,
-                transition: "translate 0.3s ease-out",
-              } as CSSProperties}
-            />
-            <div
-              className="absolute top-40 right-20 w-72 h-72 bg-[#C6000F]/20 animate-blob animate-morph"
-              style={{
-                animationDelay: "2s",
-                translate: `${mousePosition.x * -30}px ${mousePosition.y * -30}px`,
-                transition: "translate 0.3s ease-out",
-              } as CSSProperties}
-            />
-            <div
-              className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#12357A]/20 animate-blob animate-morph-slow"
-              style={{
-                animationDelay: "4s",
-                translate: `${mousePosition.x * 15}px ${mousePosition.y * 15}px`,
-                transition: "translate 0.3s ease-out",
-              } as CSSProperties}
-            />
-            {/* Additional animated shapes */}
-            <div
-              className="absolute top-1/4 right-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-[#12357A]/20 to-[#670008]/20 animate-spin-slow"
-              style={{
-                translate: `${mousePosition.x * -25}px ${mousePosition.y * -25}px`,
-                transition: "translate 0.5s ease-out",
-              } as CSSProperties}
-            />
-          </div>
-
-          {/* Decorative Circles with Enhanced Animations */}
-          <FloatingElement animation="float" className="absolute top-32 right-1/4">
-            <div className="w-4 h-4 rounded-full bg-[#C6000F] opacity-60 animate-pulse-scale" />
-          </FloatingElement>
-          <FloatingElement animation="float-reverse" className="absolute top-1/2 left-16">
-            <div className="w-6 h-6 rounded-full bg-white/30 animate-glow" />
-          </FloatingElement>
-          <FloatingElement animation="bounce" className="absolute bottom-40 right-20">
-            <div className="w-3 h-3 rounded-full bg-[#C6000F] opacity-70" />
-          </FloatingElement>
-          <FloatingElement animation="wiggle" className="absolute top-1/3 right-10">
-            <div className="w-5 h-5 rounded-full bg-white/20" />
-          </FloatingElement>
-          {/* New decorative elements */}
-          <div className="absolute top-20 left-1/4 w-2 h-2 rounded-full bg-[#C6000F] animate-bounce-subtle" style={{ animationDelay: "0.5s" }} />
-          <div className="absolute bottom-1/3 left-10 w-4 h-4 rounded-full bg-[#0E2F71]/60 animate-heartbeat" />
-          <div className="absolute top-2/3 right-1/3 w-3 h-3 rounded-full bg-[#670008]/50 animate-zoom-pulse" />
+          {/* Subtle background glow */}
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30% 40%, rgba(198,0,15,0.12) 0%, transparent 50%),
+                               radial-gradient(circle at 70% 60%, rgba(18,53,122,0.2) 0%, transparent 50%)`,
+            }}
+          />
 
           {/* Main Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12">
@@ -248,18 +116,15 @@ export default function Home() {
             <div className="flex-1 text-center lg:text-left">
               <div className="animate-slide-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
                 <span
-                  className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-6 animate-gradient hover:animate-pulse-scale cursor-default"
+                  className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                   style={{
-                    background: "linear-gradient(135deg, #C6000F, #670008, #C6000F)",
-                    backgroundSize: "200% 200%",
-                    color: "white",
+                    background: "rgba(255,255,255,0.1)",
+                    backdropFilter: "blur(10px)",
+                    color: "rgba(255,255,255,0.9)",
                     fontFamily: "'Nunito', sans-serif",
                   }}
                 >
-                  <span className="inline-flex items-center gap-2">
-                    <span className="animate-wave-hand" aria-hidden="true">✨</span>
-                    DELICIOUSLY CRAFTED
-                  </span>
+                  BISCUITS | WAFERS | CRACKERS | CAKES
                 </span>
               </div>
 
@@ -274,28 +139,25 @@ export default function Home() {
               >
                 Every Bite is a{" "}
                 <span
-                  className="relative inline-block animate-text-shimmer"
+                  className="relative inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #FFFFFF, #C6000F)",
-                    backgroundSize: "200% auto",
+                    background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
                 >
                   Celebration
                   <svg
-                    className="absolute -bottom-2 left-0 w-full animate-slide-right"
+                    className="absolute -bottom-2 left-0 w-full"
                     viewBox="0 0 200 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{ animationDelay: "1s" }}
                   >
                     <path
                       d="M2 8C50 2 150 2 198 8"
                       stroke="url(#underlineGradient)"
                       strokeWidth="4"
                       strokeLinecap="round"
-                      className="animate-pulse"
                     />
                     <defs>
                       <linearGradient id="underlineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -326,128 +188,49 @@ export default function Home() {
                 style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
               >
                 <MagneticButton strength={0.2}>
-                  <Link href="/products" className="btn-primary hover:animate-pulse-scale inline-flex items-center gap-2 group">
+                  <Link href="/products" className="btn-primary inline-flex items-center gap-2 group">
                     Explore Products
-                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:animate-bounce-x" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 </MagneticButton>
                 <MagneticButton strength={0.2}>
-                  <Link href="/about" className="btn-secondary hover:animate-elastic-pop inline-block">
+                  <Link href="/about" className="btn-secondary inline-block">
                     Our Story
                   </Link>
                 </MagneticButton>
               </div>
             </div>
 
-            {/* Hero Image / Logo Display */}
+            {/* Hero Product Grid */}
             <div className="flex-1 relative">
               <div
-                className="relative animate-scale-in opacity-0"
+                className="animate-scale-in opacity-0"
                 style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
               >
-                {/* Glowing backdrop with animation */}
-                <div
-                  className="absolute inset-0 rounded-full blur-3xl animate-pulse-glow"
-                  style={{
-                    background: "radial-gradient(circle, rgba(198,0,15,0.25) 0%, transparent 70%)",
-                    scale: "1.5",
-                    translate: `${mousePosition.x * 10}px ${mousePosition.y * 10}px`,
-                    transition: "translate 0.3s ease-out",
-                  } as CSSProperties}
-                />
-
-                {/* Rotating ring decoration */}
-                <div
-                  className="absolute inset-0 animate-spin-slow"
-                  style={{
-                    border: "2px dashed rgba(198,0,15,0.1)",
-                    borderRadius: "50%",
-                    transform: "scale(1.3)",
-                  }}
-                />
-
-                {/* Main Logo with enhanced animation */}
-                <TiltCard className="relative" maxTilt={5}>
-                  <div className="animate-float">
-                    <Image
-                      src="/images/logos/lor-logo.png"
-                      alt="LOR - Delicious Treats"
-                      width={500}
-                      height={250}
-                      className="w-full max-w-md mx-auto drop-shadow-2xl hover:drop-shadow-[0_20px_50px_rgba(198,0,15,0.3)] transition-all duration-500"
-                      priority
-                    />
-                  </div>
-                </TiltCard>
-
-                {/* Floating Product Previews with Enhanced Animations */}
-                <FloatingElement animation="float-reverse" className="absolute -top-8 -right-4 w-24 h-24">
-                  <TiltCard className="w-full h-full">
+                <div className="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                  {heroProducts.map((product, i) => (
                     <div
-                      className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden hover-lift hover:animate-glow"
-                      style={{ background: "white" }}
+                      key={i}
+                      className="aspect-square rounded-2xl overflow-hidden flex items-center justify-center p-2 transition-transform duration-300 hover:-translate-y-1"
+                      style={{
+                        background: "rgba(255,255,255,0.08)",
+                        backdropFilter: "blur(10px)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                      }}
                     >
                       <Image
-                        src="/images/products-logos/waferio.png"
-                        alt="Waferio"
-                        width={80}
-                        height={80}
-                        loading="lazy"
-                        className="object-contain transition-transform hover:scale-110"
+                        src={product.src}
+                        alt={product.alt}
+                        width={100}
+                        height={100}
+                        className="object-contain w-full h-full drop-shadow-lg"
+                        priority={i < 4}
+                        loading={i < 4 ? undefined : "lazy"}
                       />
                     </div>
-                  </TiltCard>
-                </FloatingElement>
-
-                <FloatingElement animation="bounce" className="absolute -bottom-4 -left-8 w-20 h-20">
-                  <TiltCard className="w-full h-full">
-                    <div
-                      className="w-full h-full rounded-2xl shadow-xl flex items-center justify-center p-2 overflow-hidden hover-lift"
-                      style={{ background: "white" }}
-                    >
-                      <Image
-                        src="/images/products-logos/joy-cake.png"
-                        alt="Joy Cake"
-                        width={70}
-                        height={70}
-                        loading="lazy"
-                        className="object-contain transition-transform hover:scale-110"
-                      />
-                    </div>
-                  </TiltCard>
-                </FloatingElement>
-
-                <FloatingElement animation="wiggle" className="absolute top-1/2 -right-12 w-16 h-16">
-                  <TiltCard className="w-full h-full">
-                    <div
-                      className="w-full h-full rounded-xl shadow-lg flex items-center justify-center p-1.5 overflow-hidden hover-lift"
-                      style={{ background: "white" }}
-                    >
-                      <Image
-                        src="/images/products-logos/mega-bite.png"
-                        alt="Mega Bite"
-                        width={55}
-                        height={55}
-                        loading="lazy"
-                        className="object-contain transition-transform hover:scale-110"
-                      />
-                    </div>
-                  </TiltCard>
-                </FloatingElement>
-
-                {/* New floating badge */}
-                <div className="absolute -bottom-12 right-1/4 animate-bounce-subtle" style={{ animationDelay: "1s" }}>
-                  <div
-                    className="px-4 py-2 rounded-full text-white text-sm font-bold animate-glow"
-                    style={{
-                      background: "linear-gradient(135deg, #0E2F71, #12357A)",
-                      fontFamily: "'Nunito', sans-serif",
-                    }}
-                  >
-                    <span className="animate-wave-hand inline-block mr-1">🍪</span> Taste the Joy!
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -455,12 +238,12 @@ export default function Home() {
 
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <div className="w-8 h-12 rounded-full border-3 border-[#C6000F]/30 flex items-start justify-center p-2">
-              <div className="w-1.5 h-3 rounded-full bg-[#C6000F] animate-pulse" />
+            <div className="w-8 h-12 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
+              <div className="w-1.5 h-3 rounded-full bg-white/40" />
             </div>
           </div>
 
-          {/* Wave Divider */}
+          {/* Wave Divider — fills to white for next section */}
           <div className="absolute bottom-0 left-0 right-0">
             <svg
               viewBox="0 0 1440 120"
@@ -471,60 +254,42 @@ export default function Home() {
             >
               <path
                 d="M0 120L60 105C120 90 240 60 360 55C480 50 600 70 720 80C840 90 960 90 1080 82.5C1200 75 1320 60 1380 52.5L1440 45V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                fill="#0A1F4A"
+                fill="#FFFFFF"
               />
             </svg>
           </div>
         </section>
 
-        {/* Categories Section */}
+        {/* ===== 2. CATEGORIES — White Background ===== */}
         <section
           id="categories"
           className="relative py-24 overflow-hidden"
-          style={{ background: "linear-gradient(180deg, #0A1F4A 0%, #0E2F71 100%)" }}
+          style={{ background: "#FFFFFF" }}
         >
-          {/* Animated Background Pattern */}
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage: `radial-gradient(circle at 20% 80%, rgba(198,0,15,0.15) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)`,
-            }}
-          />
-
-          {/* Animated decorative elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#C6000F]/10 animate-morph-slow" />
-          <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-white/5 animate-morph" style={{ animationDelay: "3s" }} />
-
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             {/* Section Header */}
             <AnimatedSection animation="fade-up" className="text-center mb-16">
               <span
-                className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 animate-bounce-subtle hover:animate-pulse-scale cursor-default"
+                className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
                 style={{
-                  background: "rgba(198,0,15,0.3)",
-                  color: "#FFFFFF",
+                  background: "rgba(14,47,113,0.08)",
+                  color: "#0E2F71",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
-                <span className="inline-flex items-center gap-2">
-                  <span className="animate-heartbeat" aria-hidden="true">⭐</span>
-                  EXPLORE
-                </span>
+                EXPLORE
               </span>
               <h2
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                 style={{
                   fontFamily: "'Fredoka', sans-serif",
-                  color: "#FFFFFF",
+                  color: "#171717",
                 }}
               >
                 Our{" "}
                 <span
-                  className="animate-text-shimmer inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #C6000F, #670008, #0E2F71, #C6000F)",
-                    backgroundSize: "200% auto",
+                    background: "linear-gradient(135deg, #C6000F, #670008)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -536,7 +301,7 @@ export default function Home() {
                 className="text-lg md:text-xl max-w-2xl mx-auto"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
-                  color: "rgba(255,255,255,0.7)",
+                  color: "#525252",
                 }}
               >
                 Browse our delicious range of treats crafted for every taste
@@ -552,128 +317,121 @@ export default function Home() {
                   delay={index * 120}
                   className="group"
                 >
-                  <TiltCard maxTilt={6} scale={1.02}>
-                    <Link href={`/products?category=${category.name}`}>
+                  <Link href={`/products?category=${category.name}`}>
+                    <div
+                      className="relative rounded-3xl overflow-hidden cursor-pointer transition-shadow duration-400"
+                      onMouseEnter={() => setHoveredCategory(category.id)}
+                      onMouseLeave={() => setHoveredCategory(null)}
+                      style={{
+                        background: "white",
+                        boxShadow:
+                          hoveredCategory === category.id
+                            ? `0 25px 50px ${category.color}30`
+                            : "0 4px 20px rgba(0,0,0,0.06)",
+                      }}
+                    >
+                      {/* Category Image Area */}
                       <div
-                        className="relative rounded-3xl overflow-hidden cursor-pointer"
-                        onMouseEnter={() => setHoveredCategory(category.id)}
-                        onMouseLeave={() => setHoveredCategory(null)}
+                        className="relative h-56 md:h-64 overflow-hidden"
                         style={{
-                          background: "white",
-                          boxShadow:
-                            hoveredCategory === category.id
-                              ? `0 25px 50px ${category.color}40`
-                              : "0 4px 20px rgba(0,0,0,0.08)",
-                          transition: "box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                          background: `linear-gradient(135deg, ${category.color}90, ${category.color}60)`,
                         }}
                       >
-                        {/* Category Image Area - Product Collage */}
                         <div
-                          className="relative h-56 md:h-64 overflow-hidden"
+                          className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2.5] group-hover:opacity-60"
                           style={{
-                            background: `linear-gradient(135deg, ${category.color}90, ${category.color}60)`,
-                          }}
-                        >
-                          {/* Decorative glow */}
-                          <div
-                            className="absolute w-40 h-40 rounded-full transition-all duration-700 group-hover:scale-[2.5] group-hover:opacity-60"
-                            style={{
-                              background: `${category.color}40`,
-                              filter: "blur(30px)",
-                              top: "50%",
-                              left: "50%",
-                              transform: "translate(-50%, -50%)",
-                            }}
-                          />
-
-                          {/* Product images arranged in collage */}
-                          <div className="relative z-10 flex items-center justify-center h-full gap-2 px-6">
-                            {category.images.map((img, imgIndex) => (
-                              <div
-                                key={imgIndex}
-                                className="transition-all duration-500"
-                                style={{
-                                  transform: hoveredCategory === category.id
-                                    ? `translateY(${imgIndex === 1 ? -12 : 0}px) scale(${imgIndex === 1 ? 1.1 : 1.05}) rotate(${imgIndex === 0 ? -5 : imgIndex === 2 ? 5 : 0}deg)`
-                                    : `translateY(0) scale(1) rotate(${imgIndex === 0 ? -3 : imgIndex === 2 ? 3 : 0}deg)`,
-                                }}
-                              >
-                                <Image
-                                  src={img}
-                                  alt={`${category.name} product`}
-                                  width={130}
-                                  height={130}
-                                  className="object-contain drop-shadow-lg"
-                                  style={{
-                                    filter: hoveredCategory === category.id
-                                      ? "drop-shadow(0 10px 20px rgba(0,0,0,0.25))"
-                                      : "drop-shadow(0 4px 8px rgba(0,0,0,0.15))",
-                                  }}
-                                />
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Product count badge */}
-                          <div
-                            className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
-                            style={{
-                              background: "rgba(255,255,255,0.2)",
-                              backdropFilter: "blur(10px)",
-                              color: "white",
-                              fontFamily: "'Nunito', sans-serif",
-                            }}
-                          >
-                            {category.productCount} products
-                          </div>
-                        </div>
-
-                        {/* Category Info */}
-                        <div className="p-6 relative overflow-hidden">
-                          <h3
-                            className="text-2xl font-bold mb-2 transition-colors duration-300"
-                            style={{
-                              fontFamily: "'Fredoka', sans-serif",
-                              color: hoveredCategory === category.id ? category.color : "#4A2C2A",
-                            }}
-                          >
-                            {category.name}
-                          </h3>
-                          <p
-                            className="text-sm leading-relaxed mb-4"
-                            style={{
-                              fontFamily: "'Nunito', sans-serif",
-                              color: "#6B5C5A",
-                            }}
-                          >
-                            {category.description}
-                          </p>
-
-                          {/* Explore link */}
-                          <span
-                            className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3"
-                            style={{
-                              color: category.color,
-                              fontFamily: "'Nunito', sans-serif",
-                            }}
-                          >
-                            Explore {category.name}
-                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </span>
-                        </div>
-
-                        {/* Animated Hover Accent Line */}
-                        <div
-                          className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100"
-                          style={{
-                            background: `linear-gradient(90deg, ${category.color}, #0E2F71, #C6000F)`,
+                            background: `${category.color}40`,
+                            filter: "blur(30px)",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
                           }}
                         />
+
+                        <div className="relative z-10 flex items-center justify-center h-full gap-2 px-6">
+                          {category.images.map((img, imgIndex) => (
+                            <div
+                              key={imgIndex}
+                              className="transition-all duration-500"
+                              style={{
+                                transform: hoveredCategory === category.id
+                                  ? `translateY(${imgIndex === 1 ? -12 : 0}px) scale(${imgIndex === 1 ? 1.1 : 1.05}) rotate(${imgIndex === 0 ? -5 : imgIndex === 2 ? 5 : 0}deg)`
+                                  : `translateY(0) scale(1) rotate(${imgIndex === 0 ? -3 : imgIndex === 2 ? 3 : 0}deg)`,
+                              }}
+                            >
+                              <Image
+                                src={img}
+                                alt={`${category.name} product`}
+                                width={130}
+                                height={130}
+                                className="object-contain drop-shadow-lg"
+                                style={{
+                                  filter: hoveredCategory === category.id
+                                    ? "drop-shadow(0 10px 20px rgba(0,0,0,0.25))"
+                                    : "drop-shadow(0 4px 8px rgba(0,0,0,0.15))",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+
+                        <div
+                          className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
+                          style={{
+                            background: "rgba(255,255,255,0.2)",
+                            backdropFilter: "blur(10px)",
+                            color: "white",
+                            fontFamily: "'Nunito', sans-serif",
+                          }}
+                        >
+                          {category.productCount} products
+                        </div>
                       </div>
-                    </Link>
-                  </TiltCard>
+
+                      {/* Category Info */}
+                      <div className="p-6 relative overflow-hidden">
+                        <h3
+                          className="text-2xl font-bold mb-2 transition-colors duration-300"
+                          style={{
+                            fontFamily: "'Fredoka', sans-serif",
+                            color: hoveredCategory === category.id ? category.color : "#171717",
+                          }}
+                        >
+                          {category.name}
+                        </h3>
+                        <p
+                          className="text-sm leading-relaxed mb-4"
+                          style={{
+                            fontFamily: "'Nunito', sans-serif",
+                            color: "#525252",
+                          }}
+                        >
+                          {category.description}
+                        </p>
+
+                        <span
+                          className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3"
+                          style={{
+                            color: category.color,
+                            fontFamily: "'Nunito', sans-serif",
+                          }}
+                        >
+                          Explore {category.name}
+                          <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      </div>
+
+                      {/* Hover Accent Line */}
+                      <div
+                        className="absolute bottom-0 left-0 right-0 h-1.5 transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100"
+                        style={{
+                          background: `linear-gradient(90deg, ${category.color}, #0E2F71, #C6000F)`,
+                        }}
+                      />
+                    </div>
+                  </Link>
                 </AnimatedSection>
               ))}
             </div>
@@ -683,7 +441,7 @@ export default function Home() {
               <MagneticButton strength={0.25}>
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-2 hover:gap-4 group relative overflow-hidden"
+                  className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-2 hover:gap-4 group"
                   style={{
                     background: "linear-gradient(135deg, #C6000F, #670008)",
                     color: "white",
@@ -691,383 +449,69 @@ export default function Home() {
                     boxShadow: "0 8px 30px rgba(198,0,15,0.35)",
                   }}
                 >
-                  <span
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                    style={{
-                      background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-                      animation: "none",
-                    }}
-                  />
-                  <span className="relative z-10">View All Products</span>
-                  <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1 group-hover:animate-bounce-x" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span>View All Products</span>
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </MagneticButton>
             </AnimatedSection>
           </div>
-
-          {/* Enhanced Decorative Elements */}
-          <FloatingElement animation="float" className="absolute top-20 left-10">
-            <div className="w-20 h-20 rounded-full bg-[#C6000F]/5 animate-morph" />
-          </FloatingElement>
-          <FloatingElement animation="float-reverse" className="absolute bottom-40 right-10">
-            <div className="w-32 h-32 rounded-full bg-[#0E2F71]/10 animate-morph-slow" />
-          </FloatingElement>
-          <div className="absolute top-1/2 left-5 w-4 h-4 rounded-full bg-[#670008]/20 animate-bounce-subtle" style={{ animationDelay: "0.5s" }} />
-          <div className="absolute bottom-1/4 right-1/4 w-6 h-6 rounded-full bg-[#0E2F71]/15 animate-zoom-pulse" />
         </section>
 
-        {/* Animated Marquee Banner */}
-        <section className="relative py-6 overflow-hidden bg-gradient-to-r from-[#C6000F] via-[#670008] to-[#C6000F]">
+        {/* ===== 3. PRODUCT IMAGE MARQUEE — Light Gray ===== */}
+        <section className="relative py-10 overflow-hidden" style={{ background: "#F8FAFC" }}>
           <Marquee speed={25} pauseOnHover>
-            <div className="flex items-center gap-12 px-6">
-              {["Premium Quality", "Made with Love", "Fresh Daily", "100% Delicious", "Family Favorite", "Best Sellers"].map((text, i) => (
-                <div key={i} className="flex items-center gap-3 text-white/90">
-                  <span className="text-xl animate-heartbeat">✨</span>
-                  <span className="text-lg font-bold whitespace-nowrap" style={{ fontFamily: "'Nunito', sans-serif" }}>{text}</span>
-                  <span className="text-xl animate-wiggle">🍪</span>
+            <div className="flex items-center gap-8 px-4">
+              {marqueeProducts.map((src, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-24 h-24 rounded-2xl overflow-hidden flex items-center justify-center p-2"
+                  style={{
+                    background: "white",
+                    boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt="LOR product"
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    className="object-contain w-full h-full"
+                  />
                 </div>
               ))}
             </div>
           </Marquee>
         </section>
 
-        {/* Why Choose LOR Section */}
+        {/* ===== 4. COMPANY CREDENTIALS — Dark Navy ===== */}
         <section
-          id="why-choose"
           className="relative py-24 overflow-hidden"
           style={{
             background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
           }}
         >
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Section Header with Animations */}
-            <AnimatedSection animation="fade-up" className="text-center mb-16">
-              <span
-                className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 hover:animate-jello cursor-default"
-                style={{
-                  background: "rgba(198,0,15,0.3)",
-                  color: "#FFFFFF",
-                  fontFamily: "'Nunito', sans-serif",
-                }}
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span className="animate-pendulum inline-block" aria-hidden="true">💫</span>
-                  WHY LOR
-                </span>
-              </span>
-              <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Fredoka', sans-serif",
-                  color: "#FFFFFF",
-                }}
-              >
-                Why Choose{" "}
-                <span
-                  className="relative inline-block"
-                  style={{
-                    background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  LOR
-                  <span className="absolute -right-6 -top-2 text-2xl animate-wave-hand">🍪</span>
-                </span>
-              </h2>
-              <p
-                className="text-lg md:text-xl max-w-2xl mx-auto"
-                style={{
-                  fontFamily: "'Nunito', sans-serif",
-                  color: "rgba(255,255,255,0.7)",
-                }}
-              >
-                Experience the difference that quality and passion make in every treat
-              </p>
-            </AnimatedSection>
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: `radial-gradient(circle at 20% 50%, rgba(198,0,15,0.1) 0%, transparent 50%),
+                               radial-gradient(circle at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)`,
+            }}
+          />
 
-            {/* Benefits Grid with Staggered Animations */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <AnimatedSection
-                  key={index}
-                  animation="flip-y"
-                  delay={index * 150}
-                >
-                  <TiltCard maxTilt={6} className="h-full">
-                    <div
-                      className="group relative p-8 rounded-3xl transition-all duration-500 hover:-translate-y-3 text-center h-full hover:shadow-2xl"
-                      style={{
-                        background: "white",
-                        boxShadow: "0 10px 40px rgba(0,0,0,0.05)",
-                      }}
-                    >
-                      {/* Icon with enhanced animation */}
-                      <div
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:animate-glow"
-                        style={{
-                          background: "linear-gradient(135deg, rgba(198,0,15,0.1), rgba(103,0,8,0.05))",
-                          color: "#C6000F",
-                        }}
-                      >
-                        <span className="group-hover:animate-bounce-subtle">{benefit.icon}</span>
-                      </div>
-
-                      <h3
-                        className="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-[#C6000F]"
-                        style={{
-                          fontFamily: "'Fredoka', sans-serif",
-                          color: "#4A2C2A",
-                        }}
-                      >
-                        {benefit.title}
-                      </h3>
-
-                      <p
-                        className="leading-relaxed transition-all duration-300 group-hover:opacity-90"
-                        style={{
-                          fontFamily: "'Nunito', sans-serif",
-                          color: "#4A2C2A",
-                          opacity: 0.7,
-                        }}
-                      >
-                        {benefit.description}
-                      </p>
-
-                      {/* Animated Hover Accent */}
-                      <div
-                        className="absolute bottom-0 left-8 right-8 h-1.5 rounded-full transition-all duration-500 scale-x-0 group-hover:scale-x-100"
-                        style={{
-                          background: "linear-gradient(90deg, #C6000F, #0E2F71, #C6000F)",
-                        }}
-                      />
-
-                      {/* Corner number badge */}
-                      <div
-                        className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold opacity-10 group-hover:opacity-30 transition-opacity duration-300"
-                        style={{
-                          background: "linear-gradient(135deg, #C6000F, #670008)",
-                          color: "white",
-                          fontFamily: "'Fredoka', sans-serif",
-                        }}
-                      >
-                        {index + 1}
-                      </div>
-                    </div>
-                  </TiltCard>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-
-          {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
-        </section>
-
-        {/* Testimonials Section */}
-        <section
-          id="testimonials"
-          className="relative py-24 overflow-hidden"
-          style={{ background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)" }}
-        >
-          {/* Animated background decorations */}
-          <div className="absolute top-1/4 left-10 w-40 h-40 rounded-full bg-white/5 animate-morph-slow" />
-          <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-white/10 animate-morph" style={{ animationDelay: "2s" }} />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Section Header with Animation */}
-            <AnimatedSection animation="fade-up" className="text-center mb-16">
-              <span
-                className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4 hover:animate-elastic-pop cursor-default"
-                style={{
-                  background: "rgba(198,0,15,0.3)",
-                  color: "#FFFFFF",
-                  fontFamily: "'Nunito', sans-serif",
-                }}
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span className="animate-heartbeat" aria-hidden="true">❤️</span>
-                  TESTIMONIALS
-                </span>
-              </span>
-              <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Fredoka', sans-serif",
-                  color: "#FFFFFF",
-                }}
-              >
-                What Our{" "}
-                <span
-                  className="animate-text-shimmer inline-block"
-                  style={{
-                    background: "linear-gradient(90deg, #C6000F, #FF4D5A, #FFFFFF, #C6000F)",
-                    backgroundSize: "200% auto",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Customers
-                </span>{" "}
-                Say
-              </h2>
-            </AnimatedSection>
-
-            {/* Testimonials Carousel with Enhanced Animations */}
-            <AnimatedSection animation="fade-scale" className="relative max-w-4xl mx-auto">
-              <TiltCard maxTilt={3}>
-                <div
-                  className="relative p-8 md:p-12 rounded-3xl transition-all duration-500 hover:shadow-2xl"
-                  style={{
-                    background: "white",
-                    boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
-                  }}
-                >
-                  {/* Animated Quote Icon */}
-                  <div
-                    className="absolute -top-6 left-8 w-12 h-12 rounded-full flex items-center justify-center animate-bounce-subtle"
-                    style={{
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
-                      boxShadow: "0 8px 25px rgba(198,0,15,0.4)",
-                    }}
-                  >
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-
-                  {/* Testimonial Content with transition */}
-                  <div className="text-center">
-                    <p
-                      key={currentTestimonial}
-                      className="text-xl md:text-2xl mb-8 leading-relaxed animate-fade-in-up"
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "#4A2C2A",
-                      }}
-                    >
-                      &ldquo;{testimonials[currentTestimonial].text}&rdquo;
-                    </p>
-
-                    {/* Animated Rating Stars */}
-                    <div className="flex justify-center gap-1 mb-4">
-                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="w-6 h-6 animate-bounce-subtle"
-                          style={{ animationDelay: `${i * 100}ms` }}
-                          fill="#0E2F71"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      ))}
-                    </div>
-
-                    {/* Customer Info with animation */}
-                    <div
-                      key={`info-${currentTestimonial}`}
-                      className="flex items-center justify-center gap-4 animate-slide-up"
-                    >
-                      <div
-                        className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white animate-pulse-scale"
-                        style={{
-                          background: "linear-gradient(135deg, #C6000F, #670008)",
-                          fontFamily: "'Fredoka', sans-serif",
-                          boxShadow: "0 6px 20px rgba(198,0,15,0.35)",
-                        }}
-                      >
-                        {testimonials[currentTestimonial].avatar}
-                      </div>
-                      <div className="text-left">
-                        <div
-                          className="font-bold text-lg"
-                          style={{
-                            fontFamily: "'Fredoka', sans-serif",
-                            color: "#4A2C2A",
-                          }}
-                        >
-                          {testimonials[currentTestimonial].name}
-                        </div>
-                        <div
-                          className="text-sm flex items-center gap-1"
-                          style={{
-                            fontFamily: "'Nunito', sans-serif",
-                            color: "#4A2C2A",
-                            opacity: 0.6,
-                          }}
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                          </svg>
-                          {testimonials[currentTestimonial].location}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Enhanced Navigation Dots */}
-                  <div className="flex justify-center gap-3 mt-8">
-                    {testimonials.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentTestimonial(index)}
-                        className={`rounded-full transition-all duration-500 hover:scale-125 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6000F] focus-visible:ring-offset-2 ${
-                          currentTestimonial === index ? "w-10 h-3" : "w-3 h-3 hover:bg-[#C6000F]/50"
-                        }`}
-                        style={{
-                          background:
-                            currentTestimonial === index
-                              ? "linear-gradient(135deg, #C6000F, #670008)"
-                              : "rgba(198,0,15,0.2)",
-                          boxShadow: currentTestimonial === index ? "0 4px 15px rgba(198,0,15,0.4)" : "none",
-                        }}
-                        aria-label={`Go to testimonial ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Decorative corner elements */}
-                  <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-[#0E2F71]/5 animate-spin-slow" />
-                  <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-[#C6000F]/5 animate-morph" />
-                </div>
-              </TiltCard>
-            </AnimatedSection>
-          </div>
-
-          {/* Enhanced Decorative Elements */}
-          <FloatingElement animation="float" className="absolute top-20 right-10">
-            <div className="w-24 h-24 rounded-full bg-white/5 animate-glow" />
-          </FloatingElement>
-          <FloatingElement animation="float-reverse" className="absolute bottom-20 left-10">
-            <div className="w-16 h-16 rounded-full bg-white/10" />
-          </FloatingElement>
-          <div className="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-white/20 animate-bounce-subtle" />
-        </section>
-
-        {/* Sweet Moments Gallery Section */}
-        <section
-          id="sweet-moments"
-          className="relative py-24 overflow-hidden"
-          style={{
-            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
-          }}
-        >
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Section Header */}
-            <div className="text-center mb-16">
+          <div className="relative z-10 max-w-5xl mx-auto px-6">
+            <AnimatedSection animation="fade-up" className="text-center mb-14">
               <span
                 className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
                 style={{
-                  background: "rgba(198,0,15,0.3)",
-                  color: "#FFFFFF",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.9)",
                   fontFamily: "'Nunito', sans-serif",
                 }}
               >
-                GALLERY
+                OUR CREDENTIALS
               </span>
               <h2
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
@@ -1076,7 +520,7 @@ export default function Home() {
                   color: "#FFFFFF",
                 }}
               >
-                Sweet{" "}
+                Trusted by{" "}
                 <span
                   style={{
                     background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
@@ -1084,106 +528,86 @@ export default function Home() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Moments
+                  Families
                 </span>
               </h2>
+            </AnimatedSection>
+
+            {/* Stat Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-14">
+              {[
+                { end: 37, suffix: "+", label: "Products", description: "Across our full range" },
+                { end: 4, suffix: "", label: "Categories", description: "Biscuits, Wafers, Crackers, Cakes" },
+                { end: 100, suffix: "%", label: "Quality", description: "Premium ingredients always" },
+              ].map((stat, i) => (
+                <AnimatedSection key={i} animation="fade-scale" delay={i * 150}>
+                  <div
+                    className="p-8 rounded-3xl text-center transition-transform duration-300 hover:-translate-y-2"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      backdropFilter: "blur(10px)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    <div
+                      className="text-5xl md:text-6xl font-bold mb-2"
+                      style={{ fontFamily: "'Fredoka', sans-serif" }}
+                    >
+                      <AnimatedCounter
+                        end={stat.end}
+                        suffix={stat.suffix}
+                        className="bg-gradient-to-r from-[#C6000F] to-[#FF4D5A] bg-clip-text text-transparent"
+                      />
+                    </div>
+                    <div
+                      className="text-xl font-bold text-white mb-1"
+                      style={{ fontFamily: "'Fredoka', sans-serif" }}
+                    >
+                      {stat.label}
+                    </div>
+                    <div
+                      className="text-sm"
+                      style={{
+                        fontFamily: "'Nunito', sans-serif",
+                        color: "rgba(255,255,255,0.6)",
+                      }}
+                    >
+                      {stat.description}
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+
+            {/* Company description */}
+            <AnimatedSection animation="fade-up" className="text-center max-w-3xl mx-auto">
               <p
-                className="text-lg md:text-xl max-w-2xl mx-auto"
+                className="text-lg leading-relaxed"
                 style={{
                   fontFamily: "'Nunito', sans-serif",
                   color: "rgba(255,255,255,0.7)",
                 }}
               >
-                Celebrate life&apos;s precious moments with LOR treats
+                At LOR, we believe every snack should be a moment of pure joy.
+                Our passion for creating delicious treats drives us to craft products
+                that bring smiles to faces young and old, using only premium ingredients
+                and a commitment to quality you can taste in every bite.
               </p>
-            </div>
-
-            {/* Gallery Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {sweetMoments.map((moment, index) => (
-                <div
-                  key={moment.id}
-                  className={`group relative overflow-hidden rounded-3xl ${
-                    index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                  }`}
-                  style={{
-                    aspectRatio: index === 0 ? "1/1" : "1/1",
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      background: `linear-gradient(135deg, rgba(255,255,255,0.1), rgba(198,0,15,0.1))`,
-                    }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center p-8">
-                    <Image
-                      src={moment.image}
-                      alt={moment.title}
-                      width={200}
-                      height={200}
-                      loading="lazy"
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: "linear-gradient(to top, rgba(7,26,69,0.95), transparent)",
-                    }}
-                  >
-                    <h3
-                      className="text-white text-lg md:text-xl font-bold mb-1"
-                      style={{ fontFamily: "'Fredoka', sans-serif" }}
-                    >
-                      {moment.title}
-                    </h3>
-                    <p
-                      className="text-white/80 text-sm"
-                      style={{ fontFamily: "'Nunito', sans-serif" }}
-                    >
-                      {moment.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            </AnimatedSection>
           </div>
-
-          {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
 
-        {/* About Preview Section */}
+        {/* ===== 5. ABOUT — Dark Navy ===== */}
         <section
           id="about"
           className="relative py-24 overflow-hidden"
           style={{ background: "linear-gradient(180deg, #071A45 0%, #0E2F71 100%)" }}
         >
-          {/* Decorative Wave Top */}
-          <div className="absolute top-0 left-0 right-0">
-            <svg
-              viewBox="0 0 1440 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 50C840 40 960 20 1080 15C1200 10 1320 20 1380 25L1440 30V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
-                fill="#071A45"
-              />
-            </svg>
-          </div>
-
           <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Main Content */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Image Side */}
-              <div className="relative">
+              <AnimatedSection animation="fade-scale">
                 <div className="relative">
-                  {/* Main Image Container */}
                   <div
                     className="relative rounded-[3rem] overflow-hidden"
                     style={{
@@ -1202,216 +626,176 @@ export default function Home() {
                         width={400}
                         height={200}
                         loading="lazy"
-                        className="w-full max-w-sm animate-float"
+                        className="w-full max-w-sm"
                       />
                     </div>
                   </div>
-
-                  {/* Floating Badge */}
-                  <div
-                    className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full flex flex-col items-center justify-center animate-wiggle"
-                    style={{
-                      background: "linear-gradient(135deg, #C6000F, #670008)",
-                      boxShadow: "0 10px 30px rgba(198,0,15,0.4)",
-                    }}
-                  >
-                    <span
-                      className="text-3xl font-bold text-white"
-                      style={{ fontFamily: "'Fredoka', sans-serif" }}
-                    >
-                      100%
-                    </span>
-                    <span
-                      className="text-xs text-white/80 font-semibold"
-                      style={{ fontFamily: "'Nunito', sans-serif" }}
-                    >
-                      QUALITY
-                    </span>
-                  </div>
-
-                  {/* Decorative Dots */}
-                  <div
-                    className="absolute -top-8 -left-8 w-24 h-24 rounded-full"
-                    style={{
-                      background: "radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px)",
-                      backgroundSize: "12px 12px",
-                      opacity: 0.5,
-                    }}
-                  />
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Text Side */}
-              <div>
-                <span
-                  className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
-                  style={{
-                    background: "rgba(198,0,15,0.3)",
-                    color: "#FFFFFF",
-                    fontFamily: "'Nunito', sans-serif",
-                  }}
-                >
-                  ABOUT LOR
-                </span>
-
-                <h2
-                  className="text-4xl md:text-5xl font-bold mb-6"
-                  style={{
-                    fontFamily: "'Fredoka', sans-serif",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Crafting{" "}
+              <AnimatedSection animation="fade-up" delay={200}>
+                <div>
                   <span
+                    className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-6"
                     style={{
-                      background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
+                      background: "rgba(198,0,15,0.3)",
+                      color: "#FFFFFF",
+                      fontFamily: "'Nunito', sans-serif",
                     }}
                   >
-                    Delicious
-                  </span>{" "}
-                  Moments
-                </h2>
+                    ABOUT LOR
+                  </span>
 
-                <p
-                  className="text-lg mb-6 leading-relaxed"
-                  style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "rgba(255,255,255,0.8)",
-                  }}
-                >
-                  At LOR, we believe that every snack should be a moment of pure joy.
-                  Our passion for creating delicious treats drives us to craft products
-                  that bring smiles to faces young and old.
-                </p>
+                  <h2
+                    className="text-4xl md:text-5xl font-bold mb-6"
+                    style={{
+                      fontFamily: "'Fredoka', sans-serif",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Crafting{" "}
+                    <span
+                      style={{
+                        background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      Delicious
+                    </span>{" "}
+                    Moments
+                  </h2>
 
-                <p
-                  className="text-lg mb-8 leading-relaxed"
-                  style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "rgba(255,255,255,0.8)",
-                  }}
-                >
-                  From our classic biscuits to our innovative wafers, every LOR product
-                  is made with premium ingredients and a commitment to quality that
-                  you can taste in every bite.
-                </p>
+                  <p
+                    className="text-lg mb-6 leading-relaxed"
+                    style={{
+                      fontFamily: "'Nunito', sans-serif",
+                      color: "rgba(255,255,255,0.8)",
+                    }}
+                  >
+                    At LOR, we believe that every snack should be a moment of pure joy.
+                    Our passion for creating delicious treats drives us to craft products
+                    that bring smiles to faces young and old.
+                  </p>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 mb-8">
-                  {[
-                    { number: "37+", label: "Products" },
-                    { number: "100%", label: "Quality" },
-                    { number: "1M+", label: "Happy Customers" },
-                  ].map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div
-                        className="text-3xl md:text-4xl font-bold mb-1"
-                        style={{
-                          fontFamily: "'Fredoka', sans-serif",
-                          background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                        }}
-                      >
-                        {stat.number}
+                  <p
+                    className="text-lg mb-8 leading-relaxed"
+                    style={{
+                      fontFamily: "'Nunito', sans-serif",
+                      color: "rgba(255,255,255,0.8)",
+                    }}
+                  >
+                    From our classic biscuits to our innovative wafers, every LOR product
+                    is made with premium ingredients and a commitment to quality that
+                    you can taste in every bite.
+                  </p>
+
+                  {/* Stats with AnimatedCounter */}
+                  <div className="grid grid-cols-3 gap-6 mb-8">
+                    {[
+                      { end: 37, suffix: "+", label: "Products" },
+                      { end: 100, suffix: "%", label: "Quality" },
+                      { end: 1, suffix: "M+", label: "Happy Customers" },
+                    ].map((stat, index) => (
+                      <div key={index} className="text-center">
+                        <div
+                          className="text-3xl md:text-4xl font-bold mb-1"
+                          style={{ fontFamily: "'Fredoka', sans-serif" }}
+                        >
+                          <AnimatedCounter
+                            end={stat.end}
+                            suffix={stat.suffix}
+                            className="bg-gradient-to-r from-[#C6000F] to-[#FF4D5A] bg-clip-text text-transparent"
+                          />
+                        </div>
+                        <div
+                          className="text-sm font-semibold"
+                          style={{
+                            fontFamily: "'Nunito', sans-serif",
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
-                      <div
-                        className="text-sm font-semibold"
-                        style={{
-                          fontFamily: "'Nunito', sans-serif",
-                          color: "rgba(255,255,255,0.7)",
-                        }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+
+                  {/* Learn More Button */}
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-1"
+                    style={{
+                      background: "linear-gradient(135deg, #C6000F, #670008)",
+                      color: "white",
+                      fontFamily: "'Nunito', sans-serif",
+                      boxShadow: "0 4px 20px rgba(198,0,15,0.3)",
+                    }}
+                  >
+                    Learn More About Us
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
-
-                {/* Learn More Button */}
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    background: "linear-gradient(135deg, #C6000F, #670008)",
-                    color: "white",
-                    fontFamily: "'Nunito', sans-serif",
-                    boxShadow: "0 4px 20px rgba(198,0,15,0.3)",
-                  }}
-                >
-                  Learn More About Us
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
 
-          {/* Decorative Elements */}
+          {/* Subtle decorative blurs */}
           <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
           <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
 
-        {/* Contact Section */}
+        {/* ===== 6. CONTACT — White Background ===== */}
         <section
           id="contact"
           className="relative py-24 overflow-hidden"
-          style={{
-            background: "linear-gradient(180deg, #0E2F71 0%, #071A45 100%)",
-          }}
+          style={{ background: "#FFFFFF" }}
         >
-          {/* Background Decoration */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 10% 90%, rgba(255,255,255,0.05) 0%, transparent 40%),
-                               radial-gradient(circle at 90% 10%, rgba(255,255,255,0.08) 0%, transparent 40%)`,
-            }}
-          />
-
           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
             {/* Section Header */}
-            <span
-              className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
-              style={{
-                background: "rgba(198,0,15,0.3)",
-                color: "#FFFFFF",
-                fontFamily: "'Nunito', sans-serif",
-              }}
-            >
-              GET IN TOUCH
-            </span>
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              style={{
-                fontFamily: "'Fredoka', sans-serif",
-                color: "#FFFFFF",
-              }}
-            >
-              We&apos;d Love to{" "}
+            <AnimatedSection animation="fade-up">
               <span
+                className="inline-block px-5 py-2 rounded-full text-sm font-bold tracking-wider mb-4"
                 style={{
-                  background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  background: "rgba(14,47,113,0.08)",
+                  color: "#0E2F71",
+                  fontFamily: "'Nunito', sans-serif",
                 }}
               >
-                Hear
-              </span>{" "}
-              From You
-            </h2>
-            <p
-              className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
-              style={{
-                fontFamily: "'Nunito', sans-serif",
-                color: "rgba(255,255,255,0.7)",
-              }}
-            >
-              Have questions, feedback, or just want to say hello? We&apos;re here for you!
-            </p>
+                GET IN TOUCH
+              </span>
+              <h2
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                style={{
+                  fontFamily: "'Fredoka', sans-serif",
+                  color: "#171717",
+                }}
+              >
+                We&apos;d Love to{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(135deg, #C6000F, #FF4D5A)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Hear
+                </span>{" "}
+                From You
+              </h2>
+              <p
+                className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
+                style={{
+                  fontFamily: "'Nunito', sans-serif",
+                  color: "#525252",
+                }}
+              >
+                Have questions, feedback, or just want to say hello? We&apos;re here for you!
+              </p>
+            </AnimatedSection>
 
             {/* Contact Info Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -1445,67 +829,65 @@ export default function Home() {
                   value: "123 Sweet Street",
                 },
               ].map((info, index) => (
-                <div
-                  key={index}
-                  className="p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    background: "white",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
-                  }}
-                >
+                <AnimatedSection key={index} animation="fade-scale" delay={index * 120}>
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    className="p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
                     style={{
-                      background: "linear-gradient(135deg, rgba(198,0,15,0.1), rgba(103,0,8,0.05))",
-                      color: "#C6000F",
+                      background: "#F8FAFC",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                     }}
                   >
-                    {info.icon}
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
+                      style={{
+                        background: "rgba(14,47,113,0.08)",
+                        color: "#0E2F71",
+                      }}
+                    >
+                      {info.icon}
+                    </div>
+                    <div
+                      className="text-sm font-semibold mb-1"
+                      style={{
+                        fontFamily: "'Nunito', sans-serif",
+                        color: "#525252",
+                      }}
+                    >
+                      {info.label}
+                    </div>
+                    <div
+                      className="font-bold"
+                      style={{
+                        fontFamily: "'Nunito', sans-serif",
+                        color: "#171717",
+                      }}
+                    >
+                      {info.value}
+                    </div>
                   </div>
-                  <div
-                    className="text-sm font-semibold mb-1"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                      opacity: 0.6,
-                    }}
-                  >
-                    {info.label}
-                  </div>
-                  <div
-                    className="font-bold"
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#4A2C2A",
-                    }}
-                  >
-                    {info.value}
-                  </div>
-                </div>
+                </AnimatedSection>
               ))}
             </div>
 
             {/* Contact Us Button */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: "linear-gradient(135deg, #C6000F, #670008)",
-                color: "white",
-                fontFamily: "'Nunito', sans-serif",
-                boxShadow: "0 4px 20px rgba(198,0,15,0.3)",
-              }}
-            >
-              Contact Us
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <AnimatedSection animation="fade-up" delay={400}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "linear-gradient(135deg, #C6000F, #670008)",
+                  color: "white",
+                  fontFamily: "'Nunito', sans-serif",
+                  boxShadow: "0 4px 20px rgba(198,0,15,0.3)",
+                }}
+              >
+                Contact Us
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </AnimatedSection>
           </div>
-
-          {/* Decorative Elements */}
-          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute bottom-1/4 left-0 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
         </section>
       </main>
       <Footer />
